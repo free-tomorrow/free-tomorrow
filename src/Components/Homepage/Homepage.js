@@ -9,10 +9,10 @@ const Homepage = () => {
         <h2>An app that helps you get your travel plans out of the air and onto the ground.</h2>
       </section>
 
-      <div className="btn-container">
-        <Link to="/schedule" className="start-link">
-          <button className="start-btn"> Click Here To Get Started</button>
-        </Link>
+      <div className="start-btn-container">
+        
+          <button className="start-btn"> <Link to="/schedule" className="start-link"> Click Here To Get Started </Link> </button>
+        
 
 
       </div>

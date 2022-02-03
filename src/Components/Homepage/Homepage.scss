@@ -1,18 +1,39 @@
 .homepage {
   border: 1px solid mediumspringgreen;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 90vh;
 }
 
 .welcome-txt {
   border: 1px solid red;
 
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+
+.start-btn-container{
+  border: 1px solid darkorange;
+  display: flex;
+  flex-direction: column;
+  width:fit-content;
 }
 
 .start-link {
   border: 1px solid blue;
-
+  text-decoration:none;
+  color: white;
 }
 
 .start-btn {
-  border: 1px solid magenta;
-
+  border: none;
+  background-color: black;
+  color: white;
 }
