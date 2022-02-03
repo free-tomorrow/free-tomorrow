@@ -8,9 +8,8 @@ const Header = () => {
         <p>Header!</p>
       </ NavLink>
       <section className="nav-bar">
-        <NavLink className="nav-link">About Us</NavLink>
-        <NavLink className="nav-link">Log In</NavLink>
-        <NavLink className="nav-link"><button>Sign Up</button></NavLink>
+        <NavLink to="/about" className="nav-link">About Us</NavLink>
+        <NavLink to="/login" className="nav-link"><button>Log In</button></NavLink>
       </section>
 
     </header>
