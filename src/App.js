@@ -1,13 +1,20 @@
 import React from 'react';
-import {BrowserRouter} from 'react-router-dom';
-import './App.css';
+import {Routes, Route} from 'react-router-dom';
+import Homepage from './Components/Homepage/Homepage';
+import Schedule from './Components/Schedule/Schedule';
+import Budget from './Components/Budget/Budget';
+import Share from './Components/Share/Share';
 
-function App() {
-  return (
-    <div>
+import './App.scss';
 
-    </div>
-  );
+const App = () => {
+return (
+  <main className="App">
+
+
+  </main>
+)
+
 }
 
 export default App;
