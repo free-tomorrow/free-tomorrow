@@ -17,7 +17,6 @@ const App = () => {
         <Route path="/budget" element={<Budget />} />
         <Route path="/share" element={<Share />} />
       </Routes>
-
     </main>
   )
 
