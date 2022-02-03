@@ -1,0 +1,47 @@
+@import '../../sass/variables.scss';
+
+.homepage {
+  background-color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 90vh;
+}
+
+.welcome-txt {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  color: $font-color;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+
+.start-btn-container{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 5% 0 0 5%;
+}
+
+.start-link {
+  text-decoration:none;
+  color: white;
+}
+
+.start-btn {
+  cursor: pointer;
+  background-color: $accent-color;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 1.5%;
+
+}
