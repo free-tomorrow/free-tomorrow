@@ -10,9 +10,9 @@ const Homepage = () => {
       </section>
 
       <div className="start-btn-container">
-        
-          <button className="start-btn"> <Link to="/schedule" className="start-link"> Click Here To Get Started </Link> </button>
-        
+        <Link to="/schedule" className="start-link">
+          <button className="start-btn">Click Here To Get Started</button>
+        </Link>
 
 
       </div>
