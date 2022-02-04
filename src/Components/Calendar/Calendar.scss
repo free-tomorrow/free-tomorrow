@@ -1,0 +1,14 @@
+@import '../../sass/variables.scss';
+
+
+.date-picker-container {
+  border: 2px solid yellow;
+  display: flex;
+  justify-content: center;
+}
+
+.date-picker {
+  width: 30%;
+  height: 70%;
+  border: 2px solid red;
+}

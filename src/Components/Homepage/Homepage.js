@@ -13,9 +13,9 @@ const Homepage = () => {
         <Link to="/schedule" className="start-link">
           <button className="start-btn">Click Here To Get Started</button>
         </Link>
-
-
       </div>
+
+      
     </div>
   )
 }

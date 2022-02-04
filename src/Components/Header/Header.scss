@@ -1,15 +1,10 @@
 @import '../../sass/variables.scss';
 
 .header{
-  border: 3px solid purple;
-  height: 10vh;
+  min-height: 10vh;
   background-color: $header-color;
   display: flex;
   padding: 0.5% 1%;
-}
-
-.logo-container {
-  width: 50%;
 }
 
 .logo {
@@ -22,22 +17,22 @@
   border: none;
   border-radius: 5px;
   padding: 2%;
-  font-size: 1rem;
+  font-size: 1.3rem;
   width: 6rem;
   height: 2rem;
 }
 
 .nav-bar {
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
+  margin-left: auto;
 }
 
 .nav-link {
   text-decoration: none;
   color: $font-color;
   margin: 0 5%;
-
+  font-size: 1.2rem;
 }
