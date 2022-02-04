@@ -10,6 +10,9 @@
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] Refactor(DRY-ing up code, removing comments etc.)
 - [ ] Design change(changed flex properties/color/positioning, etc)
+- [ ] Super small fix (Corrected a typo, removed a comment, etc.)
+       Skip all the other stuff and briefly explain the fix. 
+
 
 ### Checklist:
 - [ ] If this code needs to be tested, all tests are passing
