@@ -10,7 +10,7 @@ const Homepage = () => {
       </section>
 
       <div className="start-btn-container">
-        <Link to="/schedule" className="start-link">
+        <Link to="/schedule" className="start-link" style={{width: "fit-content"}}>
           <button className="start-btn">Get Started</button>
         </Link>
       </div>
