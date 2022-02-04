@@ -2,16 +2,18 @@
 
 .homepage {
   background-color: $primary-color;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-direction: column;
+  // flex-wrap: wrap;
   height: 90vh;
 }
 
 .welcome-txt {
+  width: 50%;
   border: 1px solid red;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-between;
   color: $font-color;
 

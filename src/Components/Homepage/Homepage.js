@@ -11,7 +11,7 @@ const Homepage = () => {
 
       <div className="start-btn-container">
         <Link to="/schedule" className="start-link">
-          <button className="start-btn">Click Here To Get Started</button>
+          <button className="start-btn">Get Started</button>
         </Link>
       </div>
 
