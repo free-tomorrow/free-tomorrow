@@ -1,4 +1,5 @@
 import './Homepage.scss'
+// import Arrow from '../../assets/right_arrow.svg'
 import { Link } from 'react-router-dom';
 
 const Homepage = () => {
@@ -11,7 +12,7 @@ const Homepage = () => {
 
       <div className="start-btn-container">
         <Link to="/schedule" className="start-link" style={{width: "fit-content"}}>
-          <button className="start-btn">Get Started</button>
+          <button className="start-btn">Let's get started</button>
         </Link>
       </div>
 

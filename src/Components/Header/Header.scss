@@ -37,3 +37,13 @@
   font-size: 1.3rem;
   padding: 1.5%;
 }
+
+@media screen and (max-width:1000px){
+  .nav-link{
+    font-size:1rem;
+  }
+
+  .login-btn{
+    font-size: 1rem;
+  }
+}
