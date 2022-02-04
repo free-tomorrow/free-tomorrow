@@ -12,14 +12,17 @@
   border: 1px solid red;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   color: $font-color;
 
   h1 {
     font-size: 3rem;
+    padding: 1% 2%;
   }
 
   h2 {
     font-size: 2rem;
+    padding: 1% 2%;
   }
 }
 
@@ -27,8 +30,9 @@
 .start-btn-container{
   display: flex;
   flex-direction: column;
-  width: 50%;
   margin: 5% 0 0 5%;
+  border: 2px solid pink;
+  width: fit-content;
 }
 
 .start-link {

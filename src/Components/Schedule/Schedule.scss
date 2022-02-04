@@ -1,0 +1,36 @@
+@import '../../sass/variables.scss';
+
+.schedule {
+  background-color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 90vh;
+}
+
+.schedule-txt {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+  margin-top: 5%;
+  color: $font-color;
+  h1 {
+    font-size: 2.5em;
+  }
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.continue-btn {
+  cursor: pointer;
+  background-color: $accent-color;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 1%;
+  border-radius: 5px;
+}
