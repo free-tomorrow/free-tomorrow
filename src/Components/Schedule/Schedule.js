@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Schedule.scss';
-import Calendar from 'react-calendar';
+import { Calendar } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
 import { Link } from 'react-router-dom';
 import { trips, users } from '../../mockData';
@@ -9,6 +9,7 @@ const Schedule = () => {
 
   const [date, setDate] = useState(new Date())
 
+
   const logDates = (date) => {
     
     const startDate = new Date(date[0])
@@ -16,12 +17,14 @@ const Schedule = () => {
     console.log(startDate, 'start date')
     console.log(endDate, 'end date')
 
-    const UTCDate = startDate.getUTCDate()
-    // setDate(newDate.getUTCSeconds())
+    const startTime = startDate.getTime()
+    const endTime = endDate.getTime()
     
-    console.log(UTCDate, 'UTC date')
+    console.log(startTime, 'start time')
+    console.log(endTime, 'end time')
 
-    setDate(startDate)
+
+    setDate(startDate, endDate)
   }
 
   return (
