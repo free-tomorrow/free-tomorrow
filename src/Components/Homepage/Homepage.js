@@ -1,8 +1,7 @@
-import './Homepage.scss'
-// import Arrow from '../../assets/right_arrow.svg'
+import './Homepage.scss';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { addUser } from '../../state/userSlice'
+import { addUser } from '../../state/userSlice';
 
 const Homepage = () => {
 
