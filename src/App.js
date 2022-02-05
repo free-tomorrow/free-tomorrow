@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import Header from './Components/Header/Header';
 import Homepage from './Components/Homepage/Homepage';
@@ -14,10 +14,11 @@ import {changeName} from './state/reducer';
 
 const App = () => {
 
-  const [newName, setNewName] = useState('Britney')
+  const state = useSelector((state) => state);
   const dispatch = useDispatch()
 
   const doThing = () => {
+    console.log(state)
     dispatch(
       changeName({name: 'Dave'})
     )
@@ -25,7 +26,7 @@ const App = () => {
 
   return (
     <main className="App">
-      <h1>{newName}</h1>
+      <h1>Hi</h1>
       <button onClick={doThing}>Click me!</button>
       <Header />
       <Routes>

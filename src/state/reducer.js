@@ -7,7 +7,7 @@ export const userSlice = createSlice({
     id: 1, 
     name: 'Jordan'
   }],
-  reducer: {
+  reducers: {
     changeName: (state, action) => {
       const newPerson = {
         id: Date.now(),
