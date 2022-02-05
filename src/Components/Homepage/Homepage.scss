@@ -3,17 +3,20 @@
 
 .homepage {
   background-color: $primary-color;
+  background-image: url('../../assets/travel_aliens.png');
+  background-size: 30em;
+  background-repeat: no-repeat;
+  background-position:right;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items:center;
   border: 1px solid purple;
-  // height: 100%;
+  height: 80vh;
 }
 
 .welcome-txt {
   width: 50%;
-  height: 25%;
   border: 1px solid red;
   line-height: 1.3;
   padding: 5%;
@@ -35,8 +38,10 @@
 
 .start-btn-container {
   display: flex;
-  flex-direction: column;
-  // margin: 5% 0 0 5%;
+  flex-direction: row;
+  width: 90%;
+  align-content: center;
+  justify-content: center;
 }
 
 
@@ -52,7 +57,6 @@
   font-family:"Poppins", sans-serif;
   // font-family:'Sulphur Point', sans-serif;
 }
-
 
 @media screen and(max-width: 1000px) {
   .homepage {

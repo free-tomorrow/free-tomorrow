@@ -28,6 +28,7 @@ const Homepage = () => {
           <button className="start-btn" onClick={addNewPerson}>Let's get started</button>
         </Link>
       </div>
+      {/* <img src={TravelAliens} className="aliens-img" alt="one eyed aliens"/> */}
 
       
     </div>
