@@ -11,7 +11,7 @@ const Schedule = () => {
       </section>
       <Calendar className="calendar"/>
       <div className="btn-container">
-        <Link to="/budget" style={{width: "100%;"}}>
+        <Link to="/budget" style={{width: "100%"}}>
           <button className="continue-btn" >Continue</button>
         </Link>
       </div>

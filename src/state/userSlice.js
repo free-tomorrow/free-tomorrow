@@ -8,16 +8,20 @@ export const userSlice = createSlice({
     name: 'Jordan'
   }],
   reducers: {
-    changeName: (state, action) => {
+    addUser: (state, action) => {
       const newPerson = {
         id: Date.now(),
         name: action.payload.name
       }
       state.push(newPerson)
+    },
+    deleteUser: (state, action) => {
+      const foundUser = state.find(user => user.name === action.payload.name) 
+      state.pop(foundUser)
     }
   }
 })
 
-export const { changeName } = userSlice.actions
+export const { addUser, deleteUser } = userSlice.actions
 
 export default userSlice.reducer

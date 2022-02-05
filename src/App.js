@@ -10,7 +10,7 @@ import About from './Components/About/About';
 import Login from './Components/Login/Login';
 import './App.scss';
 
-import {changeName} from './state/reducer';
+import {addUser, deleteUser} from './state/userSlice';
 
 const App = () => {
 
@@ -20,7 +20,14 @@ const App = () => {
   const doThing = () => {
     console.log(state)
     dispatch(
-      changeName({name: 'Dave'})
+      addUser({name: 'Dave'})
+    )
+  }
+
+  const deleteThing = () => {
+    console.log('deleted')
+    dispatch(
+      deleteUser({name: 'Dave'})
     )
   }
 
@@ -28,9 +35,10 @@ const App = () => {
     <main className="App">
       <h1>Hi</h1>
       <button onClick={doThing}>Click me!</button>
+      <button onClick={deleteThing}>Delete</button>
       <Header />
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<Homepage addUser={doThing} />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/budget" element={<Budget />} />
         <Route path="/share" element={<Share />} />
