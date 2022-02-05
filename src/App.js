@@ -33,9 +33,9 @@ const App = () => {
 
   return (
     <main className="App">
-      <h1>Hi</h1>
+      {/* <h1>Hi</h1>
       <button onClick={doThing}>Click me!</button>
-      <button onClick={deleteThing}>Delete</button>
+      <button onClick={deleteThing}>Delete</button> */}
       <Header />
       <Routes>
         <Route path="/" element={<Homepage addUser={doThing} />} />
