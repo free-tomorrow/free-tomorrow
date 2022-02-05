@@ -13,8 +13,6 @@
   flex-direction: column;
   flex-wrap: wrap;
   height:100%;
-
-
 }
 
 
@@ -31,8 +29,6 @@
 //   background-position: right;
 // }
 
-
-
 .welcome-txt {
   position: relative;
   z-index: 100;
@@ -45,12 +41,10 @@
   h1 {
     font-size: 3rem;
     margin-bottom: 10px;
-    text-shadow: 1px 2px 2px black;
   }
 
   h2 {
     font-size: 2rem;
-    text-shadow: 1px 2px 2px black;
   }
 }
 
@@ -58,7 +52,6 @@
 //I gave the image a position of relative so that its z index is undefined, which puts it as the bottom layer, or something
 //I've given the text container a z-index of 100 which essentially makes it the top layer, it's the closest element to the viewer. 
 //The top, left, right, and bottom values are the distance the element moves in those directions RELATIVE to it's initial position without any margins, padding etc. 
-
 
 ///notes: make child container for homepage.js that holds the welcome text, img, button, etc.
 
@@ -95,11 +88,13 @@
   opacity: 0.75;
 }
 
+// The maximum width the page can be to have the below rules is 1000px. At 1000px and below, these rules will apply;
+
 @media screen and(max-width: 1000px) {
   .welcome-container{
-    border: 3px solid magenta;
     align-items:center;
   }
+  //at 1000px,  I'm changing the align-items property of the welcome-container
 
   .welcome-txt {
     width: 80%;
@@ -122,7 +117,7 @@
     font-size: 1.15rem;
     padding: 10px 10px;
   }
-
+//at 1000px and below, the aliens image won't be position:relative.Just the default, initial
   .aliens-img{
     position:initial;
   }
