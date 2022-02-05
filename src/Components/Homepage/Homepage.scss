@@ -3,19 +3,33 @@
 
 .homepage {
   background-color: $primary-color;
-  background-image: url('../../assets/travel_aliens.png');
-  background-size: 30em;
-  background-repeat: no-repeat;
-  background-position:right;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-items:center;
   border: 1px solid purple;
   height: 80vh;
+  position:relative;
 }
 
+
+// .homepage::before{
+//   content: "";
+//   background-image: url(http://localhost:3000/static/media/travel_aliens.23f539de23e82df94967.png);
+//   position: fixed;
+//   right: 0;
+//   left: 0;
+//   top: 22%;
+//   bottom: 0;
+//   background-size: 55vw;
+//   background-repeat: no-repeat;
+//   background-position: right;
+// }
+
+
+
 .welcome-txt {
+  position: relative;
+  z-index: 100;
   width: 50%;
   border: 1px solid red;
   line-height: 1.3;
@@ -56,6 +70,14 @@
   padding: 25px 15px;
   font-family:"Poppins", sans-serif;
   // font-family:'Sulphur Point', sans-serif;
+}
+
+.aliens-img{
+  width: 31em;
+  height: auto;
+  position: relative;
+  top: 20%;
+  right: 35%;
 }
 
 @media screen and(max-width: 1000px) {
