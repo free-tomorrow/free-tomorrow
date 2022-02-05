@@ -10,8 +10,9 @@ const Schedule = () => {
   const [date, setDate] = useState(new Date())
 
   const logDates = (date) => {
-    setDate(date)
-    console.log(date)
+    const newDate = new Date(date)
+    setDate(newDate.getUTCSeconds())
+    console.log(newDate.getUTCSeconds())
   }
 
   return (
