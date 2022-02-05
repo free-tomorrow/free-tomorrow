@@ -2,7 +2,7 @@
 
 .header{
   min-height: 10vh;
-  background-color: $header-color;
+  background-color: $secondary-color;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,7 +16,7 @@
 }
 
 .login-btn {
-  background-color: $secondary-color;
+  background-color: $accent-color-one;
   border: none;
   border-radius: 5px;
   padding: .25rem 1.55rem;
