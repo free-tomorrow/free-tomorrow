@@ -24,12 +24,12 @@ const App = () => {
     )
   }
 
-  // const doThing = () => {
-  //   console.log(state)
-  //   dispatch(
-  //     addUser({name: 'Dave'})
-  //   )
-  // }
+  const addUser = () => {
+    console.log(state)
+    dispatch(
+      addUser({name: 'Dave'})
+    )
+  }
 
   // const deleteThing = () => {
   //   console.log('deleted')
@@ -45,7 +45,7 @@ const App = () => {
       <button onClick={deleteThing}>Delete</button> */}
       <Header />
       <Routes>
-        <Route path="/" element={<Homepage addUser={doThing} />} />
+        <Route path="/" element={<Homepage addUser={addUser} />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/budget" element={<Budget />} />
         <Route path="/share" element={<Share />} />
