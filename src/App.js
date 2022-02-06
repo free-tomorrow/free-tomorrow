@@ -11,25 +11,32 @@ import Login from './Components/Login/Login';
 import './App.scss';
 
 import {addUser, deleteUser} from './state/userSlice';
+// import reducers here
 
 const App = () => {
 
   const state = useSelector((state) => state);
   const dispatch = useDispatch()
 
-  const doThing = () => {
+  const getState = () => {
+    dispatch(
+      // call reducer here
+    )
+  }
+
+  const addUser = () => {
     console.log(state)
     dispatch(
       addUser({name: 'Dave'})
     )
   }
 
-  const deleteThing = () => {
-    console.log('deleted')
-    dispatch(
-      deleteUser({name: 'Dave'})
-    )
-  }
+  // const deleteThing = () => {
+  //   console.log('deleted')
+  //   dispatch(
+  //     deleteUser({name: 'Dave'})
+  //   )
+  // }
 
   return (
     <main className="App">
@@ -38,7 +45,7 @@ const App = () => {
       <button onClick={deleteThing}>Delete</button> */}
       <Header />
       <Routes>
-        <Route path="/" element={<Homepage addUser={doThing} />} />
+        <Route path="/" element={<Homepage addUser={addUser} />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/budget" element={<Budget />} />
         <Route path="/share" element={<Share />} />
