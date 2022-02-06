@@ -12,15 +12,16 @@ const Login = () => {
     if (!value) {
       console.log("Please enter an email")
     } else {
-
       dispatch(addUser({
         id: 3,
         name: "Bob Loblaw",
         email: value
       }))
-
     }
+    setValue('')
+    
   }
+
 
   return (
     <div className="login">
