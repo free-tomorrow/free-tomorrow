@@ -8,9 +8,7 @@ export const userSlice = createSlice({
     id: 1, 
     name: 'Jordan',
     email: '',
-    confirmedTrips: [],
-    pendingTrips: [],
-    availableDates: []
+    trips: []
   }],
   reducers: {
     addUser: (state, action) => {
@@ -18,9 +16,7 @@ export const userSlice = createSlice({
         id: action.payload.id,
         name: action.payload.name,
         email: action.payload.email,
-        confirmedTrips: [],
-        pendingTrips: [],
-        availableDates: []
+        trips: []
       }
       state.push(newPerson)
     },

@@ -16,7 +16,7 @@ export const users = [
 export const trips = [
   {
     id: 1,
-    users: [],
+    users: [20],
     confirmed: false,
     proposed_budget: 500,
     available_dates: [

@@ -11,25 +11,32 @@ import Login from './Components/Login/Login';
 import './App.scss';
 
 import {addUser, deleteUser} from './state/userSlice';
+// import reducers here
 
 const App = () => {
 
   const state = useSelector((state) => state);
   const dispatch = useDispatch()
 
-  const doThing = () => {
-    console.log(state)
+  const getState = () => {
     dispatch(
-      addUser({name: 'Dave'})
+      // call reducer here
     )
   }
 
-  const deleteThing = () => {
-    console.log('deleted')
-    dispatch(
-      deleteUser({name: 'Dave'})
-    )
-  }
+  // const doThing = () => {
+  //   console.log(state)
+  //   dispatch(
+  //     addUser({name: 'Dave'})
+  //   )
+  // }
+
+  // const deleteThing = () => {
+  //   console.log('deleted')
+  //   dispatch(
+  //     deleteUser({name: 'Dave'})
+  //   )
+  // }
 
   return (
     <main className="App">
