@@ -3,7 +3,6 @@ import './Schedule.scss';
 import { Calendar } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
 import { Link } from 'react-router-dom';
-import { trips, users } from '../../mockData';
 
 const Schedule = () => {
 
