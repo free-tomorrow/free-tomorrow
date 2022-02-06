@@ -1,18 +1,18 @@
 @import '../../sass/variables.scss';
 
 .header{
-  min-height: 10vh;
+  min-height: 8vh;
   background-color: $secondary-color;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1%;
+  padding: 1% 0%;
 }
 
 .logo {
-  width: 4em;
+  width: 5em;
   height: auto;
-  margin-left: 3.5%;
+  margin-left: 2rem;
 }
 
 .login-btn {
@@ -45,5 +45,32 @@
 
   .login-btn{
     font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .logo {
+    margin: 1rem 0;
+  }
+
+  .nav-bar {
+    flex-direction: column;
+  }
+
+  .nav-link {
+    // margin: 5% 0%;
+    font-size: 0.6rem;
+    font-weight: bold;
+  }
+
+  .login-btn {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
   }
 }
