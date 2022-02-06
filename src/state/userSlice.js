@@ -39,3 +39,45 @@ export const userSlice = createSlice({
 export const { addUser, deleteUser } = userSlice.actions
 
 export default userSlice.reducer
+
+
+//add error property to each slice? 
+
+//TODO API call to get current user:
+// export const getUserAsync = createAsyncThunk(
+//   'users/getUserAsync',
+//   async () => {
+//     const resp = await fetch('http://localhost:5000/postsessions/${userid}');
+//     if (resp.ok) {
+//       const currentUser = await resp.json();
+//       return { currentUser }
+//     }
+//     else {
+//       console.log(resp.status)
+//       state.error = resp.status
+//     }
+//   }
+// )
+
+//TODO API call to register new user:
+// export const addTodoAsync = createAsyncThunk(
+//   'todos/addTodoAsync',
+//   async (payload) => {
+//     const resp = await fetch('http://localhost:5000/postUsers', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({ user: payload }),
+          // ^^^maybe? 
+//     });
+
+//     if (resp.ok) {
+//       const currentUser = await resp.json();
+//       return { currentUser };
+//     } else {
+//       console.log(resp.error)
+//       state.error = resp.status
+//     }
+//   }
+// );
