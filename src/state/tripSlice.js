@@ -1,6 +1,4 @@
-import React from 'react';
 import { createSlice } from '@reduxjs/toolkit'
-import { getDefaultNormalizer } from '@testing-library/react';
 
 export const tripSlice = createSlice({
   name: 'trips',
