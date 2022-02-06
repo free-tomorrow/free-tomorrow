@@ -30,9 +30,9 @@ export const userSlice = createSlice({
       state.push(newPerson)
     },
     deleteUser: (state, action) => {
-      const foundUser = state.find(user => user.name === action.payload.name) 
+      const foundUser = state.find(user => user.name === action.payload.name)
       state.splice(state.indexOf(foundUser), 1)
-    }
+    },
   }
 })
 
