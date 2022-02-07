@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addDates } from '../../state/tempTripSlice.js';
 import 'react-calendar/dist/Calendar.css';
+import { store } from '../../state/store.js';
 
 const Schedule = () => {
 
@@ -13,6 +14,9 @@ const Schedule = () => {
 
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
+  store.subscribe(() => {
+    console.log('Store changed!', store.getState())
+  })
 
   const addDateRange = () => {
     if (dateRange) {
@@ -35,6 +39,18 @@ const Schedule = () => {
 
   // add text to show selected dates on UI
 
+  const displaySelectedDates = () => {
+
+    if(dateRange) {
+      const allDates = state.tempTrip.dates.forEach(range => {
+        console.log(range)
+      })
+    } else {
+      <h2>Please select as many as you like.</h2>
+    }
+
+  }
+
   return (
     <div className="schedule">
       <section className="schedule-txt">
@@ -43,6 +59,9 @@ const Schedule = () => {
       <div className="calendar-container">
         <Calendar onChange={logDates} className="calendar" value={date} selectRange={true} defaultView='year' />
       </div>
+      <section className="dates-list">
+        {displaySelectedDates()}
+      </section>
       <div className="btn-container">
         <Link to="/budget" style={{ width: "100%" }}>
           <button className="continue-btn" onClick={addDateRange}>Continue</button>
