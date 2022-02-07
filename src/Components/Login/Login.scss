@@ -51,7 +51,7 @@
   font-family: $font;
   color: $secondary-color;
   box-shadow:5px 5px $secondary-color;
-  transition: all 550ms ease;
+  transition: all 450ms ease;
   outline:none;
 
   &:placeholder-shown {
@@ -65,6 +65,7 @@
     color: initial;
     width:35vw;
     font-size: 1.25em;
+    box-shadow:2px 6px $secondary-color;
   }
 }
 
