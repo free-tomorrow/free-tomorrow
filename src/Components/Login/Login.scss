@@ -3,16 +3,17 @@
 .login {
   border: 1px solid red;
   height: 80vh;
+  text-align:center;
 }
 
 .login-content {
   height: 100%;
-  border: 1px solid purple;
   display: flex;
   //need to adjust position of this div to relative or absolute, if adding an image later
   flex-direction: column;
   align-items: center;
   line-height: 1.6;
+  margin: 2% 0;
 
   h1 {
     font-size: 2em;
@@ -21,15 +22,14 @@
 }
 
 .login-form {
-  height: 50%;
+  height: 55%;
   width: 70%;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 5%;
+  padding: 3%;
 
   h2 {
     font-size: 1.6em;
@@ -41,7 +41,7 @@
 // }
 .email-input {
   text-align: center;
-  font-size: .85em;
+  font-size: .995em;
   width: 40%;
   margin: 5% 0;
   padding: 5px 10px;
@@ -57,6 +57,17 @@
   }
 }
 
+.loginpg-btn{
+  cursor: pointer;
+  background: $accent-color-two;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: .95rem;
+  font-weight:200;
+  padding: 15px 35px;
+}
+
 @media screen and (max-width: 1000px) {
   .login{
     h1{
@@ -65,14 +76,20 @@
   }
 
   .login-form {
-    padding: initial;
+    justify-content:flex-start;
     h2 {
-      font-size: 1.25em;
+      font-size: 1.15em;
     }
+    
   }
 
   .email-input{
-    font-size: 50%;
+    font-size: .45em;
+  }
+
+  .loginpg-btn{
+    font-size:.65rem;
+    
   }
   }
 
