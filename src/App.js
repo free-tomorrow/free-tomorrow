@@ -12,6 +12,8 @@ import './App.scss';
 
 import {addUser, deleteUser} from './state/userSlice';
 // import reducers here
+//import {getUserAsync, addUserAsync} from './state/userSlice
+//^^importing async functions from slice
 
 const App = () => {
 

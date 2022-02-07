@@ -2,25 +2,28 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addUser } from '../../state/userSlice';
 import './Login.scss';
+//import {getUserAsync} from '../../state/userSlice;
 
 const Login = () => {
   const [value, setValue] = useState('');
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
+  //const currentUser = useSelector
   const logUserIn = (e) => {
     e.preventDefault()
     if (!value) {
       console.log("Please enter an email")
     } else {
       dispatch(addUser({
+        //dispatch will be getUserAsync once we have a server to work with
         id: 3,
         name: "Bob Loblaw",
         email: value
       }))
     }
     setValue('')
-    
   }
+
+
 
 
   return (
