@@ -26,8 +26,8 @@ const Schedule = () => {
     const startDate = date[0].getTime()
     const endDate = date[1].getTime()
 
-    setDateRange({startDate: startDate, endDate: endDate})
-    addDateRange()
+    setDateRange({startDate: startDate, endDate: endDate});
+    addDateRange();
   }
 
   return (
@@ -47,11 +47,6 @@ const Schedule = () => {
     </div>
   )
 }
-
-
-
-
-
 
 
 export default Schedule;
