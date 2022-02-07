@@ -19,8 +19,13 @@
 }
 
 .login-form {
-  text-align: center;
-
+  height: 50%;
+  width: 50%;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   h2 {
     font-size: 1.6em;
   }
@@ -28,5 +33,6 @@
 
 .email-input {
   font-size: 1em;
-  width: 75%;
+  width: 45%;
+  margin: 5% 0;
 }

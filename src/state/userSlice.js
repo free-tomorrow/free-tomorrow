@@ -86,7 +86,8 @@ export default userSlice.reducer
 // && REDUCERS:
 // extraReducers: {
 //   [getUserAsync.fulfilled] = (state,action) => {
-//     return action.payload.user
+//      const index = state.findIndex((user) => user.email === action.payload.email)
+//      return action.payload.user[index]
 //   },
 //   [addUserAsync.fulfilled] = (state,action) => {
 //     return action.payload.user

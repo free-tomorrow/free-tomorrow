@@ -7,7 +7,7 @@ import './Login.scss';
 const Login = () => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
-  //const currentUser = useSelector
+  //const currentUser = useSelector((state) => state.currentUser)
   const logUserIn = (e) => {
     e.preventDefault()
     if (!value) {
