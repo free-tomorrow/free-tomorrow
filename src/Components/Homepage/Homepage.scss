@@ -108,10 +108,10 @@
     font-size: 1.15rem;
     padding: 10px 10px;
   }
-//at 1000px and below, the aliens image won't be position:relative.Just the default, initial
+  //at 1000px and below, the aliens image won't be position:relative.Just the default, initial
 }
 
-@media screen and (max-width:676px){
+@media screen and (max-width:498px){
   .aliens-img{
     position:initial;
   }
