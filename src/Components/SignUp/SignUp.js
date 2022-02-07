@@ -8,11 +8,13 @@ const SignUp = () => {
   return (
     <div className="signup">
       <div className="signup-content">
-        <article>
-          <h1> Welcome to Free Tomorrow!</h1>
+      <h1>Welcome to Free Tomorrow!</h1>
+        <article className="signup-text">
+          <p> </p>
         </article>
         <form className="signup-form">
-          <p className="name-text">We just need your name</p>
+          <h2>Let's get you signed up</h2>
+          <p className="name-text">We'll just need your name</p>
           <input
             className="signup-input-name"
             type="text"
