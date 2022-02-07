@@ -34,7 +34,7 @@ const Login = () => {
           <h2>Let's get you logged in.</h2>
             <input
               className="email-input"
-              type="email"
+              type="text"
               placeholder="Enter your email"
               name="email"
               maxLength="64"

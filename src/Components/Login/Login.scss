@@ -41,7 +41,7 @@
 //   width:12em;
 // }
 .email-input {
-  border: 2px solid $secondary-color;
+  border: 2px solid black;
   border-radius: 5px;
   text-align: center;
   font-size: .995em;
@@ -50,7 +50,9 @@
   padding: 5px 10px;
   font-family: $font;
   color: $secondary-color;
-  box-shadow:6px 6px $secondary-color;
+  box-shadow:5px 5px $secondary-color;
+  transition: all 550ms ease;
+  outline:none;
 
   &:placeholder-shown {
     font-family: 'Poppins', sans-serif;
@@ -58,7 +60,11 @@
   }
 
   &:focus {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
     color: initial;
+    width:35vw;
+    font-size: 1.25em;
   }
 }
 
@@ -74,11 +80,11 @@
   padding: 10px 30px;
   font-family: $font;
   font-weight: 200;
-  box-shadow:6px 6px $secondary-color;
+  box-shadow:5px 5px $secondary-color;
 
   &:active{
     transform:translateY(2px);
-    box-shadow: 4px 3px $secondary-color;
+    box-shadow: 3px 2px $secondary-color;
   }
 }
 
@@ -99,8 +105,11 @@
   }
 
   .email-input {
-
     font-size: .65em;
+    &:focus{
+      font-size: .65em;
+      width: 55vw;
+    }
   }
 
   .loginpg-btn {
