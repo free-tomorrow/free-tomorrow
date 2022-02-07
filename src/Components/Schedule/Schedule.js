@@ -34,40 +34,45 @@ const Schedule = () => {
 
     setDateRange({startDate: startDate, endDate: endDate});
     addDateRange();
-    // rethink model to allow multiple ranges
   }
 
   // add text to show selected dates on UI
 
   const displaySelectedDates = () => {
+    const allDates = state.tempTrip.dates.forEach(range => {
+      return (
+        <p>{range.startDate} - {range.endDate}</p>
+      )
+    })
 
     if(dateRange) {
-      const allDates = state.tempTrip.dates.forEach(range => {
-        console.log(range)
-      })
-    } else {
-      <h2>Please select as many as you like.</h2>
+      return (
+        <section className="dates-list">
+          <h2>You're free:</h2>
+          {allDates}
+        </section>
+      )
     }
-
   }
 
   return (
     <div className="schedule">
       <section className="schedule-txt">
         <h1>When are you free?</h1>
+        <div className="schedule-txt-p-cont">
+          <p>Select as many dates as you like...</p>
+          <p>Don't worry, we'll keep track.</p>
+        </div>
       </section>
       <div className="calendar-container">
         <Calendar onChange={logDates} className="calendar" value={date} selectRange={true} defaultView='year' />
       </div>
-      <section className="dates-list">
-        {displaySelectedDates()}
-      </section>
+      {displaySelectedDates()}
       <div className="btn-container">
         <Link to="/budget" style={{ width: "100%" }}>
           <button className="continue-btn" onClick={addDateRange}>Continue</button>
         </Link>
       </div>
-
     </div>
   )
 }

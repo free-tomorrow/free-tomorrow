@@ -10,7 +10,8 @@
 
 .schedule-txt {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   height: 10%;
   margin-top: 5%;
   color: $font-color;
@@ -19,9 +20,18 @@
   }
 }
 
+.schedule-txt-p-cont {
+  margin: 5% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
 .calendar-container{
   display: flex;
   justify-content: center;
+  margin-top: 2%;
 }
 
 
