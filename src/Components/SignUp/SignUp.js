@@ -13,7 +13,6 @@ const SignUp = () => {
           <p> </p>
         </article>
         <form className="signup-form">
-          <h2>Let's get you signed up</h2>
           <p className="name-text">We'll just need your name</p>
           <input
             className="signup-input-name"

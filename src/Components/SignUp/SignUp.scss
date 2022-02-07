@@ -31,10 +31,6 @@
   align-items: center;
   text-align: center;
   padding: 3%;
-  h2 {
-    font-size: 1.6em;
-    margin-bottom:1.5%;
-  }
 }
 
 .name-text, .email-text{
@@ -88,6 +84,7 @@
   &:placeholder-shown {
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
+    color:transparent;
   }
 
   &:focus {
@@ -132,10 +129,13 @@
 
   .signup-input-name, .signup-input-email {
     font-size: .65em;
+    &::placeholder{
+      color:transparent;
+    }
 
     &:focus {
       font-size: .65em;
-      width: 55vw;
+      width: 50vw;
     }
   }
 

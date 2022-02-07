@@ -108,6 +108,10 @@
 
   .login-email-input {
     font-size: .65em;
+    
+    &::placeholder{
+      color:transparent;
+    }
     &:focus{
       font-size: .65em;
       width: 55vw;
