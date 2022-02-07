@@ -36,7 +36,7 @@ const Schedule = () => {
         <h1>What's your availability like?</h1>
       </section>
       <div className="calendar-container">
-        <Calendar onChange={logDates} className="calendar" value={date} selectRange={true} />
+        <Calendar onChange={logDates} className="calendar" value={date} selectRange={true} defaultView='year' />
       </div>
       <div className="btn-container">
         <Link to="/budget" style={{ width: "100%" }}>
