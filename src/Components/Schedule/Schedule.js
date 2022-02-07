@@ -9,15 +9,17 @@ import 'react-calendar/dist/Calendar.css';
 const Schedule = () => {
 
   const [date, setDate] = useState(new Date());
-  const [dateRange, setDateRange] = useState({startDate: null, endDate: null});
+  const [dateRange, setDateRange] = useState('');
 
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const addDateRange = () => {
-    dispatch (
-      addDates(dateRange)
-    )
+    if (dateRange) {
+      dispatch (
+        addDates(dateRange)
+      )
+    }
   }
 
   const logDates = (date) => {
@@ -28,12 +30,15 @@ const Schedule = () => {
 
     setDateRange({startDate: startDate, endDate: endDate});
     addDateRange();
+    // rethink model to allow multiple ranges
   }
+
+  // add text to show selected dates on UI
 
   return (
     <div className="schedule">
       <section className="schedule-txt">
-        <h1>What's your availability like?</h1>
+        <h1>When are you free?</h1>
       </section>
       <div className="calendar-container">
         <Calendar onChange={logDates} className="calendar" value={date} selectRange={true} defaultView='year' />
