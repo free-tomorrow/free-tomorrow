@@ -1,0 +1,104 @@
+@import '../../sass/variables.scss';
+
+//make mixin for forms?
+
+.signup {
+  border: 1px solid red;
+  height: 80vh;
+  text-align: center;
+
+}
+
+.signup-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.6;
+}
+
+.signup-form {
+  height: 50%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3%;
+}
+
+.signup-input-name{
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
+  font-size: .995em;
+  width: 15vw;
+  margin-bottom: 1.5%;
+  padding: 5px 10px;
+  font-family: $font;
+  color: $secondary-color;
+  box-shadow:5px 5px $secondary-color;
+  transition: all 450ms ease;
+  outline:none;
+
+  &:placeholder-shown {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+  }
+
+  &:focus {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    color: initial;
+    width:20vw;
+    font-size: 1.25em;
+    box-shadow:7px 7px $secondary-color;
+    // margin:4.8125%;
+  }
+}
+
+.signup-input-email{
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
+  font-size: .995em;
+  width: 27vw;
+  margin-bottom:2.5%;
+  padding: 5px 10px;
+  font-family: $font;
+  color: $secondary-color;
+  box-shadow:5px 5px $secondary-color;
+  transition: all 450ms ease;
+  outline:none;
+
+  &:placeholder-shown {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+  }
+
+  &:focus {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    color: initial;
+    width:35vw;
+    font-size: 1.25em;
+    box-shadow:7px 7px $secondary-color;
+    // margin:4.8125%;
+  }
+}
+
+.signup-pg-btn{
+  cursor: pointer;
+  background: $accent-color-two;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 200;
+  width:20%;
+  padding: 10px 30px;
+  font-family: $font;
+  font-weight: 200;
+  box-shadow:5px 5px $secondary-color;
+}

@@ -33,7 +33,7 @@ const Login = () => {
         <form className="login-form">
           <h2>Let's get you logged in.</h2>
             <input
-              className="email-input"
+              className="login-email-input"
               type="text"
               placeholder="Enter your email"
               name="email"
