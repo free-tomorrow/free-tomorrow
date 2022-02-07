@@ -4,6 +4,7 @@ import { Calendar } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { addDates } from '../../state/tempTripSlice.js';
 
 const Schedule = () => {
 
@@ -15,7 +16,7 @@ const Schedule = () => {
 
   const addDateRange = () => {
     dispatch (
-
+      addDates(dateRange)
     )
   }
 
@@ -38,7 +39,7 @@ const Schedule = () => {
       </div>
       <div className="btn-container">
         <Link to="/budget" style={{ width: "100%" }}>
-          <button className="continue-btn" >Continue</button>
+          <button className="continue-btn" onClick={addDateRange}>Continue</button>
         </Link>
       </div>
 
