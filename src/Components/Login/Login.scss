@@ -3,7 +3,7 @@
 .login {
   border: 1px solid red;
   height: 80vh;
-  text-align:center;
+  text-align: center;
 }
 
 .login-content {
@@ -35,14 +35,17 @@
     font-size: 1.6em;
   }
 }
+
 // .email-container{
 //   border:1px solid red;
 //   width:12em;
 // }
 .email-input {
+  border: 3px solid $secondary-color;
+  border-radius: 5px;
   text-align: center;
   font-size: .995em;
-  width: 35%;
+  width: 30vw;
   margin: 5% 0;
   padding: 5px 10px;
   font-family: 'Poppins', sans-serif;
@@ -57,39 +60,43 @@
   }
 }
 
-.loginpg-btn{
+.loginpg-btn {
   cursor: pointer;
   background: $accent-color-two;
   border: none;
   border-radius: 5px;
   color: white;
   font-size: 1.25rem;
-  font-weight:200;
-  padding: 15px 45px;
+  font-weight: 200;
+  width:20%;
+  padding: 10px 30px;
 }
 
 @media screen and (max-width: 1000px) {
-  .login{
-    h1{
+  .login {
+    h1 {
       font-size: 1.45em;
     }
   }
 
   .login-form {
-    justify-content:flex-start;
+    justify-content: flex-start;
+
     h2 {
       font-size: 1.15em;
     }
-    
+
   }
 
-  .email-input{
-    font-size: .45em;
+  .email-input {
+
+    font-size: .65em;
   }
 
-  .loginpg-btn{
-    font-size:.65rem;
-    
-  }
-  }
+  .loginpg-btn {
+    font-size: .75rem;
+    width: 20vw;
+    padding: .45rem;
 
+  }
+}
