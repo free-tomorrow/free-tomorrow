@@ -42,8 +42,8 @@ export default userSlice.reducer
 
 
 
-//TODO add error property to each slice
-//TODO API call to get current user:
+// //TODO add error property to each slice
+// //TODO API call to get current user:
 // export const getUserAsync = createAsyncThunk(
 //   'users/getUserAsync',
 //   async () => {
@@ -60,27 +60,27 @@ export default userSlice.reducer
 // )
 
 
-//TODO API call to register new user:
+// //TODO API call to register new user:
 // export const addTodoAsync = createAsyncThunk(
-  //   'todos/addTodoAsync',
-  //   async (payload) => {
-    //     const resp = await fetch('http://localhost:5000/postUsers', {
-      //       method: 'POST',
-      //       headers: {
-        //         'Content-Type': 'application/json',
-        //       },
-        //       body: JSON.stringify({ user: payload }),
-        // ^^^maybe? 
-        //     });
+//     'todos/addTodoAsync',
+//     async (payload) => {
+//         const resp = await fetch('http://localhost:5000/postUsers', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//               },
+//               body: JSON.stringify({ user: payload }),
+//         ^^^maybe? 
+//             });
         
-        //     if (resp.ok) {
-          //       const currentUser = await resp.json();
-          //       return { currentUser };
-          //     } else {
-            //       console.log(resp.error)
-            //       state.error = resp.status
-            //     }
-            //   }            
+//             if (resp.ok) {
+//                 const currentUser = await resp.json();
+//                 return { currentUser };
+//               } else {
+//                   console.log(resp.error)
+//                   state.error = resp.status
+//                 }
+//               }            
 // );
 
 // && REDUCERS:
