@@ -10,7 +10,7 @@ const SignUp = () => {
       <div className="signup-content">
       <h1>Welcome to Free Tomorrow!</h1>
         <article className="signup-text">
-          <p> </p>
+          <p></p>
         </article>
         <form className="signup-form">
           <p className="name-text">We'll just need your name</p>
