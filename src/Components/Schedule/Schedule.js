@@ -3,28 +3,29 @@ import './Schedule.scss';
 import { Calendar } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Schedule = () => {
 
-  const [date, setDate] = useState(new Date())
-  const [dateRange, setDateRange] = useState({startDate: null, endDate: null})
+  const [date, setDate] = useState(new Date());
+  const [dateRange, setDateRange] = useState({startDate: null, endDate: null});
+
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const addDateRange = () => {
+    dispatch (
+
+    )
+  }
 
 
   const logDates = (date) => {
     
-    const startDate = new Date(date[0])
-    const endDate = new Date(date[1])
-    console.log(startDate, 'start date')
-    console.log(endDate, 'end date')
+    const startDate = date[0].getTime()
+    const endDate = date[1].getTime()
 
-    const startTime = startDate.getTime()
-    const endTime = endDate.getTime()
-    
-    console.log(startTime, 'start time')
-    console.log(endTime, 'end time')
-
-
-    setDate(startDate, endDate)
+    setDateRange({startDate: startDate, endDate: endDate})
   }
 
   return (
