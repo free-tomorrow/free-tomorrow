@@ -20,7 +20,6 @@ const Schedule = () => {
     )
   }
 
-
   const logDates = (date) => {
     setDate([date[0], date[1]])
     
@@ -28,6 +27,7 @@ const Schedule = () => {
     const endDate = date[1].getTime()
 
     setDateRange({startDate: startDate, endDate: endDate})
+    addDateRange()
   }
 
   return (
