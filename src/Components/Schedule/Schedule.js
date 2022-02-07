@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Schedule.scss';
 import { Calendar } from 'react-calendar';
-import 'react-calendar/dist/Calendar.css'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addDates } from '../../state/tempTripSlice.js';
+import 'react-calendar/dist/Calendar.css';
 
 const Schedule = () => {
 
@@ -22,6 +22,7 @@ const Schedule = () => {
 
 
   const logDates = (date) => {
+    setDate([date[0], date[1]])
     
     const startDate = date[0].getTime()
     const endDate = date[1].getTime()
