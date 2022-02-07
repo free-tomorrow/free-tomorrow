@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 const Schedule = () => {
 
   const [date, setDate] = useState(new Date())
+  const [dateRange, setDateRange] = useState({startDate: null, endDate: null})
 
 
   const logDates = (date) => {
