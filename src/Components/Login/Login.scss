@@ -13,10 +13,10 @@
   flex-direction: column;
   align-items: center;
   line-height: 1.6;
-  margin: 2% 0;
 
   h1 {
     font-size: 2em;
+    margin-top: 3%;
   }
 
 }
@@ -42,7 +42,7 @@
 .email-input {
   text-align: center;
   font-size: .995em;
-  width: 40%;
+  width: 35%;
   margin: 5% 0;
   padding: 5px 10px;
   font-family: 'Poppins', sans-serif;
@@ -63,9 +63,9 @@
   border: none;
   border-radius: 5px;
   color: white;
-  font-size: .95rem;
+  font-size: 1.25rem;
   font-weight:200;
-  padding: 15px 35px;
+  padding: 15px 45px;
 }
 
 @media screen and (max-width: 1000px) {
