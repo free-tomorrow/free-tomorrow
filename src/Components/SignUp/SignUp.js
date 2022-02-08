@@ -13,6 +13,7 @@ const SignUp = () => {
   const registerUser = (e) => {
     e.preventDefault();
     if (!username || !email) {
+      //need some error handling here
     } else {
       dispatch(addUser({
         id: 5,
