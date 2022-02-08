@@ -29,10 +29,15 @@ const Budget = () => {
       phrase = 'Proceed without budgeting?'
     } else if (budget) {
       phrase = `Set the budget to $${budget}?`
-    } else {
-      phrase = 'Take your pick.'
+    } 
+    
+    if(budget) {
+      return (
+        <Link to="/share">
+        <button onClick={createBudget}>{phrase}</button>
+        </Link>
+      )
     }
-    return phrase;
   }
 
   return (
@@ -49,9 +54,7 @@ const Budget = () => {
         <button onClick={(e) => setBudget(e.target.value)} value={2000}>$2000</button>
         <button onClick={(e) => setBudget(e.target.value)} value={2001}>The sky's the limit!</button>
       </div>
-      <Link to="/share">
-        <button onClick={createBudget}>{budgetDisplay()}</button>
-      </Link>
+      {budgetDisplay()}
     </div>
   )
 }
