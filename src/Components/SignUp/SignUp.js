@@ -1,18 +1,39 @@
 import './SignUp.scss';
 import React, { useState } from 'react';
+import { addUser } from '../../state/userSlice';
+import { useDispatch } from 'react-redux';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('');
+  const dispatch = useDispatch();
+
+
+  const registerUser = (e) => {
+    e.preventDefault();
+    if (!username || !email) {
+      
+    } else {
+      dispatch(addUser({
+        id: 5,
+        name: username,
+        email: email
+      }))
+      setUsername('');
+      setEmail('');
+    }
+  }
 
   return (
     <div className="signup">
       <div className="signup-content">
-      <h1>Welcome to Free Tomorrow!</h1>
+        <h1>Welcome to Free Tomorrow!</h1>
         <article className="signup-text">
           <p></p>
         </article>
-        <form className="signup-form">
+        <form 
+            onSubmit={registerUser}
+            className="signup-form">
           <p className="name-text">We'll just need your name</p>
           <input
             className="signup-input-name"
@@ -34,7 +55,8 @@ const SignUp = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          <button className="signup-pg-btn">Sign Up</button>
+          <button
+            className="signup-pg-btn">Sign Up</button>
           {/* if including a signup button in the header, it needs to have a different className. 
           "header- signup-btn" */}
         </form>
