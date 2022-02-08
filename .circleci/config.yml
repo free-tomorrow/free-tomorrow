@@ -13,12 +13,12 @@ workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - cypress/install:
-          build: 'npm run build'
+      # - cypress/install:
+      #     build: 'npm run build'
       - cypress/run:
-          requires:
-            - cypress/install
-          start: 'npm start'
+          # requires:
+          #   - cypress/install
+          # start: 'npm start'
       # - node/test:
       #     # This is the node version to use for the `cimg/node` tag
       #     # Relevant tags can be found on the CircleCI Developer Hub
