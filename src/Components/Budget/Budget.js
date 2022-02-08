@@ -2,6 +2,7 @@ import './Budget.scss';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addBudget } from '../../state/tempTripSlice.js';
 
 const Budget = () => {
 
@@ -9,17 +10,10 @@ const Budget = () => {
   const dispatch = useDispatch();
 
   const createBudget = () => {
-    console.log(budget)
-
-    // const budgetAsNum = 
-
-    // dispatch (
-    //   // useSelector()
-    // )
+    dispatch (
+      addBudget(parseInt(budget))
+    )
   }
-
-  // if budget < 500, text in button should read "set the budget as low as possible? don't worry, we get it."
-  // if budget > 2000, text in button should read "proceed without budgeting? hope your friends are ready to get spendy!"
 
   const budgetDisplay = () => {
     let phrase;
@@ -40,6 +34,18 @@ const Budget = () => {
     }
   }
 
+  const cheekyMsg = () => {
+    if(budget < 500 && budget > 1) {
+      return (
+        <p>Hey, we get it.</p>
+      )
+    } else if (budget > 2000) {
+      return (
+        <p>Hope your friends are ready to get spendy!</p>
+      )
+    }
+  }
+
   return (
     <div className="budget-form">
       <div className="txt-container">
@@ -55,6 +61,7 @@ const Budget = () => {
         <button onClick={(e) => setBudget(e.target.value)} value={2001}>The sky's the limit!</button>
       </div>
       {budgetDisplay()}
+      {cheekyMsg()}
     </div>
   )
 }
