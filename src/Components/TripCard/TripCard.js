@@ -4,16 +4,17 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 const TripCard = () => {
-  const allTrips = useSelector((state) => state.trips)
-  console.log(allTrips)
+  const tempTrip = useSelector((state) => state.tempTrip)
+  console.log(tempTrip)
 
+  const tripDates = tempTrip.dates[0]
   return (
     (
       <article className="trip-card">
         <div className="trip-card-txt">
-          <p>Going with allTrips.tripUsers</p>
-          <p>Dates: allTrips.dates</p>
-          <p>Budget: allTrips.proposedBudget</p>
+          <p>Going with: </p>
+          <p>Dates: From {tripDates.startDate} to {tripDates.endDate} </p>
+          <p>Budget: ${tempTrip.budget} </p>
         </div>
       </article>
     )
