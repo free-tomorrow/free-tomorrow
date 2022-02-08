@@ -29,7 +29,7 @@ const Budget = () => {
     if(budget) {
       return (
         <Link to="/share">
-        <button onClick={createBudget}>{phrase}</button>
+        <button onClick={createBudget} className="continue-btn">{phrase}</button>
         </Link>
       )
     }
@@ -54,12 +54,12 @@ const Budget = () => {
         <p>No pressure on our end. Just pick whatever works for you.</p>
       </div>
       <div className="btn-container">
-        <button onClick={(e) => setBudget(e.target.value)} value={499}>I'm broke. Keep it cheap please!</button>
-        <button onClick={(e) => setBudget(e.target.value)} value={500}>$500</button>
-        <button onClick={(e) => setBudget(e.target.value)} value={1000}>$1000</button>
-        <button onClick={(e) => setBudget(e.target.value)} value={1500}>$1500</button>
-        <button onClick={(e) => setBudget(e.target.value)} value={2000}>$2000</button>
-        <button onClick={(e) => setBudget(e.target.value)} value={2001}>The sky's the limit!</button>
+        <button onClick={(e) => setBudget(e.target.value)} value={499} className="budget-btn">I'm broke. Keep it cheap please!</button>
+        <button onClick={(e) => setBudget(e.target.value)} value={500} className="budget-btn">$500</button>
+        <button onClick={(e) => setBudget(e.target.value)} value={1000} className="budget-btn">$1000</button>
+        <button onClick={(e) => setBudget(e.target.value)} value={1500} className="budget-btn">$1500</button>
+        <button onClick={(e) => setBudget(e.target.value)} value={2000} className="budget-btn">$2000</button>
+        <button onClick={(e) => setBudget(e.target.value)} value={2001} className="budget-btn">The sky's the limit!</button>
       </div>
       {budgetDisplay()}
       {cheekyMsg()}
