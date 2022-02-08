@@ -1,8 +1,9 @@
 import './Share.scss'
+import TripCard from '../TripCard/TripCard'
 
 const Share = () => {
   return (
-    <h1>Share!</h1>
+    <TripCard/>
   )
 }
 
