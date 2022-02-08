@@ -1,6 +1,6 @@
 import './Header.scss'
 import {NavLink} from 'react-router-dom';
-import logo from '../../assets/ft_logo.svg';
+import logo from '../../assets/co_logo.svg';
 
 
 const Header = () => {

@@ -1,16 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 export const tempTripSlice = createSlice({
   name: 'tempTrip',
   initialState: {
-    dateRange: {startDate: null, endDate: null},
+    dates: [],
     budget: null
   },
   reducers: {
     addDates: (state, action) => {
-      state.dateRange.startDate = action.payload.startDate;
-      state.dateRange.endDate = action.payload.endDate;
-      return state.dateRange;
+      const newDates = {
+        startDate: action.payload.startDate,
+        endDate: action.payload.endDate
+      }
+      state.dates.push(newDates) 
+    },
+    addBudget: (state, action) => {
+      state.budget = action.payload;
     }
   }
 })
