@@ -3,7 +3,11 @@ import TripCard from '../TripCard/TripCard'
 
 const Share = () => {
   return (
-    <TripCard/>
+    <div className="share-pg">
+      <div className="share-card-wrapper">
+        <TripCard className="share-trip-card" />
+      </div>
+    </div>
   )
 }
 
