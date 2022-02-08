@@ -1,12 +1,14 @@
 @import '../../sass/variables.scss';
 
-.login {
+//make mixin for forms?
+
+.signup {
   border: 1px solid red;
   height: 80vh;
   text-align: center;
 }
 
-.login-content {
+.signup-content {
   height: 100%;
   display: flex;
   //need to adjust position of this div to relative or absolute, if adding an image later
@@ -18,10 +20,9 @@
     font-size: 2em;
     margin-top: 5%;
   }
-
 }
 
-.login-form {
+.signup-form {
   height: 50%;
   width: 70%;
   display: flex;
@@ -30,29 +31,26 @@
   align-items: center;
   text-align: center;
   padding: 3%;
-
-  h2 {
-    font-size: 1.6em;
-  }
 }
 
-// .email-container{
-//   border:1px solid red;
-//   width:12em;
-// }
-.login-email-input {
+.name-text, .email-text{
+  font-size: 1.25em;
+}
+
+.signup-input-name {
   border: 2px solid black;
   border-radius: 5px;
   text-align: center;
   font-size: .995em;
-  width: 22vw;
-  margin: 5% 0;
+  font-weight: 200;
+  width: 15vw;
+  margin-bottom: 1.5%;
   padding: 5px 10px;
   font-family: $font;
   color: $secondary-color;
-  box-shadow:5px 5px $secondary-color;
+  box-shadow: 5px 5px $secondary-color;
   transition: all 450ms ease;
-  outline:none;
+  outline: none;
 
   &:placeholder-shown {
     font-family: 'Poppins', sans-serif;
@@ -63,14 +61,46 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
     color: initial;
-    width:32vw;
+    width: 20vw;
     font-size: 1.25em;
-    box-shadow:7px 7px $secondary-color;
-    margin:4.8125%;
+    box-shadow: 7px 7px $secondary-color;
+    // margin:4.8125%;
   }
 }
 
-.loginpg-btn {
+.signup-input-email {
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
+  font-size: .995em;
+  font-weight: 200;
+  width: 23vw;
+  margin-bottom: 2.5%;
+  padding: 5px 10px;
+  font-family: $font;
+  color: $secondary-color;
+  box-shadow: 5px 5px $secondary-color;
+  transition: all 450ms ease;
+  outline: none;
+
+  &:placeholder-shown {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    color:transparent;
+  }
+
+  &:focus {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    color: initial;
+    width: 35vw;
+    font-size: 1.25em;
+    box-shadow: 7px 7px $secondary-color;
+    // margin:4.8125%;
+  }
+}
+
+.signup-pg-btn {
   cursor: pointer;
   background: $accent-color-two;
   border: 1px solid black;
@@ -78,11 +108,11 @@
   color: white;
   font-size: 1.1rem;
   font-weight: 200;
-  width:20%;
+  width: 20%;
   padding: 10px 30px;
   font-family: $font;
   font-weight: 200;
-  box-shadow:5px 5px $secondary-color;
+  box-shadow: 5px 5px $secondary-color;
 
   &:active{
     transform:translateY(2px);
@@ -91,34 +121,32 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .login-content {
+  .signup {
     h1 {
       font-size: 1.45em;
     }
   }
 
-  .login-form {
+  .signup-form {
     justify-content: flex-start;
-
-    h2 {
+    p {
       font-size: 1.15em;
     }
-
   }
 
-  .login-email-input {
+  .signup-input-name, .signup-input-email {
     font-size: .65em;
-    
     &::placeholder{
       color:transparent;
     }
-    &:focus{
+
+    &:focus {
       font-size: .65em;
-      width: 55vw;
+      width: 50vw;
     }
   }
 
-  .loginpg-btn {
+  .signup-pg-btn {
     font-size: .75rem;
     width: 20vw;
     padding: .45rem;

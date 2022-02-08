@@ -53,15 +53,20 @@
 .start-btn {
   cursor: pointer;
   background: $accent-color-two;
-  border: none;
+  border: 1px solid black;
   border-radius: 5px;
   color: white;
-  font-size: 1.75rem;
+  font-size: 1.225rem;
   font-weight:200;
-  padding: 25px 15px;
+  padding: 15px 20px;
   font-family:"Poppins", sans-serif;
   position: relative;
   z-index:100;
+  transition:all 300ms ease;
+  &:hover{
+    font-size:1.5em;
+    box-shadow: 4px 6px $secondary-color;
+  }
   // font-family:'Sulphur Point', sans-serif;
 }
 
@@ -103,10 +108,10 @@
     font-size: 1.15rem;
     padding: 10px 10px;
   }
-//at 1000px and below, the aliens image won't be position:relative.Just the default, initial
+  //at 1000px and below, the aliens image won't be position:relative.Just the default, initial
 }
 
-@media screen and (max-width:723px){
+@media screen and (max-width:498px){
   .aliens-img{
     position:initial;
   }
