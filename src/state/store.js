@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from './userSlice.js';
+import tempTripReducer from './tempTripSlice.js';
 
 export const store = configureStore({
   reducer: {
-    users: userReducer
+    users: userReducer,
+    tempTrip: tempTripReducer
   },
 });
