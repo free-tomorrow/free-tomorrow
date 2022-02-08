@@ -38,11 +38,11 @@ const Budget = () => {
   const cheekyMsg = () => {
     if(budget < 500 && budget > 1) {
       return (
-        <p>Hey, we get it.</p>
+        <p className="cheeky-msg">Hey, we get it. We're not made of money.</p>
       )
     } else if (budget > 2000) {
       return (
-        <p>Hope your friends are ready to get spendy!</p>
+        <p className="cheeky-msg">Hope your friends are ready to get spendy!</p>
       )
     }
   }
