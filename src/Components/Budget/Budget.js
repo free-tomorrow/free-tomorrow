@@ -1,15 +1,21 @@
 import './Budget.scss';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Budget = () => {
 
-  const [budget, setBudget] = useState(0);
+  const [budget, setBudget] = useState('');
+  const dispatch = useDispatch();
 
   const createBudget = () => {
-    dispatch (
+    console.log(budget)
 
-    )
+    // const budgetAsNum = 
+
+    // dispatch (
+    //   // useSelector()
+    // )
   }
 
   return (
@@ -19,15 +25,15 @@ const Budget = () => {
         <p>No pressure on our end. Just pick whatever works for you.</p>
       </div>
       <div className="btn-container">
-        <button onClick={}>I'm broke. Keep it under $500!</button>
-        <button onClick={}>$500</button>
-        <button>$1000</button>
-        <button>$1500</button>
-        <button>$2000</button>
-        <button>The sky's the limit!</button>
+        <button onClick={(e) => setBudget(e.target.value)} value={499}>I'm broke. Keep it cheap please!</button>
+        <button onClick={(e) => setBudget(e.target.value)} value={500}>$500</button>
+        <button onClick={(e) => setBudget(e.target.value)} value={1000}>$1000</button>
+        <button onClick={(e) => setBudget(e.target.value)} value={1500}>$1500</button>
+        <button onClick={(e) => setBudget(e.target.value)} value={2000}>$2000</button>
+        <button onClick={(e) => setBudget(e.target.value)} value={2001}>The sky's the limit!</button>
       </div>
       <Link to="/share">
-        <button>Continue</button>
+        <button onClick={createBudget}>Set the budget at ${budget}?</button>
       </Link>
     </div>
   )
