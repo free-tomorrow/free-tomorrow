@@ -14,8 +14,10 @@ const Schedule = () => {
 
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
+
   store.subscribe(() => {
     console.log('Store changed!', store.getState())
+    // showing us what's in the store at each change
   })
 
   const addDateRange = () => {
@@ -39,13 +41,19 @@ const Schedule = () => {
   // add text to show selected dates on UI
 
   const displaySelectedDates = () => {
-    const allDates = state.tempTrip.dates.forEach(range => {
+
+    const allDates = state.tempTrip.dates.map(range => {
+      const start = new Date(range.startDate)
+      const end = new Date(range.endDate)
+      // const [month, day, year] = [start.getMonth(), start.getDate(), start.getFullYear()]
+
+
       return (
-        <p>{range.startDate} - {range.endDate}</p>
+        <p>{start.toDateString()} - {end.toDateString()}</p>
       )
     })
 
-    if(dateRange) {
+    if(state.tempTrip.dates.length) {
       return (
         <section className="dates-list">
           <h2>You're free:</h2>
@@ -53,7 +61,16 @@ const Schedule = () => {
         </section>
       )
     }
+    
   }
+  
+
+  // when the user selects dates on the calendar, on change we should set state to those dates.
+  // then provide something on the UI for the user to confirm to add those dates
+  // once the dates have been selected, add to UI with an option to remove from the list
+
+  // 1. onChange of calendar run logDates to set state to selected dates
+  // 2. 
 
   return (
     <div className="schedule">
@@ -65,7 +82,7 @@ const Schedule = () => {
         </div>
       </section>
       <div className="calendar-container">
-        <Calendar onChange={logDates} className="calendar" value={date} selectRange={true} defaultView='year' />
+        <Calendar onChange={logDates} className="calendar" value={date} selectRange={true} minDate={new Date()} defaultView='year' />
       </div>
       {displaySelectedDates()}
       <div className="btn-container">
