@@ -1,0 +1,52 @@
+@import '../../sass/variables.scss';
+
+.budget-form, .txt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.txt-container {
+  padding: 5% 0 2% 0;
+  color: $font-color;
+  h1 {
+    font-size: 2.6rem;
+  }
+  p {
+    font-size: 1.5rem;
+    padding: 2% 0;
+  }
+}
+
+.btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.budget-btn {
+  cursor: pointer;
+  background-color: $accent-color-one;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 5%;
+  margin: 0.5rem;
+  border-radius: 5px;
+}
+
+.continue-btn {
+  cursor: pointer;
+  background-color: $accent-color-two;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 10%;
+  margin: 2rem;
+  border-radius: 5px;
+}
+
+.cheeky-msg {
+  font-size: 1.5rem;
+  color: $font-color;
+}
