@@ -1,24 +1,25 @@
 import './SignUp.scss';
 import React, { useState } from 'react';
 import { addUser } from '../../state/userSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
+  const newUser = useSelector((state) => state.users[state.users.length-1])
 
 
   const registerUser = (e) => {
     e.preventDefault();
     if (!username || !email) {
-      
     } else {
       dispatch(addUser({
         id: 5,
         name: username,
         email: email
       }))
+      console.log(newUser)
       setUsername('');
       setEmail('');
     }
