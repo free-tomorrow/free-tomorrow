@@ -8,6 +8,7 @@ const Budget = () => {
 
   const [budget, setBudget] = useState('');
   const dispatch = useDispatch();
+  const state = useSelector((state) => state);
 
   const createBudget = () => {
     dispatch (
