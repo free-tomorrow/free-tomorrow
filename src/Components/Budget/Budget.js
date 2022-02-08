@@ -18,6 +18,23 @@ const Budget = () => {
     // )
   }
 
+  // if budget < 500, text in button should read "set the budget as low as possible? don't worry, we get it."
+  // if budget > 2000, text in button should read "proceed without budgeting? hope your friends are ready to get spendy!"
+
+  const budgetDisplay = () => {
+    let phrase;
+    if (budget < 500 && budget > 1) {
+      phrase = 'Set the budget as low as humanly possible?'
+    } else if (budget > 2000) {
+      phrase = 'Proceed without budgeting?'
+    } else if (budget) {
+      phrase = `Set the budget to $${budget}?`
+    } else {
+      phrase = 'Take your pick.'
+    }
+    return phrase;
+  }
+
   return (
     <div className="budget-form">
       <div className="txt-container">
@@ -33,7 +50,7 @@ const Budget = () => {
         <button onClick={(e) => setBudget(e.target.value)} value={2001}>The sky's the limit!</button>
       </div>
       <Link to="/share">
-        <button onClick={createBudget}>Set the budget at ${budget}?</button>
+        <button onClick={createBudget}>{budgetDisplay()}</button>
       </Link>
     </div>
   )
