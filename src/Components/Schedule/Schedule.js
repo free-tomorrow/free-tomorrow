@@ -86,7 +86,7 @@ const Schedule = () => {
       </div>
       {displaySelectedDates()}
       <div className="btn-container">
-        <Link to="/budget" style={{ width: "100%" }}>
+        <Link to="/budget" className="budget-link" style={{ width: "100%" }}>
           <button className="continue-btn" onClick={addDateRange}>Continue</button>
         </Link>
       </div>
