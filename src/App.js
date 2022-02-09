@@ -9,6 +9,7 @@ import Share from './Components/Share/Share';
 import About from './Components/About/About';
 import Login from './Components/Login/Login';
 import SignUp from './Components/SignUp/SignUp';
+import Dashboard from './Components/Dashboard/Dashboard';
 import './App.scss';
 
 import {addUser, deleteUser} from './state/userSlice';
@@ -52,6 +53,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp/>} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </main>
   )

@@ -2,8 +2,8 @@
 
 .trip-card {
   border: 1px solid $accent-color-one;
-  border-radius: 5px;
-  background-color: #103e4d;
+  border-radius: 10px;
+  background-color: $secondary-color;
   width: 450px;
   height: 250px;
   display: flex;
@@ -19,8 +19,6 @@
   font-size: 1.25rem;
   text-align: center;
   line-height: 1.6;
-  position:relative;
-  bottom: 35%;
 }
 
 .trip-card-img{
