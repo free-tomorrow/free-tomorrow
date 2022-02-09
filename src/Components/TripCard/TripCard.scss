@@ -1,12 +1,33 @@
+@import '../../sass/variables.scss';
+
 .trip-card {
-  border: 1px solid red;
-  width: 100%;
-  height: 100%;
+  border: 1px solid $accent-color-one;
+  border-radius: 5px;
+  background-color: #103e4d;
+  width: 450px;
+  height: 250px;
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items: center;
 }
 
 .trip-card-txt {
   border: 1px solid blue;
+  color: $font-color;
+  font-weight: 400;
   font-size: 1.25rem;
   text-align: center;
+  line-height: 1.6;
+  position:relative;
+  bottom: 35%;
+}
 
+.trip-card-img{
+  height: auto;
+  width: 60%;
+  opacity: .3;
+  // position: relative;
+  // left: 40%;
+  // top: 10%;
 }
