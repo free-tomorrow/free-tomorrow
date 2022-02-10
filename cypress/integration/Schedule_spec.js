@@ -3,7 +3,7 @@ describe('Schedule component tests', () => {
   beforeEach(() => {
 
     cy.visit('http://localhost:3000/')
-    cy.get('button[class="start-btn"]')
+    cy.get('button[class="homepg-signup-btn"]')
     .click()
 
   })

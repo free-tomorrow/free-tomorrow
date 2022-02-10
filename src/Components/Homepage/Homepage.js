@@ -9,12 +9,12 @@ const Homepage = () => {
   const newName = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const addNewPerson = () => {
-    dispatch(
-      addUser({ name: 'Lola' })
-    )
-    console.log(newName)
-  }
+  // const addNewPerson = () => {
+  //   dispatch(
+  //     addUser({ name: 'Lola' })
+  //   )
+  //   console.log(newName)
+  // }
 
 
   return (
@@ -24,10 +24,11 @@ const Homepage = () => {
         <h1>Free Tomorrow?</h1>
         <h2>An app that helps you get your travel plans out of the air and onto the ground.</h2>
       </section>
-      <div className="start-btn-container">
-        <Link to="/schedule" className="start-link" style={{ width: "fit-content" }}>
-          <button className="start-btn" onClick={addNewPerson}>Let's get started</button>
+      <div className="homepg-signup-btn-container">
+        <Link to="/signup" className="homepg-signup-link" style={{ width: "fit-content" }}>
+          <button className="homepg-signup-btn" >Sign up to get started</button>
         </Link>
+          <p>Already a user? Log in  <Link to="/login" className="homepg-login-link">here.</Link></p>
       </div>
       <img src={TravelAliens} className="aliens-img" alt="one eyed aliens" />
       </div>
