@@ -86,7 +86,9 @@
   top: 15%;
   opacity: 0.75;
 }
-
+::selection {
+  color: magenta;
+}
 // The maximum width the page can be to have the below rules is 1000px. At 1000px and below, these rules will apply;
 
 @media screen and(max-width: 1000px) {
