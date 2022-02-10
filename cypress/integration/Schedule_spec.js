@@ -2,9 +2,10 @@ describe('Schedule component tests', () => {
 
   beforeEach(() => {
 
-    cy.visit('http://localhost:3000/')
-    cy.get('button[class="homepg-signup-btn"]')
-    .click()
+    cy.visit('http://localhost:3000/schedule')
+    // cy.get('p[class="homepg-login-link"]')
+    // .click()
+    // cy.type('gregwhoisj@gmail.com')
 
   })
 
@@ -35,7 +36,7 @@ describe('Schedule component tests', () => {
 
   })
 
-  it('should allow the user to select dates on the calendar', () => {
+  it.skip('should allow the user to select dates on the calendar', () => {
 
     cy.get('.react-calendar__year-view__months > :nth-child(8)')
     .click()
