@@ -28,7 +28,7 @@ const Homepage = () => {
         <Link to="/signup" className="homepg-signup-link" style={{ width: "fit-content" }}>
           <button className="homepg-signup-btn" >Sign up to get started</button>
         </Link>
-          <p>Already a user? Log in  <Link to="/login" className="homepg-login-link">here.</Link></p>
+          <p className="homepg-login-link">Already a user? Log in  <Link to="/login" >here</Link></p>
       </div>
       <img src={TravelAliens} className="aliens-img" alt="one eyed aliens" />
       </div>
