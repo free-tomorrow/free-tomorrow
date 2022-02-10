@@ -68,6 +68,11 @@
     box-shadow:7px 7px $secondary-color;
     margin:4.8125%;
   }
+
+  &:invalid{
+    outline:red;
+  }
+
 }
 
 .loginpg-btn {
@@ -87,6 +92,14 @@
   &:active{
     transform:translateY(2px);
     box-shadow: 3px 2px $secondary-color;
+  }
+
+  &:disabled{
+    cursor: not-allowed;
+    background: #867f7d;
+    box-shadow:initial;
+    opacity: .7;
+  
   }
 }
 
