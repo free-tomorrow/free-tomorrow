@@ -23,6 +23,7 @@ const Login = () => {
     setValue('')
   }
 
+const validInput = value.includes('@') && value.includes('.') && value.length > 3 ? true : false
 
 
 
@@ -32,17 +33,18 @@ const Login = () => {
         <h1>Good to see you again!</h1>
         <form className="login-form">
           <h2>Let's get you logged in.</h2>
-            <input
-              className="login-email-input"
-              type="text"
-              placeholder="Enter your email"
-              name="email"
-              maxLength="64"
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-            />
+          <input
+            className="login-email-input"
+            type="email"
+            placeholder="Enter your email"
+            name="email"
+            maxLength="64"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          /> 
           <button
             className="loginpg-btn"
+            disabled={!validInput}
             onClick={(e) => logUserIn(e)}>
             Log In</button>
         </form>
