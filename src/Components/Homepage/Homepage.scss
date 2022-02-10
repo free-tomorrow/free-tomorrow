@@ -41,16 +41,16 @@
 
 ///notes: make child container for homepage.js that holds the welcome text, img, button, etc.
 
-.start-btn-container {
+.homepg-signup-btn-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 80%;
-  align-content: center;
+  align-items: center;
   justify-content: center;
 }
 
 
-.start-btn {
+.homepg-signup-btn {
   cursor: pointer;
   background: $accent-color-two;
   border: 1px solid black;
@@ -70,6 +70,14 @@
   // font-family:'Sulphur Point', sans-serif;
 }
 
+.homepg-login-link {
+  // border: 2px solid red;
+  margin: 2.5% 0;
+  a {
+    text-decoration-style: wavy;
+  }
+}
+
 .aliens-img{
   width: 40vw;
   height: auto;
@@ -78,7 +86,9 @@
   top: 15%;
   opacity: 0.75;
 }
-
+::selection {
+  color: magenta;
+}
 // The maximum width the page can be to have the below rules is 1000px. At 1000px and below, these rules will apply;
 
 @media screen and(max-width: 1000px) {
@@ -100,11 +110,11 @@
     }
   }
 
-  .start-btn-container{
+  .homepg-signup-btn-container{
     margin: 5% 0;
   }
 
-  .start-btn{
+  .homepg-signup-btn{
     font-size: 1.15rem;
     padding: 10px 10px;
   }

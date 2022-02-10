@@ -20,14 +20,14 @@ describe('Homepage', () => {
   })
 
   it('should have a button to start the trip creation process', () => {
-    cy.get('.start-btn')
-    .contains('Let\'s get started')
+    cy.get('.homepg-signup-btn')
+    .contains('Sign up to get started')
   })
 
   it('should link to the schedule page on click of start button', () => {
-    cy.get('.start-btn')
+    cy.get('.homepg-signup-btn')
     .click()
-    cy.url('eq','http://localhost:3000/schedule')
+    cy.url('eq','http://localhost:3000/signup')
     cy.get('welcome-container')
     .should('not.exist')
   })
