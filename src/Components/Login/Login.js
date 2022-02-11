@@ -8,7 +8,6 @@ import { store } from '../../state/store'
 const Login = () => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
-  const state = useSelector((state) => state)
   let userId;
 
 
@@ -21,12 +20,13 @@ const Login = () => {
         email: value
       })
       )
-      setTimeout(() => 
-        store.subscribe = () => {
-        userId = store.getState().users.id
-      }, 500)
     }
   }
+
+  userId = useSelector((state) => {
+    return state.users.id
+  })
+  console.log(userId)
 
 
   const validInput = value.includes('@') && value.includes('.') && value.length > 3 ? true : false

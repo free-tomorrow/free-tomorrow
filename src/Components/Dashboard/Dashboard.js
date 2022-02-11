@@ -10,10 +10,11 @@ const Dashboard = () => {
   const [currentUser, setCurrentUser] = useState('');
 
 
-  // store.subscribe(() => {
-  //   const currentUserId = store.getState().users.id;
-  //   console.log(currentUserId)
-  // })
+  store.subscribe(() => {
+    const currentUserId = store.getState().users.id;
+    console.log(currentUserId)
+  })
+
   const retrieveUser = () => {
     setCurrentUser(state.users)
   }
@@ -22,7 +23,7 @@ const Dashboard = () => {
     retrieveUser()
   }, [])
 
-  console.log(state)
+
   return (
     <div className="dashboard">
       <div className="dashboard-content">
