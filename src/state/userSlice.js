@@ -1,7 +1,14 @@
 import React from 'react';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-
+//[
+//     {
+//         "id": 1,
+//         "name": "Sam",
+//         "email": "samuel.will.devine@gmail.com",
+//         "trip_set": []
+//     }
+// ]
 
 
 
@@ -13,11 +20,12 @@ export const getUserAsync = createAsyncThunk(
             headers: {
                 'Content-Type': 'application/json',
               },
-              body: JSON.stringify({email:payload}),
+              body: JSON.stringify(payload),
             });
         
             if (resp.ok) {
                 const currentUser = await resp.json();
+                console.log('currentUser<><><>',currentUser)
                 return { currentUser };
               } else {
                   console.log(resp.error)
