@@ -10,11 +10,12 @@ const Dashboard = () => {
   const [currentUser, setCurrentUser] = useState('');
 
 
-  store.subscribe(() => {
-    console.log('GETSTATE', store.getState())
-  })
+  // store.subscribe(() => {
+  //   const currentUserId = store.getState().users.id;
+  //   console.log(currentUserId)
+  // })
   const retrieveUser = () => {
-    setCurrentUser(state.users[0])
+    setCurrentUser(state.users)
   }
 
   useEffect(() => {
