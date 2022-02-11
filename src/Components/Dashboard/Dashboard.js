@@ -3,13 +3,18 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import TripCard from '../TripCard/TripCard';
 import { Link } from 'react-router-dom';
+import {store} from '../../state/store';
 
 const Dashboard = () => {
+  const state = useSelector((state) => state);
   const [currentUser, setCurrentUser] = useState('');
-  const state = useSelector((state) => state.users[0]);
 
+
+  store.subscribe(() => {
+    console.log('GETSTATE', store.getState())
+  })
   const retrieveUser = () => {
-    setCurrentUser(state)
+    setCurrentUser(state.users[0])
   }
 
   useEffect(() => {
