@@ -8,7 +8,6 @@ const SignUp = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
-  // const state = useSelector((state) => state)
   let userId;
 
 
@@ -39,7 +38,6 @@ const SignUp = () => {
           <p></p>
         </article>
         <form 
-            // onSubmit={registerUser}
             className="signup-form">
           <p className="name-text">We'll just need your name</p>
           <input

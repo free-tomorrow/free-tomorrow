@@ -1,32 +1,61 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+
+export const createNewTripAsync = createAsyncThunk(
+  'trips/createNewTripAsync',
+  async (payload) => {
+      const resp = await fetch('https://free-tomorrow-be.herokuapp.com/trips/', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              trip_info: {
+                name: payload.name,
+                created_by: payload.email,
+                budget: payload.budget
+              },
+              dates: [
+                // {
+                //   start_date:
+                // }
+              ]
+            }),
+          });
+      
+          if (resp.ok) {
+              const newTrip = await resp.json();
+              return { newTrip };
+            } else {
+                console.log(resp.error)
+                // state.error = resp.status
+              }
+            }            
+);
 
 export const tripSlice = createSlice({
   name: 'trips',
-  initialState: [
-    {
-      id: 1,
-      users: [20],
-      confirmed: false,
-      // toggles true when all users on the trip have confirmed their calendar & budget
-      proposed_budget: 500,
-      // PATCH request when a user changes budget (no request if budget isn't changed), POST when new trip is first made
-      available_dates: [
-        {
-          user_id: 1,
-          start_date: 1643950800000,
-          end_date: 1645246799999
-        }
-      ]
-    }
-  ],
+  initialState: {
+    tempTrip: {
+      dates: [],
+      budget: null
+    },
+    allTrips: [
+    ]
+},
   reducers: {
     addDates: (state, action) => {
-      const newDateRange = {}
-      state.push(newDateRange)
+      const newDates = {
+        startDate: action.payload.startDate,
+        endDate: action.payload.endDate
+      }
+      state.tempTrip.dates.push(newDates) 
+    },
+    addBudget: (state, action) => {
+      state.tempTrip.budget = action.payload;
     }
   }
 })
 
-export const { addDates } = tripSlice.actions
+export const { addDates, addBudget } = tripSlice.actions
 
 export default tripSlice.reducer

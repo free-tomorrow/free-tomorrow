@@ -23,6 +23,7 @@ export const getUserAsync = createAsyncThunk(
                 }
               }            
 );
+
 export const createUserAsync = createAsyncThunk(
     'users/createUserAsync',
     async (payload) => {
