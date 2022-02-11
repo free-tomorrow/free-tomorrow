@@ -3,20 +3,13 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './Login.scss';
 import { getUserAsync } from '../../state/userSlice';
+import { store } from '../../state/store'
 
 const Login = () => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
-  const stateUsers = useSelector((state) => state.users)
-  console.log('before functions>>', stateUsers[0])
+  let userId;
 
-
-  const redirect = () => {
-    // setTimeout(() => {
-    //   console.log('REDIRECT<><>', stateUsers[0])
-    //   window.location.replace(`http://localhost:3000/dashboard`)
-    // }, 2000)
-  }
 
   const logUserIn = (e) => {
     e.preventDefault()
@@ -27,11 +20,13 @@ const Login = () => {
         email: value
       })
       )
-        .then(console.log('LOGIN<><>', stateUsers[0]))
-
-      // redirect()
     }
   }
+
+  userId = useSelector((state) => {
+    return state.users.id
+  })
+  console.log(userId)
 
 
   const validInput = value.includes('@') && value.includes('.') && value.length > 3 ? true : false
@@ -59,7 +54,7 @@ const Login = () => {
             disabled={!validInput}
             onClick={(e) => logUserIn(e)}>
             Log In</button>
-          <Link to="/dashboard"
+          <Link to={`/dashboard/${userId}`}
             style={{ border: "1px solid red" }}>HERE
           </Link>
         </form>

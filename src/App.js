@@ -28,29 +28,17 @@ const App = () => {
     )
   }
 
-  const addUser = () => {
-    console.log(state)
-    dispatch(
-      addUser({ name: 'Dave' })
-    )
+
+  const fetchUsers = () => {
+    fetch('https://free-tomorrow-be.herokuapp.com/users/')
+      .then(resp => console.log(resp.json()))
+      .then(data => data)
   }
 
-  // const fetchUsers = () => {
-  //   fetch('https://free-tomorrow-be.herokuapp.com/users/')
-  //     .then(resp => console.log(resp.json()))
-  //     .then(data => data)
-  // }
+  useEffect(() => {
+    fetchUsers()
+  }, [])
 
-  // useEffect(() => {
-  //   fetchUsers()
-  // }, [])
-
-  // const deleteThing = () => {
-  //   console.log('deleted')
-  //   dispatch(
-  //     deleteUser({name: 'Dave'})
-  //   )
-  // }
 
   return (
     <main className="App">
@@ -63,7 +51,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/:id" element={<Dashboard />} />
       </Routes>
     </main>
   )

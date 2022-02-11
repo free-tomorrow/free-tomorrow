@@ -11,17 +11,19 @@ const Dashboard = () => {
 
 
   store.subscribe(() => {
-    console.log('GETSTATE', store.getState())
+    const currentUserId = store.getState().users.id;
+    console.log(currentUserId)
   })
+
   const retrieveUser = () => {
-    setCurrentUser(state.users[0])
+    setCurrentUser(state.users)
   }
 
   useEffect(() => {
     retrieveUser()
   }, [])
 
-  console.log(state)
+
   return (
     <div className="dashboard">
       <div className="dashboard-content">
