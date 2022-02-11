@@ -1,6 +1,6 @@
 import './SignUp.scss';
 import React, { useState } from 'react';
-import { addUser } from '../../state/userSlice';
+import { createUserAsync } from '../../state/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const SignUp = () => {
@@ -15,8 +15,7 @@ const SignUp = () => {
     if (!username || !email) {
       //need some error handling here
     } else {
-      dispatch(addUser({
-        id: 5,
+      dispatch(createUserAsync({
         name: username,
         email: email
       }))

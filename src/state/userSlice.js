@@ -1,23 +1,85 @@
 import React from 'react';
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
+//[
+//     {
+//         "id": 1,
+//         "name": "Sam",
+//         "email": "samuel.will.devine@gmail.com",
+//         "trip_set": []
+//     }
+// ]
+
+
+
+export const getUserAsync = createAsyncThunk(
+    'users/getUserAsync',
+    async (payload) => {
+        const resp = await fetch('https://free-tomorrow-be.herokuapp.com/sessions/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(payload),
+            });
+        
+            if (resp.ok) {
+                const currentUser = await resp.json();
+                console.log('currentUser<><><>',currentUser)
+                return { currentUser };
+              } else {
+                  console.log(resp.error)
+                  // state.error = resp.status
+                }
+              }            
+);
+export const createUserAsync = createAsyncThunk(
+    'users/createUserAsync',
+    async (payload) => {
+        const resp = await fetch('https://free-tomorrow-be.herokuapp.com/users/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                name: payload.name, 
+                email:payload.email}),
+            });
+        
+            if (resp.ok) {
+                const currentUser = await resp.json();
+                return { currentUser };
+              } else {
+                  console.log(resp.error)
+                  // state.error = resp.status
+                }
+              }            
+);
+
+
+
+
+
+
+
+// export const getUserAsync = createAsyncThunk(
+//   'users/getUserAsync',
+//   async () => {
+//     const resp = await fetch('https://free-tomorrow-be.herokuapp.com/users/');
+//     if (resp.ok) {
+//       const currentUser = await resp.json();
+//       return { currentUser }
+//     }
+//     else {
+//       console.log(resp.status)
+//       state.error = resp.status
+//     }
+//   }
+// )
 
 export const userSlice = createSlice({
   name: 'users',
   initialState: [
-    {
-      id: 20,
-      name: 'Delilah',
-      email: 'drnecrason@comcast.net',
-      trips: [
-        {
-          trip_id: 1,
-          created_by: 'Delilah',
-          is_verified: true
-          // toggles true when user has filled out their calendar & budget for the trip
-        }
-      ]
-    }
   ],
   reducers: {
     addUser: (state, action) => {
@@ -32,33 +94,26 @@ export const userSlice = createSlice({
     deleteUser: (state, action) => {
       const foundUser = state.find(user => user.name === action.payload.name)
       state.splice(state.indexOf(foundUser), 1)
-    },
+    }
+  },
+  extraReducers : {
+    [getUserAsync.fulfilled] : (state,action) => {
+      // console.log('ACTION>>>', action)
+      console.log('PAYLOAD>>>', action.payload)
+      // console.log('STATE>>>', state)
+      // state.push(action.payload.currentUser)
+      return action.payload.currentUser
+    }
   }
 })
 
-export const { addUser, deleteUser } = userSlice.actions
-
+// export const { getUserAsync } = userSlice.actions
 export default userSlice.reducer
 
 
 
 // //TODO add error property to each slice
 // //TODO API call to get current user:
-// export const getUserAsync = createAsyncThunk(
-//   'users/getUserAsync',
-//   async () => {
-//     const resp = await fetch('http://localhost:5000/postsessions/${userid}');
-//     if (resp.ok) {
-//       const currentUser = await resp.json();
-//       return { currentUser }
-//     }
-//     else {
-//       console.log(resp.status)
-//       state.error = resp.status
-//     }
-//   }
-// )
-
 
 // //TODO API call to register new user:
 // export const addTodoAsync = createAsyncThunk(

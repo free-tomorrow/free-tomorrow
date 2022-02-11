@@ -15,11 +15,6 @@ const Schedule = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  store.subscribe(() => {
-    console.log('Store changed!', store.getState())
-    // showing us what's in the store at each change
-  })
-
   const addDateRange = () => {
     if (dateRange) {
       dispatch (
