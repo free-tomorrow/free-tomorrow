@@ -1,29 +1,26 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addUser } from '../../state/userSlice';
+// import { addUser } from '../../state/userSlice';
 import './Login.scss';
-//import {getUserAsync} from '../../state/userSlice;
+import { getUserAsync } from '../../state/userSlice';
 
 const Login = () => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
-  //const currentUser = useSelector((state) => state.currentUser)
+
   const logUserIn = (e) => {
     e.preventDefault()
     if (!value) {
       console.log("Please enter an email")
     } else {
-      dispatch(addUser({
-        //dispatch will be getUserAsync once we have a server to work with
-        id: 3,
-        name: "Bob Loblaw",
+      dispatch(getUserAsync({
         email: value
       }))
     }
     setValue('')
   }
 
-const validInput = value.includes('@') && value.includes('.') && value.length > 3 ? true : false
+  const validInput = value.includes('@') && value.includes('.') && value.length > 3 ? true : false
 
 
 
@@ -41,7 +38,7 @@ const validInput = value.includes('@') && value.includes('.') && value.length > 
             maxLength="64"
             value={value}
             onChange={(e) => setValue(e.target.value)}
-          /> 
+          />
           <button
             className="loginpg-btn"
             disabled={!validInput}
