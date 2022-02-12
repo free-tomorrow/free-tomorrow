@@ -39,8 +39,8 @@ export const tripSlice = createSlice({
       budget: null,
       shareEmails: null
     },
-    allTrips: [
-    ]
+    sharedTrip: {},
+    allTrips: [null]
 },
   reducers: {
     addDates: (state, action) => {

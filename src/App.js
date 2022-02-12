@@ -10,6 +10,7 @@ import About from './Components/About/About';
 import Login from './Components/Login/Login';
 import SignUp from './Components/SignUp/SignUp';
 import Dashboard from './Components/Dashboard/Dashboard';
+import AddToTrip from './Components/AddToTrip/AddToTrip';
 import './App.scss';
 
 import { addUser, deleteUser } from './state/userSlice';
@@ -53,6 +54,7 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard/:id" element={<Dashboard />} />
         <Route path="/:id" element={<Homepage/>}></Route>
+        <Route path="/add" element={<AddToTrip />}></Route>
       </Routes>
     </main>
   )

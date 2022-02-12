@@ -29,6 +29,8 @@ const Dashboard = () => {
       <div className="dashboard-content">
         <h1>Welcome {currentUser.name}</h1>
         <p>Here's an overview of your account</p>
+        <p>You've been invited on a trip! We need a little more info.</p>
+        <Link to="/add"><button>Click here</button></Link>
         <Link to="/schedule">
           <button className="create-trip-btn">Create a new trip</button>
         </Link>
