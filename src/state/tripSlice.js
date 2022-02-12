@@ -58,7 +58,7 @@ export const tripSlice = createSlice({
   }, 
   extraReducers: {
     [createNewTripAsync.fulfilled] : (state, action) => {
-
+      // something needs to go here. bad request
       return action.payload.newTrip;
     }
   }

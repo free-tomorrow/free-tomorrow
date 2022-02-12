@@ -2,25 +2,30 @@ import '../Dashboard/Dashboard.scss';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import TripCard from '../TripCard/TripCard';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {store} from '../../state/store';
 
 const Dashboard = () => {
   const state = useSelector((state) => state);
   const [currentUser, setCurrentUser] = useState('');
+  const location = useLocation().pathname;
+  console.log(location)
 
 
-  store.subscribe(() => {
-    const currentUserId = store.getState().users.id;
-    // console.log(currentUserId)
-  })
+  
+  const currentUserId = state.users.id;
 
   const retrieveUser = () => {
-    setCurrentUser(state.users[0])
+    setCurrentUser(state.users)
   }
+
+  // const retrieveTrip = () => {
+  //   setSharedTrip(state.trips.sharedTrip)
+  // }
 
   useEffect(() => {
     retrieveUser()
+    // retrieveTrip()
   }, [])
 
 

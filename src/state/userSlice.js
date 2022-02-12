@@ -55,19 +55,23 @@ export const userSlice = createSlice({
   initialState: [
   ],
   reducers: {
-    
+    // addUser: (state, action) => {
+
+    // }
   },
   extraReducers : {
     [getUserAsync.fulfilled] : (state,action) => {
       // console.log('ACTION>>>', action)
-      console.log('PAYLOAD>>>', action.payload)
+      console.log('get user action', action)
+
       // console.log('STATE>>>', state)
-      state.push(action.payload.currentUser)
-      // return action.payload.currentUser
+      // state.push(action.payload.currentUser)
+      return action.payload.currentUser
     },
     [createUserAsync.fulfilled] : (state, action) => {
-      state.push(action.payload.currentUser)
-      // return action.payload.currentUser
+      console.log(action, 'create user action')
+      // state.push(action.payload.currentUser)
+      return action.payload.currentUser
     }
   }
 })

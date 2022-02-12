@@ -23,7 +23,7 @@ const Share = () => {
     dispatch (
       createNewTripAsync({
         name: state.trips.tempTrip.tripName,
-        email: state.users[0].email,
+        email: state.users.email,
         budget: state.trips.tempTrip.budget,
         dates: state.trips.tempTrip.dates
       })
