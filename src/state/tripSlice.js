@@ -8,26 +8,26 @@ export const createNewTripAsync = createAsyncThunk(
           headers: {
               'Content-Type': 'application/json',
             },
-            body: {
-              "trip_info": {
-                 "name": "My trip",
-                "created_by": "drnecrason@comcast.net",
-                "budget": 1500
+            body: JSON.stringify({
+              trip_info: {
+                name: payload.name,
+                created_by: payload.email,
+                budget: payload.budget
               },
-              "dates": [{"start_date": 1644555600000, "end_date": 1644555600000}]
-              // })
-            },
-          });
+              // dates: payload.dates
+              })
+            })
+          // });
       
           if (resp.ok) {
               const newTrip = await resp.json();
               console.log(newTrip)
               return { newTrip };
             } else {
-                console.log(resp.error)
+                console.log(resp.errors)
                 // state.error = resp.status
               }
-            }            
+            }        
 );
 
 export const tripSlice = createSlice({
@@ -55,14 +55,13 @@ export const tripSlice = createSlice({
     },
     addEmails: (state, action) => {
       state.tempTrip.shareEmails = action.payload;
+      console.log(action.payload)
     }
   }, 
   extraReducers: {
     [createNewTripAsync.fulfilled] : (state, action) => {
-      console.log(state, 'state')
-      console.log(action, 'action')
-      console.log(action.payload, 'action.payload')
-      // return action.payload.newTrip;
+      console.log(action.payload, 'payload')
+      return action.payload;
     }
   }
 })

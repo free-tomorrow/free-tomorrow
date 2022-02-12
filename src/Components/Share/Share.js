@@ -25,12 +25,10 @@ const Share = () => {
     e.preventDefault()
     dispatch (
       createNewTripAsync({
-        tripInfo: {
-          name: tripName, 
-          email: user.email,
-          budget: trip.budget
-        },
-      dates: datesInStore}),
+        name: tripName, 
+        email: user.email,
+        budget: trip.budget,
+        }),
       addEmails(
         shareEmails
       )
