@@ -55,29 +55,22 @@ export const userSlice = createSlice({
   initialState: [
   ],
   reducers: {
-    addUser: (state, action) => {
-      const newPerson = {
-        id: action.payload.id,
-        name: action.payload.name,
-        email: action.payload.email,
-        trips: []
-      }
-      state.push(newPerson)
-    },
-    deleteUser: (state, action) => {
-      const foundUser = state.find(user => user.name === action.payload.name)
-      state.splice(state.indexOf(foundUser), 1)
-    }
+    // addUser: (state, action) => {
+
+    // }
   },
   extraReducers : {
     [getUserAsync.fulfilled] : (state,action) => {
       // console.log('ACTION>>>', action)
-      console.log('PAYLOAD>>>', action.payload)
+      console.log('get user action', action)
+
       // console.log('STATE>>>', state)
       // state.push(action.payload.currentUser)
       return action.payload.currentUser
     },
     [createUserAsync.fulfilled] : (state, action) => {
+      console.log(action, 'create user action')
+      // state.push(action.payload.currentUser)
       return action.payload.currentUser
     }
   }

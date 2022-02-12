@@ -8,6 +8,7 @@ import { store } from '../../state/store'
 const Login = () => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
+  const state = useSelector((state) => state)
   let userId;
 
 
@@ -20,14 +21,10 @@ const Login = () => {
         email: value
       })
       )
+      userId = state.users.id
+      window.location.replace(`/dashboard/${userId}`)
     }
   }
-
-  userId = useSelector((state) => {
-    return state.users.id
-  })
-  console.log(userId)
-
 
   const validInput = value.includes('@') && value.includes('.') && value.length > 3 ? true : false
 
@@ -54,9 +51,9 @@ const Login = () => {
             disabled={!validInput}
             onClick={(e) => logUserIn(e)}>
             Log In</button>
-          <Link to={`/dashboard/${userId}`}
+          {/* <Link to={`/dashboard/${userId}`}
             style={{ border: "1px solid red" }}>HERE
-          </Link>
+          </Link> */}
         </form>
       </div>
     </div >
