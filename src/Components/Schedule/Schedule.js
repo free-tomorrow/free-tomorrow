@@ -3,7 +3,7 @@ import './Schedule.scss';
 import { Calendar } from 'react-calendar';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addDates } from '../../state/tempTripSlice.js';
+import { addDates } from '../../state/tripSlice.js';
 import 'react-calendar/dist/Calendar.css';
 import { store } from '../../state/store.js';
 
@@ -22,6 +22,8 @@ const Schedule = () => {
       )
     }
   }
+
+  console.log(state)
 
   const logDates = (date) => {
     setDate([date[0], date[1]])

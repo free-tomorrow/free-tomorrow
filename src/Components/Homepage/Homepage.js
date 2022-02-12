@@ -3,18 +3,28 @@ import TravelAliens from '../../assets/travel_aliens.png'
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { addUser } from '../../state/userSlice';
+import React, {useEffect} from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Homepage = () => {
 
   const newName = useSelector((state) => state);
   const dispatch = useDispatch();
+  const url = useLocation().pathname;
+  console.log(url)
 
-  // const addNewPerson = () => {
-  //   dispatch(
-  //     addUser({ name: 'Lola' })
-  //   )
-  //   console.log(newName)
-  // }
+  // useEffect(() => {
+  //   if(url !== '/') {
+  //     const id = url.split(':')[1]
+  //     dispatch (
+        // grab this url and put it in state somewhere
+
+  //     )
+  //   }
+  // }, [])
+
+//  useEffect on load to check if there is an id in the current URL
+// if there is an id at the end of the path, grab it and put it in state with a dispatch to store
 
 
   return (

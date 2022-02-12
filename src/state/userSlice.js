@@ -1,16 +1,6 @@
 import React from 'react';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-//[
-//     {
-//         "id": 1,
-//         "name": "Sam",
-//         "email": "samuel.will.devine@gmail.com",
-//         "trip_set": []
-//     }
-// ]
-
-
 
 export const getUserAsync = createAsyncThunk(
     'users/getUserAsync',
@@ -33,6 +23,7 @@ export const getUserAsync = createAsyncThunk(
                 }
               }            
 );
+
 export const createUserAsync = createAsyncThunk(
     'users/createUserAsync',
     async (payload) => {
@@ -43,7 +34,8 @@ export const createUserAsync = createAsyncThunk(
               },
               body: JSON.stringify({
                 name: payload.name, 
-                email:payload.email}),
+                email: payload.email
+              }),
             });
         
             if (resp.ok) {
@@ -57,25 +49,6 @@ export const createUserAsync = createAsyncThunk(
 );
 
 
-
-
-
-
-
-// export const getUserAsync = createAsyncThunk(
-//   'users/getUserAsync',
-//   async () => {
-//     const resp = await fetch('https://free-tomorrow-be.herokuapp.com/users/');
-//     if (resp.ok) {
-//       const currentUser = await resp.json();
-//       return { currentUser }
-//     }
-//     else {
-//       console.log(resp.status)
-//       state.error = resp.status
-//     }
-//   }
-// )
 
 export const userSlice = createSlice({
   name: 'users',
@@ -102,6 +75,9 @@ export const userSlice = createSlice({
       console.log('PAYLOAD>>>', action.payload)
       // console.log('STATE>>>', state)
       // state.push(action.payload.currentUser)
+      return action.payload.currentUser
+    },
+    [createUserAsync.fulfilled] : (state, action) => {
       return action.payload.currentUser
     }
   }

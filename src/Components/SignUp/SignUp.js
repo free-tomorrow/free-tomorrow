@@ -2,15 +2,17 @@ import './SignUp.scss';
 import React, { useState } from 'react';
 import { createUserAsync } from '../../state/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
-  const newUser = useSelector((state) => state.users[state.users.length-1])
+  let userId;
 
 
   const registerUser = (e) => {
+    console.log(username, email)
     e.preventDefault();
     if (!username || !email) {
       //need some error handling here
@@ -19,11 +21,14 @@ const SignUp = () => {
         name: username,
         email: email
       }))
-      console.log(newUser)
-      setUsername('');
-      setEmail('');
     }
   }
+
+  userId = useSelector((state) => {
+    console.log(state)
+    return state.users.id
+  })
+  console.log(userId)
 
   return (
     <div className="signup">
@@ -33,7 +38,6 @@ const SignUp = () => {
           <p></p>
         </article>
         <form 
-            onSubmit={registerUser}
             className="signup-form">
           <p className="name-text">We'll just need your name</p>
           <input
@@ -57,9 +61,10 @@ const SignUp = () => {
           />
 
           <button
-            className="signup-pg-btn">Sign Up</button>
+            className="signup-pg-btn" onClick={(e) => registerUser(e)}>Sign Up</button>
           {/* if including a signup button in the header, it needs to have a different className. 
           "header- signup-btn" */}
+          <Link to={`/dashboard/${userId}`}>CLICK ME</Link>
         </form>
       </div>
     </div>

@@ -2,7 +2,7 @@ import './Budget.scss';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addBudget } from '../../state/tempTripSlice.js';
+import { addBudget } from '../../state/tripSlice.js';
 
 const Budget = () => {
 
