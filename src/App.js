@@ -30,15 +30,15 @@ const App = () => {
   }
 
 
-  const fetchUsers = () => {
-    fetch('https://free-tomorrow-be.herokuapp.com/users/')
-      .then(resp => console.log(resp.json()))
-      .then(data => data)
-  }
+  // const fetchUsers = () => {
+  //   fetch('https://free-tomorrow-be.herokuapp.com/users/')
+  //     .then(resp => console.log(resp.json()))
+  //     .then(data => data)
+  // }
 
-  useEffect(() => {
-    fetchUsers()
-  }, [])
+  // useEffect(() => {
+  //   fetchUsers()
+  // }, [])
 
 
   return (

@@ -24,7 +24,7 @@ const Login = () => {
   }
 
   userId = useSelector((state) => {
-    return state.users.id
+    return state.users[0].id
   })
   console.log(userId)
 

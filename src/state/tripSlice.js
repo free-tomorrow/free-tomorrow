@@ -10,21 +10,21 @@ export const createNewTripAsync = createAsyncThunk(
             },
             body: JSON.stringify({
               trip_info: {
-                name: payload.tripInfo.name,
-                created_by: payload.tripInfo.email,
-                budget: payload.tripInfo.budget
+                name: payload.name,
+                created_by: payload.email,
+                budget: payload.budget
               },
-              // dates: payload.dates
+              dates: payload.dates
               })
             })
           // });
       
           if (resp.ok) {
               const newTrip = await resp.json();
-              console.log(newTrip)
+              // console.log(newTrip)
               return { newTrip };
             } else {
-                console.log(resp.errors)
+                // console.log(resp.errors)
                 // state.error = resp.status
               }
             }        
@@ -36,8 +36,7 @@ export const tripSlice = createSlice({
     tempTrip: {
       tripName: null,
       dates: [],
-      budget: null,
-      shareEmails: null
+      budget: null
     },
     sharedTrip: {},
     allTrips: [null]
@@ -55,12 +54,11 @@ export const tripSlice = createSlice({
     },
     addEmails: (state, action) => {
       state.tempTrip.shareEmails = action.payload;
-      console.log(action.payload)
     }
   }, 
   extraReducers: {
     [createNewTripAsync.fulfilled] : (state, action) => {
-      console.log(action.payload, 'payload')
+
       return action.payload.newTrip;
     }
   }

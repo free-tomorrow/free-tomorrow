@@ -1,13 +1,108 @@
-.share-pg{
+@import '../../sass/variables.scss';
+.share-pg {
   height: 80vh;
   border: 1px solid white;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
 // .share-card-wrapper{
 //   height: 400px;
 //   width: 350px;
 //   border: 2px solid orange;
 // }
+.share-form {
+  border: 2px solid red;
+  height: 50%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3%;
+  input{
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    font-size: .995em;
+    font-weight: 200;
+    margin-bottom: 1.5%;
+    padding: 5px 10px;
+    font-family: $font;
+    color: $secondary-color;
+    box-shadow: 5px 5px $secondary-color;
+    transition: all 450ms ease;
+    outline: none;
+    &:placeholder-shown {
+      font-family: ‘Poppins’, sans-serif;
+      font-weight: 200;
+    }
+  }
+}
+.share-name-input {
+  width: 30%;
+  }
+.share-email-input {
+  width: 35%;
+}
+.share-btn{
+  cursor: pointer;
+  background: $accent-color-two;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 200;
+  width: 25%;
+  padding: 6px 0px;
+  font-family: $font;
+  font-weight: 200;
+  box-shadow: 2px 2px $secondary-color;
+  margin-bottom: .5%;
+  &:disabled{
+    cursor: not-allowed;
+    background: #867F7D;
+    box-shadow:initial;
+    opacity: .75;
+  }
+}
+.add-friends-btn{
+}
+.create-trip-btn{
+}
+.share-trip-btn{
+}
+@media screen and (max-width: 1000px) {
+  .share-form {
+    justify-content: flex-start;
+    h2 {
+      font-size: 1.15em;
+    }
+  }
+  .share-name-input{
+    font-size: .65em;
+    &::placeholder{
+      color:transparent;
+    }
+    &:focus{
+      font-size: .65em;
+      width: 25vw;
+    }
+  }
+  .share-email-input {
+    font-size: .75em;
+    &::placeholder{
+      color:transparent;
+    }
+    &:focus{
+      font-size: .75em;
+      width: 35vw;
+    }
+  }
+  .share-trip-btn, .create-trip-btn, .add-friends-btn {
+    font-size: .85rem;
+    width: 20vw;
+    padding: .45rem;
+  }
+}
