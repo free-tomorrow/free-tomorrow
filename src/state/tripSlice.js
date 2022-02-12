@@ -8,22 +8,20 @@ export const createNewTripAsync = createAsyncThunk(
           headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-              trip_info: {
-                name: payload.name,
-                created_by: payload.email,
-                budget: payload.budget
+            body: {
+              "trip_info": {
+                 "name": "My trip",
+                "created_by": "drnecrason@comcast.net",
+                "budget": 1500
               },
-              dates: [
-                // {
-                //   start_date:
-                // }
-              ]
-            }),
+              "dates": [{"start_date": 1644555600000, "end_date": 1644555600000}]
+              // })
+            },
           });
       
           if (resp.ok) {
               const newTrip = await resp.json();
+              console.log(newTrip)
               return { newTrip };
             } else {
                 console.log(resp.error)
@@ -36,8 +34,10 @@ export const tripSlice = createSlice({
   name: 'trips',
   initialState: {
     tempTrip: {
+      tripName: null,
       dates: [],
-      budget: null
+      budget: null,
+      shareEmails: null
     },
     allTrips: [
     ]
@@ -45,17 +45,28 @@ export const tripSlice = createSlice({
   reducers: {
     addDates: (state, action) => {
       const newDates = {
-        startDate: action.payload.startDate,
-        endDate: action.payload.endDate
+        start_date: action.payload.startDate,
+        end_date: action.payload.endDate
       }
       state.tempTrip.dates.push(newDates) 
     },
     addBudget: (state, action) => {
       state.tempTrip.budget = action.payload;
+    },
+    addEmails: (state, action) => {
+      state.tempTrip.shareEmails = action.payload;
+    }
+  }, 
+  extraReducers: {
+    [createNewTripAsync.fulfilled] : (state, action) => {
+      console.log(state, 'state')
+      console.log(action, 'action')
+      console.log(action.payload, 'action.payload')
+      // return action.payload.newTrip;
     }
   }
 })
 
-export const { addDates, addBudget } = tripSlice.actions
+export const { addDates, addBudget, addEmails } = tripSlice.actions
 
 export default tripSlice.reducer
