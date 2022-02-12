@@ -10,9 +10,9 @@ export const createNewTripAsync = createAsyncThunk(
             },
             body: JSON.stringify({
               trip_info: {
-                name: payload.name,
-                created_by: payload.email,
-                budget: payload.budget
+                name: payload.tripInfo.name,
+                created_by: payload.tripInfo.email,
+                budget: payload.tripInfo.budget
               },
               // dates: payload.dates
               })
@@ -61,7 +61,7 @@ export const tripSlice = createSlice({
   extraReducers: {
     [createNewTripAsync.fulfilled] : (state, action) => {
       console.log(action.payload, 'payload')
-      return action.payload;
+      return action.payload.newTrip;
     }
   }
 })

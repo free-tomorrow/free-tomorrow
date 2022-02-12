@@ -25,13 +25,15 @@ const Share = () => {
     e.preventDefault()
     dispatch (
       createNewTripAsync({
-        name: tripName, 
-        email: user.email,
-        budget: trip.budget,
-        }),
-      addEmails(
-        shareEmails
-      )
+        tripInfo: {
+          name: tripName, 
+          email: user.email,
+          budget: trip.budget
+        },
+      dates: datesInStore})
+      // removed emails. this is unnecessary. we can just provide the user with a share link to text/email their friends themselves. when link is clicked, it will direct the friend to the site, and it will be grabbed in dashboard and stored in state. 
+
+      // when the user logs in/signs in, this id will be passed into their dashboard, where they will be asked to complete the trip.
     )
   }
 
