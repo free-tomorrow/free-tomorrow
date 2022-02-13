@@ -11,26 +11,30 @@ const Login = () => {
   const state = useSelector((state) => state)
   let userId;
 
+ 
+
 
   const logUserIn = (e) => {
     e.preventDefault()
     if (!value) {
       console.log("Please enter an email")
     } else {
-      dispatch(getUserAsync({
+     dispatch(getUserAsync({
         email: value
       })
       )
-      const retrievedUser = localStorage.getItem('savedUser')
-      const parsedUser = JSON.parse(retrievedUser)
-      userId = parsedUser.id
+      // const retrievedUser = localStorage.getItem('savedUser')
+      // const parsedUser = JSON.parse(retrievedUser)
+      // userId = parsedUser.id
       window.location.replace(`/dashboard/${userId}`)
     }
   }
 
   const validInput = value.includes('@') && value.includes('.') && value.length > 3 ? true : false
 
-
+  const retrievedUser = localStorage.getItem('savedUser')
+  const parsedUser = JSON.parse(retrievedUser)
+  userId = parsedUser.id
 
   return (
     <div className="login">

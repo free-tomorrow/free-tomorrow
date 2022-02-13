@@ -15,9 +15,9 @@ export const getUserAsync = createAsyncThunk(
         
             if (resp.ok) {
                 const currentUser = await resp.json();
-                const savedUser = JSON.stringify(currentUser)
-                localStorage.setItem('savedUser', savedUser)
-                console.log(savedUser, 'savedUser')
+                // const savedUser = JSON.stringify(currentUser)
+                // localStorage.setItem('savedUser', savedUser)
+                // console.log(savedUser, 'savedUser')
                 return { currentUser };
               } else {
                   console.log(resp.error)
@@ -59,15 +59,17 @@ export const userSlice = createSlice({
   reducers: {
     addUserToStore: (state, action) => {
       return action.payload
+    },
+    removeUserFromStore: (state, action) => {
+      console.log(state.users)
+      // state.users.pop()
     }
   },
   extraReducers : {
     [getUserAsync.fulfilled] : (state,action) => {
-      // console.log('ACTION>>>', action)
-      console.log('get user action', action)
-
-      // console.log('STATE>>>', state)
-      // state.push(action.payload.currentUser)
+      const savedUser = JSON.stringify(action.payload.currentUser)
+      localStorage.setItem('savedUser', savedUser)
+      console.log(savedUser, 'savedUser')
       return action.payload.currentUser
     },
     [createUserAsync.fulfilled] : (state, action) => {
@@ -78,7 +80,7 @@ export const userSlice = createSlice({
   }
 })
 
-export const { addUserToStore } = userSlice.actions
+export const { addUserToStore, removeUserFromStore } = userSlice.actions
 export default userSlice.reducer
 
 
