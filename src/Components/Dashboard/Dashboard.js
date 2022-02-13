@@ -11,13 +11,13 @@ const Dashboard = () => {
   const state = useSelector((state) => state);
   const [currentUser, setCurrentUser] = useState('');
   const [currentTrips, setCurrentTrips] = useState([]);
+  const [tripCards, setTripCards] = useState('');
   const dispatch = useDispatch();
   const location = useLocation().pathname;
   console.log(location, 'pathname');
   const retrievedUser = localStorage.getItem('savedUser');
   const parsedUser = JSON.parse(retrievedUser);
-  let tripCards;
-
+  // let tripCards;
   const sendUserToStore = () => {
     dispatch(
       addUserToStore(parsedUser)
@@ -34,61 +34,47 @@ const Dashboard = () => {
       })
   }
 
-
   useEffect(() => {
     sendUserToStore()
     getAllTrips()
   }, [])
-
-  // let cardsArray = [];
+  
   const createTripCards = () => {
-    // const currentUserCards = currentTrips ? currentTrips.filter((trip) => {
-    //   trip.users.filter((user) => {
-    //     console.log('USERR',user)
-    //     return user.id === currentUser.id
-    //   })
-    // })
-    //   : console.log('thing')
-    //   console.log(currentUserCards, "CURRENTUSERCARDS")
-    // return currentUserCards
     const currentUserCards = currentTrips ? currentTrips.reduce((arr, trip) => {
       trip.users.forEach((user) => {
-        if(user.id === currentUser.id){
+        console.log(user, "USER")
+        if (user.id === currentUser.id) {
           arr.push(trip)
         }
       })
       return arr
     }, [])
-    :console.log('Ass')
+    : console.log('Ass')
     console.log(currentUserCards, "CurrentUserCards<><><>")
-    return currentUserCards
-  }
-
-
-  //iterate through the trips array
-  //Check the .users array
-  //if the user.id of the trip matches the currentUser's id, map THOSE TRIP CARDS DUDE HELL YEAH FUCKIN RIGHT
-
-  useEffect(() => {
-
-    createTripCards()
-
-    tripCards = currentUser ? currentUser['trip_set'].map((trip) => {
+    
+    
+    setTripCards(currentUserCards.map((card) => {
       return (
         <TripCard
-          key={Math.floor(Math.random() * .5)}
-          budget={trip.budget}
-          confirmed={trip.confirmed}
-          createdBy={trip.created_by}
-          tripName={trip.name}
+        key={card.id}
+        id={card.id}
+        budget={card.budget}
+        createdBy={card.created_by}
+        tripName={card.name}
+        users={card.users}
         />
+        )
+      })
       )
-    }) : 'loading'
-    return tripCards
-  }, [currentUser])
-
-  console.log(currentUser['trip_set'], "CURRENT USER DASHBOARD")
-
+    }
+    
+    useEffect(() => {
+      createTripCards()
+    }, [currentUser])
+    //change useEffect to update on something else?
+    
+    console.log(currentUser['trip_set'], "CURRENT USER DASHBOARD")
+    console.log(currentTrips, "CURRENTTTTTT")
 
 
 

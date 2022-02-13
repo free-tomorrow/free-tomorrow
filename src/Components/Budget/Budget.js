@@ -10,6 +10,7 @@ const Budget = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
 
+
   const createBudget = () => {
     dispatch (
       addBudget(parseInt(budget))
@@ -69,3 +70,4 @@ const Budget = () => {
 
 
 export default Budget;
+

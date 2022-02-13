@@ -52,7 +52,7 @@ export const tripSlice = createSlice({
       budget: null
     },
     sharedTrip: {},
-    allTrips: null
+    allTrips: []
   },
   reducers: {
     addDates: (state, action) => {
@@ -75,7 +75,6 @@ export const tripSlice = createSlice({
       return action.payload.newTrip;
     },
     [getAllTripsAsync.fulfilled]: (state, action) => {
-      console.log('ALLTRIPSASYNC', action.payload.allTrips)
       state.allTrips = action.payload.allTrips;
       console.log(state.allTrips)
     }

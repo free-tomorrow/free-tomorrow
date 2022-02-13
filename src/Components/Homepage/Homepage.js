@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { addUser } from '../../state/userSlice';
 import React, {useEffect} from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation,  Navigate } from 'react-router-dom';
 
 const Homepage = () => {
 
@@ -12,6 +12,7 @@ const Homepage = () => {
   const dispatch = useDispatch();
   const url = useLocation().pathname;
   console.log(url)
+
 
   // useEffect(() => {
   //   if(url !== '/') {
