@@ -21,7 +21,9 @@ const Login = () => {
         email: value
       })
       )
-      userId = state.users.id
+      const retrievedUser = localStorage.getItem('savedUser')
+      const parsedUser = JSON.parse(retrievedUser)
+      userId = parsedUser.id
       window.location.replace(`/dashboard/${userId}`)
     }
   }
