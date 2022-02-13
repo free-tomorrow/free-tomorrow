@@ -4,29 +4,28 @@ import { useSelector, useDispatch } from 'react-redux';
 import TripCard from '../TripCard/TripCard';
 import { Link, useLocation } from 'react-router-dom';
 import {store} from '../../state/store';
+import { addUserToStore } from '../../state/userSlice';
 
 const Dashboard = () => {
   const state = useSelector((state) => state);
   const [currentUser, setCurrentUser] = useState('');
+  const dispatch = useDispatch()
   const location = useLocation().pathname;
-  console.log(location)
+  console.log(location, 'pathname')
+  const retrievedUser = localStorage.getItem('savedUser')
+  const parsedUser = JSON.parse(retrievedUser)
 
-
-  
-  const currentUserId = state.users.id;
-
-  const retrieveUser = () => {
-    setCurrentUser(state.users)
+  const sendUserToStore = () => {
+    dispatch (
+      addUserToStore(parsedUser)
+    )
+    setCurrentUser(parsedUser)
   }
 
-  // const retrieveTrip = () => {
-  //   setSharedTrip(state.trips.sharedTrip)
-  // }
-
   useEffect(() => {
-    retrieveUser()
-    // retrieveTrip()
+    sendUserToStore()
   }, [])
+
 
 
   return (
@@ -46,7 +45,6 @@ const Dashboard = () => {
       </div>
     </div>
   )
-
 }
 
 export default Dashboard
