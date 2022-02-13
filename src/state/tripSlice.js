@@ -52,7 +52,8 @@ export const tripSlice = createSlice({
       budget: null
     },
     sharedTrip: {},
-    allTrips: []
+    allTrips: null,
+    respTripId: []
   },
   reducers: {
     addDates: (state, action) => {
@@ -72,11 +73,18 @@ export const tripSlice = createSlice({
   extraReducers: {
     [createNewTripAsync.fulfilled]: (state, action) => {
       // something needs to go here. bad request
-      return action.payload.newTrip;
+      const savedTrip = JSON.stringify(action.payload.newTrip)
+      localStorage.setItem('savedTrip', savedTrip)
+      // state.respTripId.push(action.payload.newTrip.id)
+      state.allTrips = action.payload.newTrip
+    },
+    [getAllTripsAsync.pending] : (state,action) => {
+      console.log("PENDING")
     },
     [getAllTripsAsync.fulfilled]: (state, action) => {
       state.allTrips = action.payload.allTrips;
       console.log(state.allTrips)
+      console.log("FULFILLED")
     }
   },
 

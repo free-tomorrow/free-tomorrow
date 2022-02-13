@@ -11,6 +11,7 @@
 //   width: 350px;
 //   border: 2px solid orange;
 // }
+
 .share-form {
   border: 2px solid red;
   height: 50%;
@@ -43,9 +44,7 @@
 .share-name-input {
   width: 30%;
   }
-.share-email-input {
-  width: 35%;
-}
+
 .share-btn{
   cursor: pointer;
   background: $accent-color-two;
@@ -67,12 +66,12 @@
     opacity: .75;
   }
 }
-.add-friends-btn{
-}
+
 .create-trip-btn{
 }
 .share-trip-btn{
 }
+
 @media screen and (max-width: 1000px) {
   .share-form {
     justify-content: flex-start;
@@ -80,27 +79,19 @@
       font-size: 1.15em;
     }
   }
+
   .share-name-input{
-    font-size: .65em;
+    font-size: .45em;
     &::placeholder{
       color:transparent;
     }
     &:focus{
-      font-size: .65em;
+      font-size: .55em;
       width: 25vw;
     }
+
   }
-  .share-email-input {
-    font-size: .75em;
-    &::placeholder{
-      color:transparent;
-    }
-    &:focus{
-      font-size: .75em;
-      width: 35vw;
-    }
-  }
-  .share-trip-btn, .create-trip-btn, .add-friends-btn {
+  .share-trip-btn, .create-trip-btn {
     font-size: .85rem;
     width: 20vw;
     padding: .45rem;
