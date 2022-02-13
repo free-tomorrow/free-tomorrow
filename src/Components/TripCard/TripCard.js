@@ -4,15 +4,17 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 
-const TripCard = () => {
+const TripCard = ({ budget, createdBy, tripName, users }) => {
+  console.log(budget, "BUDGET TRIP CARD")
   return (
     (
       <article className="trip-card">
         {/* <img className="trip-card-img" src={Earth}/> */}
         <div className="trip-card-txt">
-          <p>Going with: Delilah, Sam, Greg</p>
-          <p>Dates: Feb 20th to Feb 25th</p>
-          <p>Budget: $500</p>
+          <p>Budget: {budget}</p>
+          <p>createdBy={createdBy}</p>
+          <p>tripname={tripName}</p>
+          <p>users={users}</p>
         </div>
       </article>
     )

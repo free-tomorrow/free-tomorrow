@@ -1,0 +1,67 @@
+@import '../../sass/variables';
+
+.error-page {
+  border: 1px solid red;
+  height: 80vh;
+
+  a{
+    width: fit-content;
+  }
+}
+
+.error-content {
+  border: 1px solid blue;
+  height: 80%;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  line-height: 1.6;
+
+  a {
+    color: $accent-color-two;
+  }
+}
+
+.error-text {
+  margin:1%;
+  text-align: center;
+  font-size: 1.5em;
+  h1{
+    font-size: 1.75em;
+  }
+}
+
+.error-btn {
+  cursor: pointer;
+  background: $accent-color-two;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.225rem;
+  font-weight: 200;
+  padding: 15px 20px;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  z-index: 100;
+  transition: all 300ms ease;
+
+  &:hover {
+    transform: scale(1.025);
+  }
+}
+
+
+
+@media screen and (max-width: 1000px){
+  .error-text{
+    h1{
+      font-size: 1.15em;
+    }
+    font-size: .95em;
+  }
+
+  .error-btn{
+    font-size: .8rem;
+    padding: 8px 10px;
+  }
+}
