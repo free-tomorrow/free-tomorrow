@@ -72,6 +72,8 @@ export const tripSlice = createSlice({
   extraReducers: {
     [createNewTripAsync.fulfilled]: (state, action) => {
       // something needs to go here. bad request
+      console.log(action,'ACTION')
+      console.log(action.payload, 'PAYLOAD')
       return action.payload.newTrip;
     },
     [getAllTripsAsync.pending] : (state,action) => {

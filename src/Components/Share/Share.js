@@ -10,19 +10,12 @@ const Share = () => {
   const state = useSelector((state) => state)
   const dispatch = useDispatch()
 
-  // const addEmailInput = (e) => {
-  //   e.preventDefault()
-  //   // const newInput =
-  //   return (
-  //     <input type="email" name="share-email" placeholder="Your friend's email"/>
-  //   )
-  // }
 
   const createTrip = (e) => {
     e.preventDefault()
     dispatch (
       createNewTripAsync({
-        name: state.trips.tempTrip.tripName,
+        name: tripName,
         email: state.users.email,
         budget: state.trips.tempTrip.budget,
         dates: state.trips.tempTrip.dates
@@ -30,18 +23,7 @@ const Share = () => {
     )
   }
 
-  // const shareNewTrip = (e) => {
-  //   e.preventDefault()
-  //   dispatch (
-     
-  //   )
-  //   // call async here
-
-  // }
-  // console.log(tripName)
-  // console.log(datesInStore)
-  // const shareLink = new URL(`http://localhost:3000/trips/${}`)
-
+  
   return (
     <div className="share-pg">
       <div className="share-card-wrapper">
@@ -56,31 +38,6 @@ const Share = () => {
           maxLength="64"
           autoComplete="off"
           onChange={(e) => setTripName(e.target.value)} />
-        {/* <input
-          className="share-email-input"
-          type="email"
-          name="share-email"
-          placeholder="Your friend's email"
-          minLength="4"
-          maxLength="64"
-          autoComplete="off"
-          onBlur={(e) => setShareEmails([...shareEmails, e.target.value])}
-        />
-        <input
-          className="share-email-input"
-          type="email"
-          name="share-email"
-          placeholder="Your friend's email"
-          minLength="4"
-          maxLength="64"
-          autoComplete="off"
-          onBlur={(e) => setShareEmails([...shareEmails, e.target.value])}
-        /> */}
-
-        {/* <button
-          className="add-friends-btn share-btn"
-          onClick={(e) => addEmailInput(e)}
-        >Add more friends</button> */}
         <button
           className="create-trip-btn share-btn"
           onClick={(e) => createTrip(e)}
@@ -88,7 +45,7 @@ const Share = () => {
         <button
           // disabled={isDisabled}
           className="share-trip-btn share-btn"
-        >Share</button>
+        >Get a link for this trip</button>
       </form>
     </div>
   )

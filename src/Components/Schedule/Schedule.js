@@ -38,10 +38,10 @@ const Schedule = () => {
   // add text to show selected dates on UI
 
   const displaySelectedDates = () => {
-
-    const allDates = state.tempTrip.dates.map(range => {
-      const start = new Date(range.startDate)
-      const end = new Date(range.endDate)
+    const allDates = state.trips.tempTrip.dates.map(range => {
+      console.log(range)
+      const start = new Date(range.start_date)
+      const end = new Date(range.end_date)
       // const [month, day, year] = [start.getMonth(), start.getDate(), start.getFullYear()]
 
 
@@ -50,7 +50,7 @@ const Schedule = () => {
       )
     })
 
-    if(state.tempTrip.dates.length) {
+    if(state.trips.tempTrip.dates.length) {
       return (
         <section className="dates-list">
           <h2>You're free:</h2>
