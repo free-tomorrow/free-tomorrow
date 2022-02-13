@@ -1,5 +1,5 @@
 import './Header.scss'
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../../assets/co_logo.svg';
 import { removeUserFromStore } from '../../state/userSlice';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,16 +11,14 @@ const Header = () => {
 
   const signOut = (e) => {
     e.preventDefault()
-    dispatch (
-      removeUserFromStore()
-    )
+    window.location.replace('/')
     localStorage.clear()
-   
+
     // window.location.replace('/')
   }
 
   const toggleButton = () => {
-    if(!state.users.id) {
+    if (!state.users.id) {
       return (
         <NavLink to="/login" className="nav-link"><button className="login-btn">Log In</button></NavLink>
       )

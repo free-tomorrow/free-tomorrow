@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './Login.scss';
@@ -8,10 +8,10 @@ import { store } from '../../state/store'
 const Login = () => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
-  const state = useSelector((state) => state)
+  const state = useSelector((state) => state);
   let userId;
 
- 
+  let isLoading;
 
 
   const logUserIn = (e) => {
@@ -19,22 +19,35 @@ const Login = () => {
     if (!value) {
       console.log("Please enter an email")
     } else {
-     dispatch(getUserAsync({
+      dispatch(getUserAsync({
         email: value
       })
       )
-      // const retrievedUser = localStorage.getItem('savedUser')
-      // const parsedUser = JSON.parse(retrievedUser)
-      // userId = parsedUser.id
-      window.location.replace(`/dashboard/${userId}`)
+      .then(() => {
+        const retrievedUser = localStorage.getItem('savedUser')
+        const parsedUser = JSON.parse(retrievedUser)
+        userId = parsedUser.id
+        console.log(userId, '<><><><><>')
+        window.location.replace(`/dashboard/${userId}`)
+      })
+
     }
+    // redirect()
   }
 
-  const validInput = value.includes('@') && value.includes('.') && value.length > 3 ? true : false
+  // const redirect = () => {
+  //   if (!isLoading) {
+  //     
+  //   } else {
+  //     console.log('still cooking')
+  //   }
+  // }
 
-  const retrievedUser = localStorage.getItem('savedUser')
-  const parsedUser = JSON.parse(retrievedUser)
-  userId = parsedUser.id
+  useEffect(() => {
+    isLoading = state.users.id ? false : true
+  }, [state])
+
+  const validInput = value.includes('@') && value.includes('.') && value.length > 3 ? true : false
 
   return (
     <div className="login">
