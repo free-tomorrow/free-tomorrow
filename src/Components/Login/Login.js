@@ -11,9 +11,6 @@ const Login = () => {
   const state = useSelector((state) => state);
   let userId;
 
-  let isLoading;
-
-
   const logUserIn = (e) => {
     e.preventDefault()
     if (!value) {
@@ -23,29 +20,15 @@ const Login = () => {
         email: value
       })
       )
-      .then(() => {
-        const retrievedUser = localStorage.getItem('savedUser')
-        const parsedUser = JSON.parse(retrievedUser)
-        userId = parsedUser.id
-        console.log(userId, '<><><><><>')
-        window.location.replace(`/dashboard/${userId}`)
-      })
-
+        .then(() => {
+          const retrievedUser = localStorage.getItem('savedUser')
+          const parsedUser = JSON.parse(retrievedUser)
+          userId = parsedUser.id
+          console.log(userId, '<><><><><>')
+          window.location.replace(`/dashboard/${userId}`)
+        })
     }
-    // redirect()
   }
-
-  // const redirect = () => {
-  //   if (!isLoading) {
-  //     
-  //   } else {
-  //     console.log('still cooking')
-  //   }
-  // }
-
-  useEffect(() => {
-    isLoading = state.users.id ? false : true
-  }, [state])
 
   const validInput = value.includes('@') && value.includes('.') && value.length > 3 ? true : false
 
