@@ -3,6 +3,10 @@
 .error-page {
   border: 1px solid red;
   height: 80vh;
+
+  a{
+    width: fit-content;
+  }
 }
 
 .error-content {
