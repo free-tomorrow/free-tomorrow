@@ -72,6 +72,9 @@ export const tripSlice = createSlice({
   extraReducers: {
     [createNewTripAsync.fulfilled]: (state, action) => {
       // something needs to go here. bad request
+      const savedTrip = JSON.stringify(action.payload.newTrip)
+      localStorage.setItem('savedTrip', savedTrip)
+      console.log(savedTrip, "LOCALSTORAGE saved trip")
       console.log(action,'ACTION')
       console.log(action.payload, 'PAYLOAD')
       return action.payload.newTrip;

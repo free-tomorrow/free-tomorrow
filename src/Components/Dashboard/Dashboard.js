@@ -16,7 +16,7 @@ const Dashboard = () => {
   console.log(location, 'pathname');
   const retrievedUser = localStorage.getItem('savedUser');
   const parsedUser = JSON.parse(retrievedUser);
-  let tripCards;
+
 
   const sendUserToStore = () => {
     dispatch(

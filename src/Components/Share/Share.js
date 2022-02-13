@@ -1,11 +1,13 @@
 import './Share.scss';
 import TripCard from '../TripCard/TripCard';
 import { useSelector, useDispatch } from 'react-redux';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { createNewTripAsync } from '../../state/tripSlice';
 
 const Share = () => {
   const [tripName, setTripName] = useState('');
+  const [budget, setBudget] = useState('');
+  const [dates, setDates] = useState('');
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   console.log(tripName)
@@ -15,26 +17,27 @@ const Share = () => {
       createNewTripAsync({
         name: tripName,
         email: state.users.email,
-        budget: state.trips.tempTrip.budget,
-        dates: state.trips.tempTrip.dates
-      })
-    )
+        budget: budget,
+        dates: dates
+      }) 
+      )
+      .then(() => {
+        console.log(budget)
+    })
   }
 
-
-  // useEffect((e) => {
-  //   setTre.target.value
-
-  // }, [tripName])
-
+useEffect(() => {
+  setBudget(state.trips.tempTrip.budget)
+  setDates(state.trips.tempTrip.dates)
+}, [])
   return (
     <div className="share-pg">
       <div className="share-card-wrapper">
         <TripCard
           tripName={tripName}
           createdBy={state.users.email}
-          budget={state.trips.tempTrip.budget}
-          dates={state.trips.tempTrip.dates}
+          budget={budget}
+          dates={dates}
         />
       </div>
       <form className="share-form">
