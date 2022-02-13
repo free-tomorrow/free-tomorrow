@@ -40,7 +40,39 @@ const Dashboard = () => {
     getAllTrips()
   }, [])
 
+  // let cardsArray = [];
+  const createTripCards = () => {
+    // const currentUserCards = currentTrips ? currentTrips.filter((trip) => {
+    //   trip.users.filter((user) => {
+    //     console.log('USERR',user)
+    //     return user.id === currentUser.id
+    //   })
+    // })
+    //   : console.log('thing')
+    //   console.log(currentUserCards, "CURRENTUSERCARDS")
+    // return currentUserCards
+    const currentUserCards = currentTrips ? currentTrips.reduce((arr, trip) => {
+      trip.users.forEach((user) => {
+        if(user.id === currentUser.id){
+          arr.push(trip)
+        }
+      })
+      return arr
+    }, [])
+    :console.log('Ass')
+    console.log(currentUserCards, "CurrentUserCards<><><>")
+    return currentUserCards
+  }
+
+
+  //iterate through the trips array
+  //Check the .users array
+  //if the user.id of the trip matches the currentUser's id, map THOSE TRIP CARDS DUDE HELL YEAH FUCKIN RIGHT
+
   useEffect(() => {
+
+    createTripCards()
+
     tripCards = currentUser ? currentUser['trip_set'].map((trip) => {
       return (
         <TripCard
@@ -53,7 +85,7 @@ const Dashboard = () => {
       )
     }) : 'loading'
     return tripCards
-  }, [currentTrips])
+  }, [currentUser])
 
   console.log(currentUser['trip_set'], "CURRENT USER DASHBOARD")
 
