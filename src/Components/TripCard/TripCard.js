@@ -4,7 +4,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 
-const TripCard = ({  tripName, createdBy, confirmed, budget }) => {
+const TripCard = ({  tripName, createdBy, confirmed, budget, dates }) => {
   console.log(budget, "BUDGET TRIP CARD")
   return (
     (
@@ -13,7 +13,6 @@ const TripCard = ({  tripName, createdBy, confirmed, budget }) => {
         <div className="trip-card-txt">
           <p>tripname={tripName}</p>
           <p>createdBy={createdBy}</p>
-          <p>confirmed={confirmed}</p>
           <p>Budget: {budget}</p>
         </div>
       </article>

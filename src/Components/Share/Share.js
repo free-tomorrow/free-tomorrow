@@ -1,19 +1,17 @@
 import './Share.scss';
 import TripCard from '../TripCard/TripCard';
 import { useSelector, useDispatch } from 'react-redux';
-import React, {useState} from 'react'
-import { createNewTripAsync, addEmails } from '../../state/tripSlice';
+import React, { useState } from 'react'
+import { createNewTripAsync } from '../../state/tripSlice';
 
 const Share = () => {
-
-  const [tripName, setTripName] = useState('')
-  const state = useSelector((state) => state)
-  const dispatch = useDispatch()
-
-
+  const [tripName, setTripName] = useState('');
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+  console.log(tripName)
   const createTrip = (e) => {
     e.preventDefault()
-    dispatch (
+    dispatch(
       createNewTripAsync({
         name: tripName,
         email: state.users.email,
@@ -23,11 +21,21 @@ const Share = () => {
     )
   }
 
-  
+
+  // useEffect((e) => {
+  //   setTre.target.value
+
+  // }, [tripName])
+
   return (
     <div className="share-pg">
       <div className="share-card-wrapper">
-        <TripCard />
+        <TripCard
+          tripName={tripName}
+          createdBy={state.users.email}
+          budget={state.trips.tempTrip.budget}
+          dates={state.trips.tempTrip.dates}
+        />
       </div>
       <form className="share-form">
         <input
@@ -43,7 +51,6 @@ const Share = () => {
           onClick={(e) => createTrip(e)}
         >Create this trip</button>
         <button
-          // disabled={isDisabled}
           className="share-trip-btn share-btn"
         >Get a link for this trip</button>
       </form>
