@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 const TripCard = ({  tripName, createdBy, confirmed, budget, dates }) => {
-  console.log(budget, "BUDGET TRIP CARD")
+  // console.log(budget, "BUDGET TRIP CARD")
   return (
     (
       <article className="trip-card">

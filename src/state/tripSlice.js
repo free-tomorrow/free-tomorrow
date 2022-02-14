@@ -43,6 +43,23 @@ export const getAllTripsAsync = createAsyncThunk(
   },
 )
 
+export const getSharedTripAsync = createAsyncThunk(
+  'trips/getSharedTripAsync',
+  async (payload) => {
+    console.log(payload, 'PAYLOAD!')
+    const resp = await fetch(`https://free-tomorrow-be.herokuapp.com/trips/${payload}/`)
+    if(resp.ok) {
+      const sharedTrip = await resp.json()
+      console.log(sharedTrip, 'SHARED TRIP JSON')
+       let stringSharedTrip = JSON.stringify(sharedTrip)
+      localStorage.setItem('sharedTrip', stringSharedTrip)
+      return { sharedTrip }
+    } else {
+      console.log(resp.err)
+    }
+  }
+)
+
 export const tripSlice = createSlice({
   name: 'trips',
   initialState: {
@@ -79,12 +96,25 @@ export const tripSlice = createSlice({
       state.allTrips = action.payload.newTrip
     },
     [getAllTripsAsync.pending] : (state,action) => {
-      console.log("PENDING")
+      // console.log("PENDING")
     },
     [getAllTripsAsync.fulfilled]: (state, action) => {
       state.allTrips = action.payload.allTrips;
-      console.log(state.allTrips)
-      console.log("FULFILLED")
+      // console.log(state.allTrips)
+      // console.log("FULFILLED")
+    },
+    [getSharedTripAsync.pending]: (state, action) => {
+      // state.sharedTrip = action.payload.sharedTrip;
+      console.log(action.payload, 'pending')
+      // console.log(action.payload)
+    },
+    [getSharedTripAsync.fulfilled]: (state, action) => {
+      state.sharedTrip = action.payload.sharedTrip;
+      // let stringSharedTrip = JSON.stringify(state.trips.sharedTrip)
+      // localStorage.setItem('sharedTrip', stringSharedTrip)
+      console.log(action.payload, 'fulfilled')
+      // console.log(stringSharedTrip, 'stringSharedTrip')
+      // console.log(action.payload)
     }
   },
 
