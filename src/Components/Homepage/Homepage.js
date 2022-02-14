@@ -14,18 +14,16 @@ const Homepage = () => {
   console.log(url)
 
 
-  // useEffect(() => {
-  //   if(url !== '/') {
-  //     const id = url.split(':')[1]
-  //     dispatch (
-        // grab this url and put it in state somewhere
-
-  //     )
-  //   }
-  // }, [])
+  useEffect(() => {
+    if(url !== '/') {
+      const id = url.split(':')[1]
+      localStorage.setItem('sharedTripId', id)
+      console.log(id)
+    }
+  }, [])
 
 //  useEffect on load to check if there is an id in the current URL
-// if there is an id at the end of the path, grab it and put it in state with a dispatch to store
+// if there is an id at the end of the path, grab it and put it in local storage
 
 
   return (

@@ -5,15 +5,15 @@ import TripCard from '../TripCard/TripCard';
 import { Link, useLocation } from 'react-router-dom';
 import { store } from '../../state/store';
 import { addUserToStore } from '../../state/userSlice';
-import { getAllTripsAsync } from '../../state/tripSlice';
+import { getAllTripsAsync, getSharedTripAsync } from '../../state/tripSlice';
 
 const Dashboard = () => {
   const state = useSelector((state) => state);
   const [currentUser, setCurrentUser] = useState('');
   const [currentTrips, setCurrentTrips] = useState([]);
+  const [sharedTripId, setSharedTripId] = useState('')
   const dispatch = useDispatch();
   const location = useLocation().pathname;
-  console.log(location, 'pathname');
   const retrievedUser = localStorage.getItem('savedUser');
   const parsedUser = JSON.parse(retrievedUser);
 
@@ -26,6 +26,28 @@ const Dashboard = () => {
     setCurrentTrips(parsedUser['trip_set'])
   }
 
+  const getSharedTrip = () => {
+    let tripId = localStorage.getItem('sharedTripId')
+    setSharedTripId(tripId)
+    dispatch (
+      getSharedTripAsync(tripId)
+    )
+  }
+
+  const showSharedTrip = () => {
+    if(!sharedTripId) {
+      return (
+        <p>You have no pending trips.</p>
+      )
+    } else {
+      return (
+        <>
+          <p>You've been invited on a trip! We need a little more info.</p>
+          <Link to="/add"><button>Click here</button></Link>
+        </>
+      )
+    }
+  }
 
 
   // const getAllTrips = () => {
@@ -36,7 +58,6 @@ const Dashboard = () => {
   //     })
   //   }
 
-  console.log(currentTrips, 'CURRENTTRIPS')
 
 
   const createTripCards = () => {
@@ -57,6 +78,8 @@ const Dashboard = () => {
 
   useEffect(() => {
     sendUserToStore()
+    getSharedTrip()
+
     // getAllTrips()
   }, [])
   // setTimeout(() => {
@@ -64,12 +87,6 @@ const Dashboard = () => {
 
   // }, 4000)
 
-  // useEffect(() => {
-  //   currentUser ? tripCards = createTripCards() : console.log('thing!')
-  // }, [currentUser])
-
-
-  console.log(state.users['trip_set'], "CURRENT USER DASHBOARD")
   if (!state.users.id) {
     return (
       <h1>LMAO SUPER FUCK</h1>
@@ -80,6 +97,7 @@ const Dashboard = () => {
         <div className="dashboard-greeting">
           <h1>Welcome {currentUser.name}</h1>
           <p>Here's an overview of your account</p>
+          {showSharedTrip()}
         </div>
         <div className="dashboard-content">
           <div className="create-invite-wrapper">

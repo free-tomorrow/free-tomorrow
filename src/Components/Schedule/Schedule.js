@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Schedule.scss';
 import { Calendar } from 'react-calendar';
 import { Link } from 'react-router-dom';
@@ -11,6 +11,9 @@ const Schedule = () => {
 
   const [date, setDate] = useState(new Date());
   const [dateRange, setDateRange] = useState('');
+  const [totalDates, setTotalDates] = useState([])
+
+  // const [trip, setTrip] = useState('');
 
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -20,10 +23,9 @@ const Schedule = () => {
       dispatch(
         addDates(dateRange)
       )
+      setTotalDates([...totalDates, dateRange])
     }
   }
-
-  console.log(state)
 
   const logDates = (date) => {
     setDate([date[0], date[1]])
@@ -35,14 +37,14 @@ const Schedule = () => {
     addDateRange();
   }
 
-  // add text to show selected dates on UI
 
   const displaySelectedDates = () => {
+    console.log(state.trips.tempTrip.dates, 'DATES IN STATE')
+    
     const allDates = state.trips.tempTrip.dates.map(range => {
-      console.log(range)
+      console.log(range, 'EACH DATE RANGE')
       const start = new Date(range.start_date)
       const end = new Date(range.end_date)
-      // const [month, day, year] = [start.getMonth(), start.getDate(), start.getFullYear()]
 
 
       return (
@@ -65,7 +67,10 @@ const Schedule = () => {
     }
   }
 
-
+  useEffect(() => {
+    console.log('DATES CHANGED', totalDates)
+  }, [dateRange])
+  
 
   // when the user selects dates on the calendar, on change we should set state to those dates.
   // then provide something on the UI for the user to confirm to add those dates
