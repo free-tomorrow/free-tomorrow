@@ -8,7 +8,12 @@ const AddToTrip = () => {
   const [sharedTrip, setSharedTrip] = useState('');
 
   const retrieveTrip = () => {
-    setSharedTrip(state.trips.sharedTrip)
+    let retrievedTrip = localStorage.getItem('sharedTrip')
+    setSharedTrip(JSON.parse(retrievedTrip))
+  }
+
+  const updateTripDetails = (e) => {
+    e.preventDefault()
   }
 
   useEffect(() => {
@@ -17,7 +22,7 @@ const AddToTrip = () => {
   
 
   return (
-    <>
+    <div className="add-to-trip">
       <div className="greeting-container">
         <h1>You've been invited to {sharedTrip.name}!</h1>
       </div>
@@ -29,8 +34,8 @@ const AddToTrip = () => {
       <div className="budget-container">
 
       </div>
-      <button>Accept this trip?</button>
-    </>
+      <button onClick={(e) => updateTripDetails(e)} >Accept this trip</button>
+    </div>
   )
 }
 
