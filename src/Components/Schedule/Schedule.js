@@ -20,7 +20,7 @@ const Schedule = () => {
 
   const addDateRange = () => {
     if (dateRange) {
-      dispatch (
+      dispatch(
         addDates(dateRange)
       )
       setTotalDates([...totalDates, dateRange])
@@ -29,11 +29,11 @@ const Schedule = () => {
 
   const logDates = (date) => {
     setDate([date[0], date[1]])
-    
+
     const startDate = date[0].getTime()
     const endDate = date[1].getTime()
 
-    setDateRange({startDate: startDate, endDate: endDate});
+    setDateRange({ startDate: startDate, endDate: endDate });
     addDateRange();
   }
 
@@ -51,16 +51,20 @@ const Schedule = () => {
         <p>{start.toDateString()} - {end.toDateString()}</p>
       )
     })
-
-    if(state.trips.tempTrip.dates.length) {
+    if (state.trips.tempTrip.dates.length) {
       return (
-        <section className="dates-list">
-          <h2>You're free:</h2>
-          {allDates}
-        </section>
+        <div className="schedule-btn-container">
+          <section className="dates-list">
+            <h2>You're free:</h2>
+            {allDates}
+          </section>
+          {/* {displaySelectedDates()} */}
+          <Link to="/budget">
+            <button className="schedule-continue-btn" onClick={addDateRange}>Continue</button>
+          </Link>
+        </div>
       )
     }
-    
   }
 
   useEffect(() => {
@@ -77,21 +81,29 @@ const Schedule = () => {
 
   return (
     <div className="schedule">
-      <section className="schedule-txt">
-        <h1>When are you free?</h1>
-        <div className="schedule-txt-p-cont">
-          <p>Select as many dates as you like...</p>
-          <p>Don't worry, we'll keep track.</p>
+      <div className="schedule-content">
+        <div className="calendar-wrapper">
+          <section className="schedule-txt">
+            <h1>When are you free?</h1>
+            {/* <div className="schedule-txt-p-cont"> */}
+            <p>Select as many dates as you like...</p>
+            <p>Don't worry, we'll keep track.</p>
+            {/* </div> */}
+          </section>
+          <Calendar
+            onChange={logDates}
+            defaultValue=""
+            selectRange={true}
+            minDate={new Date()}
+            defaultView='year' />
         </div>
-      </section>
-      <div className="calendar-container">
-        <Calendar onChange={logDates} className="calendar" defaultValue="" selectRange={true} minDate={new Date()} defaultView='year' />
-      </div>
-      {displaySelectedDates()}
-      <div className="btn-container">
-        <Link to="/budget" className="budget-link" style={{ width: "100%" }}>
-          <button className="continue-btn" onClick={addDateRange}>Continue</button>
-        </Link>
+        {displaySelectedDates()}
+        {/* <div className="schedule-btn-container">
+          {displaySelectedDates()}
+          <Link to="/budget">
+            <button className="schedule-continue-btn" onClick={addDateRange}>Continue</button>
+          </Link>
+        </div> */}
       </div>
     </div>
   )

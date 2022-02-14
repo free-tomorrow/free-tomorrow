@@ -30,7 +30,7 @@ const Budget = () => {
     if(budget) {
       return (
         <Link to="/share">
-        <button onClick={createBudget} className="continue-btn">{phrase}</button>
+        <button onClick={createBudget} className="budget-continue-btn">{phrase}</button>
         </Link>
       )
     }
@@ -54,7 +54,7 @@ const Budget = () => {
         <h1>What's your budget for this?</h1>
         <p>No pressure on our end. Just pick whatever works for you.</p>
       </div>
-      <div className="btn-container">
+      <div className="budget-btn-container">
         <button onClick={(e) => setBudget(e.target.value)} value={250} className="budget-btn">I'm broke. Keep it under $250 please!</button>
         <button onClick={(e) => setBudget(e.target.value)} value={500} className="budget-btn">$500</button>
         <button onClick={(e) => setBudget(e.target.value)} value={1000} className="budget-btn">$1000</button>
