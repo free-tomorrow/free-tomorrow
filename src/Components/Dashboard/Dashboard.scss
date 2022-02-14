@@ -1,4 +1,64 @@
-.dashboard {
-  border:1px solid red;
+@import '../../sass/variables.scss';
 
+.dashboard {
+  height: 80vh;
+}
+.dashboard-greeting {
+  text-align: center;
+  h1 {
+    font-size: 2rem
+  }
+  font-size: 1.5em;
+}
+
+.dashboard-content {
+  display:flex;
+  flex-direction: row-reverse;
+  height:90%
+}
+
+.dash-cards-wrapper{
+  text-align: center;
+  font-size: 1.5rem;
+  border: 2px solid red;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+
+}
+
+
+.dashboard-cards {
+  // border: 5px solid $secondary-color;
+  height: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  overflow: scroll;
+  
+}
+
+.create-invite-wrapper{
+  border: 1px solid white;
+  width:50%;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+.dashboard-create-btn {
+  cursor: pointer;
+  background: $accent-color-one;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 200;
+  padding: 6px 0px;
+  font-family: $font;
+  font-weight: 200;
+  box-shadow: 2px 2px $secondary-color;
+  margin-bottom: .5%;
 }
