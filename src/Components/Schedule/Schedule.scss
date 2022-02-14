@@ -35,6 +35,8 @@
   align-items: center;
   color: $font-color;
   font-size: 1.35rem;
+  line-height: 1.6;
+  margin: 5% 0;
 }
 
 .dates-list {
@@ -46,13 +48,13 @@
   color: $font-color;
   font-size: 1.75em;
   overflow:scroll;
+  padding: 4%;
 }
 
 .calendar-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2%;
   width: 40%;
 }
 
@@ -72,16 +74,16 @@
 
 // calendar styling
 
-// .react-calendar {
-//   // width: 40%;
-//   max-width: 100%;
-//   background-color: #fff;
-//   color: #222;
-//   border-radius: 8px;
-//   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-//   font-family: $font;
-//   line-height: 1.125em;
-// }
+.react-calendar {
+  // width: 40%;
+  max-width: 100%;
+  background-color: #fff;
+  color: #222;
+  border-radius: 8px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  font-family: $font;
+  line-height: 1.125em;
+}
 
 // .react-calendar__navigation button {
 //   color: $accent-color-one;
@@ -147,3 +149,39 @@
 //   background: $accent-color-one;
 //   color: white;
 // }
+
+@media screen and (max-width: 1000px) {
+  .schedule-content {
+    flex-direction: column;
+    justify-content: initial;
+  }
+
+  .calendar-wrapper {
+    width: 90%;
+  }
+
+  .schedule-btn-container {
+    width: 90%;
+
+  }
+
+  .schedule-txt {
+    h1 {
+      font-size: 1.35rem;
+    }
+
+    font-size: 1rem;
+  }
+
+  .dates-list {
+    font-size: 1.35rem;
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .schedule-continue-btn {
+    font-size: 1.25rem;
+  }
+}
