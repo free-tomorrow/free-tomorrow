@@ -2,7 +2,7 @@
 
 .schedule {
   background-color: $primary-color;
-  // height: 80vh;
+  height: 80vh;
 }
 
 .schedule-content {
@@ -56,16 +56,16 @@
 
 // calendar styling
 
-.react-calendar {
-  width: 400px;
-  max-width: 100%;
-  background-color: #fff;
-  color: #222;
-  border-radius: 8px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  font-family: $font;
-  line-height: 1.125em;
-}
+// .react-calendar {
+//   width: 400px;
+//   max-width: 100%;
+//   background-color: #fff;
+//   color: #222;
+//   border-radius: 8px;
+//   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+//   font-family: $font;
+//   line-height: 1.125em;
+// }
 
 // .react-calendar__navigation button {
 //   color: $accent-color-one;
@@ -76,7 +76,7 @@
 // }
 // .react-calendar__navigation button:enabled:hover,
 // .react-calendar__navigation button:enabled:focus {
-//   // background-color: #f8f8fa;
+//   background-color: #f8f8fa;
 // }
 // .react-calendar__navigation button[disabled] {
 //   background-color: #f0f0f0;

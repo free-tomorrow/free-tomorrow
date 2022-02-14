@@ -72,7 +72,6 @@ const Schedule = () => {
   return (
     <div className="schedule">
       <div className="schedule-content">
-
         <section className="schedule-txt">
           <h1>When are you free?</h1>
           {/* <div className="schedule-txt-p-cont"> */}
@@ -81,7 +80,12 @@ const Schedule = () => {
           {/* </div> */}
         </section>
         <div className="calendar-container">
-          <Calendar onChange={logDates} className="calendar" value={date} selectRange={true} minDate={new Date()} defaultView='year' />
+          <Calendar
+            onChange={logDates}
+            defaultValue=""
+            selectRange={true}
+            minDate={new Date()}
+            defaultView='year' />
           {displaySelectedDates()}
           <div className="btn-container">
             <Link to="/budget" style={{ width: "0" }}>
