@@ -18,7 +18,7 @@
   }
 }
 
-.btn-container {
+.budget-btn-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -35,7 +35,7 @@
   border-radius: 5px;
 }
 
-.continue-btn {
+.budget-continue-btn {
   cursor: pointer;
   background-color: $accent-color-two;
   border: none;

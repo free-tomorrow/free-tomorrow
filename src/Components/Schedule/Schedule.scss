@@ -7,14 +7,26 @@
 
 .schedule-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   height: 100%;
+  justify-content: center;
+}
+
+.schedule-btn-container {
+  border: 1px solid red;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40%;
+  height: 40%;
 }
 
 .schedule-txt {
   h1 {
-    font-size: 2.5em;
+    font-size: 2.5rem;
   }
 
   border: 1px solid red;
@@ -22,34 +34,38 @@
   flex-direction: column;
   align-items: center;
   color: $font-color;
+  font-size: 1.35rem;
 }
 
 .dates-list {
+  p {
+    color: red;
+    font-size: 1.35rem;
+  }
+
   color: $font-color;
+  font-size: 1.75em;
+  overflow:scroll;
 }
 
-// .schedule-txt-p-cont {
-//   margin: 5% 0;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   font-size: 1.3rem;
-// }
-
-.calendar-container {
+.calendar-wrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 2%;
+  width: 40%;
 }
 
 
-.continue-btn {
+.schedule-continue-btn {
   cursor: pointer;
   background-color: $accent-color-two;
   border: none;
   color: white;
   font-size: 1.5rem;
-  // padding: 10%;
+  font-family: $font;
+  font-weight: 200;
+  padding: 5% 7%;
   // margin: 2rem;
   border-radius: 5px;
 }
@@ -57,7 +73,7 @@
 // calendar styling
 
 // .react-calendar {
-//   width: 400px;
+//   // width: 40%;
 //   max-width: 100%;
 //   background-color: #fff;
 //   color: #222;
