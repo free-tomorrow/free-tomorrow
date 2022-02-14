@@ -94,16 +94,25 @@ const Dashboard = () => {
   } else {
     return (
       <div className="dashboard">
-        <div className="dashboard-content">
+        <div className="dashboard-greeting">
           <h1>Welcome {currentUser.name}</h1>
           <p>Here's an overview of your account</p>
           {showSharedTrip()}
+        </div>
+        <div className="dashboard-content">
+          <div className="create-invite-wrapper">
           <Link to="/schedule">
-            <button className="create-trip-btn">Create a new trip</button>
+            <button className="dashboard-create-btn">Create a new trip</button>
           </Link>
-          <div className="dashboard-cards">
-            {createTripCards()}
           </div>
+          <div className="dash-cards-wrapper">
+            <h2>Your Trips</h2>
+            <div className="dashboard-cards">
+              {createTripCards()}
+            </div>
+          </div>
+          {/* <p>You've been invited on a trip! We need a little more info.</p>
+          <Link to="/add"><button>Click here</button></Link> */}
         </div>
       </div>
     )
