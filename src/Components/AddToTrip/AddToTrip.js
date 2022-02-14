@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './AddToTrip.scss';
 import { useSelector } from 'react-redux';
 import tripSlice from '../../state/tripSlice';
@@ -9,6 +10,7 @@ const AddToTrip = () => {
   const [sharedTrip, setSharedTrip] = useState('');
   const [newBudget, setNewBudget] = useState(0);
   let allDates;
+  const [currentUser, setCurrentUser] = useState('');
 
   const retrieveTrip = () => {
     let retrievedTrip = localStorage.getItem('sharedTrip')
@@ -20,7 +22,7 @@ const AddToTrip = () => {
   }
 
   const retrieveDates = () => {
-    console.log(sharedTrip)
+    // console.log(sharedTrip)
     // need to iterate through the sharedTrip.dates which doesn't exist yet
     // return (
     //   <>
@@ -43,9 +45,13 @@ const AddToTrip = () => {
     })
   }
 
+  
 
   useEffect(() => {
     retrieveTrip()
+    let retrievedUser = localStorage.getItem('savedUser')
+    setCurrentUser(JSON.parse(retrievedUser))
+    // console.log(currentUser, 'CURRENT USER')
   }, [])
 
   
@@ -65,7 +71,7 @@ const AddToTrip = () => {
         <p>It's currently set to ${sharedTrip.budget}.</p>
           {generateBudgets()}
       </div>
-      <button onClick={(e) => updateTripDetails(e)} >Accept this trip</button>
+      <Link to="/dashboard"><button onClick={(e) => updateTripDetails(e)} >Accept this trip</button></Link>
     </div>
   )
 }
