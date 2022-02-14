@@ -7,6 +7,7 @@ const AddToTrip = () => {
 
   const state = useSelector((state) => state);
   const [sharedTrip, setSharedTrip] = useState('');
+  const [newBudget, setNewBudget] = useState(0);
   let allDates;
 
   const retrieveTrip = () => {
@@ -28,6 +29,21 @@ const AddToTrip = () => {
     // )
   }
 
+  const lowerBudget = (e) => {
+    setNewBudget(e.target.value)
+  }
+
+  const generateBudgets = () => {
+    let budgetOptions = [250, 500, 1000, 1500, 2000, 2001]
+    let filteredBudgets = budgetOptions.filter((num) => num < sharedTrip.budget)
+    return filteredBudgets.map((num) => {
+      return (
+        <button value={num} onClick={(e) => lowerBudget(e)}>{num}</button>
+      )
+    })
+  }
+
+
   useEffect(() => {
     retrieveTrip()
   }, [])
@@ -45,7 +61,9 @@ const AddToTrip = () => {
         
       </div>
       <div className="budget-container">
-
+        <h2>Would you like to lower the budget?</h2>
+        <p>It's currently set to ${sharedTrip.budget}.</p>
+          {generateBudgets()}
       </div>
       <button onClick={(e) => updateTripDetails(e)} >Accept this trip</button>
     </div>
