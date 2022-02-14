@@ -51,6 +51,8 @@ export const getSharedTripAsync = createAsyncThunk(
     if(resp.ok) {
       const sharedTrip = await resp.json()
       console.log(sharedTrip, 'SHARED TRIP JSON')
+       let stringSharedTrip = JSON.stringify(sharedTrip)
+      localStorage.setItem('sharedTrip', stringSharedTrip)
       return { sharedTrip }
     } else {
       console.log(resp.err)
@@ -108,7 +110,10 @@ export const tripSlice = createSlice({
     },
     [getSharedTripAsync.fulfilled]: (state, action) => {
       state.sharedTrip = action.payload.sharedTrip;
+      // let stringSharedTrip = JSON.stringify(state.trips.sharedTrip)
+      // localStorage.setItem('sharedTrip', stringSharedTrip)
       console.log(action.payload, 'fulfilled')
+      // console.log(stringSharedTrip, 'stringSharedTrip')
       // console.log(action.payload)
     }
   },

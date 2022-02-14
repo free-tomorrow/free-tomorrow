@@ -27,14 +27,27 @@ const Dashboard = () => {
   }
 
   const getSharedTrip = () => {
-      let tripId = localStorage.getItem('sharedTripId')
-      setSharedTripId(tripId)
-      dispatch (
-        getSharedTripAsync(tripId)
-      )
-      // console.log(state.trips.sharedTrip, 'SHARED TRIP in store')
+    let tripId = localStorage.getItem('sharedTripId')
+    setSharedTripId(tripId)
+    dispatch (
+      getSharedTripAsync(tripId)
+    )
   }
 
+  const showSharedTrip = () => {
+    if(!sharedTripId) {
+      return (
+        <p>You have no pending trips.</p>
+      )
+    } else {
+      return (
+        <>
+          <p>You've been invited on a trip! We need a little more info.</p>
+          <Link to="/add"><button>Click here</button></Link>
+        </>
+      )
+    }
+  }
 
 
   // const getAllTrips = () => {
@@ -45,7 +58,6 @@ const Dashboard = () => {
   //     })
   //   }
 
-  // console.log(currentTrips, 'CURRENTTRIPS')
 
 
   const createTripCards = () => {
@@ -67,6 +79,7 @@ const Dashboard = () => {
   useEffect(() => {
     sendUserToStore()
     getSharedTrip()
+
     // getAllTrips()
   }, [])
   // setTimeout(() => {
@@ -74,12 +87,6 @@ const Dashboard = () => {
 
   // }, 4000)
 
-  // useEffect(() => {
-  //   currentUser ? tripCards = createTripCards() : console.log('thing!')
-  // }, [currentUser])
-
-
-  // console.log(state.users['trip_set'], "CURRENT USER DASHBOARD")
   if (!state.users.id) {
     return (
       <h1>LMAO SUPER FUCK</h1>
@@ -90,8 +97,7 @@ const Dashboard = () => {
         <div className="dashboard-content">
           <h1>Welcome {currentUser.name}</h1>
           <p>Here's an overview of your account</p>
-          <p>You've been invited on a trip! We need a little more info.</p>
-          <Link to="/add"><button>Click here</button></Link>
+          {showSharedTrip()}
           <Link to="/schedule">
             <button className="create-trip-btn">Create a new trip</button>
           </Link>
