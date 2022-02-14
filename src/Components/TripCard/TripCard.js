@@ -11,9 +11,10 @@ const TripCard = ({  tripName, createdBy, confirmed, budget, dates }) => {
       <article className="trip-card">
         {/* <img className="trip-card-img" src={Earth}/> */}
         <div className="trip-card-txt">
-          <p>tripname={tripName}</p>
-          <p>createdBy={createdBy}</p>
-          <p>Budget: {budget}</p>
+          <h1>Trip Overview</h1>
+          <p>{tripName}</p>
+          <p>Created By: {createdBy}</p>
+          <p>Proposed Budget: ${budget}</p>
         </div>
       </article>
     )
