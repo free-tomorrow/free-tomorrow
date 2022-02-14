@@ -17,7 +17,7 @@ const Schedule = () => {
 
   const addDateRange = () => {
     if (dateRange) {
-      dispatch (
+      dispatch(
         addDates(dateRange)
       )
     }
@@ -27,11 +27,11 @@ const Schedule = () => {
 
   const logDates = (date) => {
     setDate([date[0], date[1]])
-    
+
     const startDate = date[0].getTime()
     const endDate = date[1].getTime()
 
-    setDateRange({startDate: startDate, endDate: endDate});
+    setDateRange({ startDate: startDate, endDate: endDate });
     addDateRange();
   }
 
@@ -50,7 +50,7 @@ const Schedule = () => {
       )
     })
 
-    if(state.trips.tempTrip.dates.length) {
+    if (state.trips.tempTrip.dates.length) {
       return (
         <section className="dates-list">
           <h2>You're free:</h2>
@@ -58,9 +58,9 @@ const Schedule = () => {
         </section>
       )
     }
-    
+
   }
-  
+
 
   // when the user selects dates on the calendar, on change we should set state to those dates.
   // then provide something on the UI for the user to confirm to add those dates
@@ -71,21 +71,24 @@ const Schedule = () => {
 
   return (
     <div className="schedule">
-      <section className="schedule-txt">
-        <h1>When are you free?</h1>
-        <div className="schedule-txt-p-cont">
+      <div className="schedule-content">
+
+        <section className="schedule-txt">
+          <h1>When are you free?</h1>
+          {/* <div className="schedule-txt-p-cont"> */}
           <p>Select as many dates as you like...</p>
           <p>Don't worry, we'll keep track.</p>
+          {/* </div> */}
+        </section>
+        <div className="calendar-container">
+          <Calendar onChange={logDates} className="calendar" value={date} selectRange={true} minDate={new Date()} defaultView='year' />
+          {displaySelectedDates()}
+          <div className="btn-container">
+            <Link to="/budget" style={{ width: "0" }}>
+              <button className="continue-btn" onClick={addDateRange}>Continue</button>
+            </Link>
+          </div>
         </div>
-      </section>
-      <div className="calendar-container">
-        <Calendar onChange={logDates} className="calendar" value={date} selectRange={true} minDate={new Date()} defaultView='year' />
-      </div>
-      {displaySelectedDates()}
-      <div className="btn-container">
-        <Link to="/budget" className="budget-link" style={{ width: "100%" }}>
-          <button className="continue-btn" onClick={addDateRange}>Continue</button>
-        </Link>
       </div>
     </div>
   )
