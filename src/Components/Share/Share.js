@@ -9,9 +9,11 @@ const Share = () => {
   const [budget, setBudget] = useState('');
   const [dates, setDates] = useState('');
   const [tripId, setTripId] = useState('');
+  const [url, setUrl] = useState('');
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   console.log(tripName)
+  console.log(state)
   const createTrip = (e) => {
     e.preventDefault()
     dispatch(
@@ -20,29 +22,43 @@ const Share = () => {
         email: state.users.email,
         budget: budget,
         dates: dates
-      }) 
-      )
+      })
+    )
       .then(() => {
-        if (state.trips.allTrips){
-          setTripId(state.trips.allTrips.id)
-        }
-        // setTripId(state.trips.respTripId[0])
+        setTripId(state.trips.allTrips.id)
+        console.log(state.trips.allTrips.id, 'ID')
         console.log(tripId)
+        generateTripLink(e)
+        // setTripId(state.trips.respTripId[0])
         // console.log(budget)
-    })
-    generateTripLink()
+      })
   }
 
-useEffect(() => {
-  setBudget(state.trips.tempTrip.budget)
-  setDates(state.trips.tempTrip.dates)
-}, [])
+  useEffect(() => {
+    setBudget(state.trips.tempTrip.budget)
+    setDates(state.trips.tempTrip.dates)
+  }, [])
 
-const generateTripLink = () => {
-  const linkUrl = `https://free-tomorrow-be.herokuapp.com/trips/${tripId}`
-  console.log(linkUrl)
-}
+  const generateTripLink = (e) => {
+    e.preventDefault()
+    console.log(tripId)
+    const linkUrl = new URL(`https:/localhost:3000/dashboard/:${tripId}`)
+    console.log(linkUrl.href, 'link url')
+    setUrl(linkUrl)
+    console.log(url)
+  }
 
+  const shareLink = url ?
+    (
+      <div className="share-link-wrapper">
+        <p>You're all set! Just share this link with your friends</p>
+        <p>{url}</p>
+      </div>
+    ) : console.log(4)
+
+
+  const validInputs = !tripName ? false : true
+  const canShare = parseInt(tripId) ? true : false
 
   return (
     <div className="share-pg">
@@ -65,11 +81,13 @@ const generateTripLink = () => {
           onChange={(e) => setTripName(e.target.value)} />
         <button
           className="create-trip-btn share-btn"
+          disabled={!validInputs}
           onClick={(e) => createTrip(e)}
         >Create this trip</button>
         <button
-          // onClick={generateTripLink}
+          onClick={(e) => generateTripLink(e)}
           className="share-trip-btn share-btn"
+          disabled={!canShare}
         >Get a link for this trip</button>
       </form>
     </div>

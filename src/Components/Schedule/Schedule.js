@@ -9,10 +9,9 @@ import { store } from '../../state/store.js';
 
 const Schedule = () => {
 
-  const [date, setDate] = useState(new Date());
+  const [value, setValue] = useState(new Date());
   const [dateRange, setDateRange] = useState('');
   const [totalDates, setTotalDates] = useState([])
-
   // const [trip, setTrip] = useState('');
 
   const state = useSelector((state) => state);
@@ -27,13 +26,16 @@ const Schedule = () => {
     }
   }
 
-  const logDates = (date) => {
-    setDate([date[0], date[1]])
+  const logDates = (value) => {
+    setValue([value[0], value[1]])
 
-    const startDate = date[0].getTime()
-    const endDate = date[1].getTime()
+    const startDate = value[0].getTime()
+    const endDate = value[1].getTime();
+  
+
 
     setDateRange({ startDate: startDate, endDate: endDate });
+
     addDateRange();
   }
 
