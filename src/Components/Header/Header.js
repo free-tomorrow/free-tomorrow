@@ -29,7 +29,16 @@ const Header = () => {
       )
   }
 
-
+  const showDashboard = () => {
+    if (isLoggedIn) {
+      const currentUser = localStorage.getItem('savedUser');
+      const parsedUserId = JSON.parse(currentUser).id;
+      console.log(parsedUserId, 'PARSED USER ID')
+      return (
+        <NavLink to={`/dashboard/:${parsedUserId}`}>Dashboard</NavLink>
+      )
+    }
+  }
 
   return (
     <header className="header">
@@ -38,6 +47,7 @@ const Header = () => {
       </ NavLink>
       <section className="nav-bar">
         <NavLink to="/about" className="nav-link">About Us</NavLink>
+        {showDashboard()}
         {toggleButton()}
       </section>
 
