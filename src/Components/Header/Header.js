@@ -20,7 +20,7 @@ const Header = () => {
 
   }
 
-  const isLoggedIn = localStorage.getItem('savedUser') ? true : false
+  const isLoggedIn = state.users.id ? true : false
 
   const toggleButton = () => {
     return isLoggedIn ? (
