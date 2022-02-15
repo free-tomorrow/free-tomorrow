@@ -41,10 +41,12 @@ useEffect(() => {
 
 const generateTripLink = (e) => {
   e.preventDefault()
-  const linkUrl = `https:/localhost:3000/:${tripId}`
-  console.log(linkUrl, 'link url')
+  console.log(tripId)
+  const linkUrl = new URL(`https:/localhost:3000/:${tripId}`)
+  console.log(linkUrl.href, 'link url')
 }
 
+const validInputs = !tripName ? false : true
 
   return (
     <div className="share-pg">
@@ -67,6 +69,7 @@ const generateTripLink = (e) => {
           onChange={(e) => setTripName(e.target.value)} />
         <button
           className="create-trip-btn share-btn"
+          disabled={!validInputs}
           onClick={(e) => createTrip(e)}
         >Create this trip</button>
         <button
