@@ -122,8 +122,8 @@ export const tripSlice = createSlice({
       // something needs to go here. bad request
       const savedTrip = JSON.stringify(action.payload.newTrip)
       localStorage.setItem('savedTrip', savedTrip)
-      // state.respTripId.push(action.payload.newTrip.id)
       state.allTrips = action.payload.newTrip
+      // state.respTripId.push(action.payload.newTrip.id)
     },
     [getAllTripsAsync.pending]: (state, action) => {
       // console.log("PENDING")

@@ -9,9 +9,11 @@ const Share = () => {
   const [budget, setBudget] = useState('');
   const [dates, setDates] = useState('');
   const [tripId, setTripId] = useState('');
+  const [url, setUrl] = useState('');
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   console.log(tripName)
+  console.log(state)
   const createTrip = (e) => {
     e.preventDefault()
     dispatch(
@@ -20,34 +22,43 @@ const Share = () => {
         email: state.users.email,
         budget: budget,
         dates: dates
-      }) 
-      )
+      })
+    )
       .then(() => {
-        if (state.trips.allTrips){
-          console.log(state.trips.allTrips.id, 'ID')
-          setTripId(state.trips.allTrips.id)
-          console.log(tripId)
-          generateTripLink(e)
-        }
+        setTripId(state.trips.allTrips.id)
+        console.log(state.trips.allTrips.id, 'ID')
+        console.log(tripId)
+        generateTripLink(e)
         // setTripId(state.trips.respTripId[0])
         // console.log(budget)
-    })
+      })
   }
 
-useEffect(() => {
-  setBudget(state.trips.tempTrip.budget)
-  setDates(state.trips.tempTrip.dates)
-}, [])
+  useEffect(() => {
+    setBudget(state.trips.tempTrip.budget)
+    setDates(state.trips.tempTrip.dates)
+  }, [])
 
-const generateTripLink = (e) => {
-  e.preventDefault()
-  console.log(tripId)
-  const linkUrl = new URL(`https:/localhost:3000/:${tripId}`)
-  console.log(linkUrl.href, 'link url')
-}
+  const generateTripLink = (e) => {
+    e.preventDefault()
+    console.log(tripId)
+    const linkUrl = new URL(`https:/localhost:3000/dashboard/:${tripId}`)
+    console.log(linkUrl.href, 'link url')
+    setUrl(linkUrl)
+    console.log(url)
+  }
 
-const validInputs = !tripName ? false : true
-const canShare = tripId ? false : true
+  const shareLink = url ?
+    (
+      <div className="share-link-wrapper">
+        <p>You're all set! Just share this link with your friends</p>
+        <p>{url}</p>
+      </div>
+    ) : console.log(4)
+
+
+  const validInputs = !tripName ? false : true
+  const canShare = parseInt(tripId) ? true : false
 
   return (
     <div className="share-pg">
