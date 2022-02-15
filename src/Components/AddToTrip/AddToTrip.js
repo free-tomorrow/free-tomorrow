@@ -21,14 +21,21 @@ const AddToTrip = () => {
   const updateTripDetails = (e) => {
     e.preventDefault();
     console.log(currentUser, 'currentUser')
-    dispatch (
-      editSharedTripAsync({
-        tripId: sharedTrip.id,
-        userId: currentUser.id,
-        budget: newBudget,
-        dates: datesArr
-      })
-    )
+    console.log(newBudget, datesArr)
+    if(parseInt(newBudget) || datesArr.length) {
+      dispatch (
+        editSharedTripAsync({
+          tripId: sharedTrip.id,
+          userId: currentUser.id,
+          budget: newBudget,
+          dates: datesArr
+        })
+        )
+      } else {
+        dispatch(editSharedTripAsync({
+          
+        }))
+      }
     // this is where we need to call the PATCH thunk 
     // to update the trip object and send new dates or budget IF AND ONLY IF they've changed (if they got added to localStorage)
   }

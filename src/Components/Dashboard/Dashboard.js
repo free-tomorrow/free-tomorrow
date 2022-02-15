@@ -23,7 +23,7 @@ const Dashboard = () => {
       addUserToStore(parsedUser)
     )
     setCurrentUser(parsedUser)
-    setCurrentTrips(parsedUser['trip_set'])
+
   }
 
   const getSharedTrip = () => {
@@ -61,20 +61,25 @@ const Dashboard = () => {
 
 
   const createTripCards = () => {
-    const currentUserCards = state.users['trip_set'].map((trip) => {
-      return (
-        <TripCard
+    if(currentUser['trip_set']) {
+      const currentUserCards = state.users['trip_set'].map((trip) => {
+        return (
+          <TripCard
           key={Math.floor(Math.random() * .5)}
           tripName={trip.name}
           createdBy={trip.created_by}
           confirmed={trip.confirmed}
           budget={trip.budget}
-        // users={trip.users}
-        />
-      )
-    })
-    return currentUserCards
-  }
+          // users={trip.users}
+          />
+          )
+        })
+        return currentUserCards
+      }
+      else {
+        console.log('nothing here for ya')
+      }
+    }
 
   useEffect(() => {
     sendUserToStore()

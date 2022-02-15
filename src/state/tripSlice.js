@@ -47,9 +47,9 @@ export const getSharedTripAsync = createAsyncThunk(
   'trips/getSharedTripAsync',
   async (payload) => {
     // console.log(payload, 'PAYLOAD!')
-    if(payload) {
-        const resp = await fetch(`https://free-tomorrow-be.herokuapp.com/trips/${payload}/`)
-      if(resp.ok) {
+    if (payload) {
+      const resp = await fetch(`https://free-tomorrow-be.herokuapp.com/trips/${payload}/`)
+      if (resp.ok) {
         const sharedTrip = await resp.json()
         console.log(sharedTrip, 'SHARED TRIP JSON')
         let stringSharedTrip = JSON.stringify(sharedTrip)
@@ -66,25 +66,26 @@ export const editSharedTripAsync = createAsyncThunk(
   'trips/editSharedTripAsync',
   async (payload) => {
     // if(payload.budget || payload.dates.length) {
-      const resp = await fetch(`https://free-tomorrow-be.herokuapp.com/trips/${payload.tripId}/`, {
-        method: 'PATCH', 
-        headers: {
-          'Content-Type': 'application/json'
+    const resp = await fetch(`https://free-tomorrow-be.herokuapp.com/trips/${payload.tripId}/`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: payload.userId,
+        trip_info: {
+          budget: payload.budget
         },
-        body: JSON.stringify({
-          user_id: payload.userId,
-          trip_info: {
-            budget: payload.budget
-          },
-          dates: payload.dates
-        })
+        dates: payload.dates
       })
-      if(resp.ok) {
-        const editedTrip = await resp.json()
-        console.log(editedTrip, 'EDITED TRIP DATA')
-      } else {
-        console.log(resp.err)
-      }
+    })
+    if (resp.ok) {
+      const editedTrip = await resp.json()
+      console.log(editedTrip, 'EDITED TRIP DATA')
+      return { editedTrip }
+    } else {
+      console.log(resp.err)
+    }
   }
 )
 
@@ -124,7 +125,7 @@ export const tripSlice = createSlice({
       // state.respTripId.push(action.payload.newTrip.id)
       state.allTrips = action.payload.newTrip
     },
-    [getAllTripsAsync.pending] : (state,action) => {
+    [getAllTripsAsync.pending]: (state, action) => {
       // console.log("PENDING")
     },
     [getAllTripsAsync.fulfilled]: (state, action) => {
@@ -146,7 +147,9 @@ export const tripSlice = createSlice({
       // console.log(action.payload)
     },
     [editSharedTripAsync.fulfilled]: (state, action) => {
-      const index = state.findIndex((trip) => trip.id === action.payload.editedTrip.id)
+      // const index = state.findIndex((trip) => trip.id === action.payload.editedTrip.id)
+      console.log(action.payload.editedTrip, "EDITED TRIP")
+      return action.payload.editedTrip
     }
   },
 
