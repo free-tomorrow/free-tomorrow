@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import './Login.scss';
 import { getUserAsync } from '../../state/userSlice';
@@ -8,6 +8,7 @@ import { store } from '../../state/store'
 const Login = () => {
   const [value, setValue] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const state = useSelector((state) => state);
   let userId;
 
@@ -25,7 +26,7 @@ const Login = () => {
           const parsedUser = JSON.parse(retrievedUser)
           userId = parsedUser.id
           console.log(userId, '<><><><><>')
-          window.location.replace(`/dashboard/${userId}`)
+          navigate(`/dashboard/${userId}`)
         })
     }
   }

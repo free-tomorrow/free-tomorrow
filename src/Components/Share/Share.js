@@ -26,12 +26,12 @@ const Share = () => {
         if (state.trips.allTrips){
           console.log(state.trips.allTrips.id, 'ID')
           setTripId(state.trips.allTrips.id)
+          console.log(tripId)
+          generateTripLink(e)
         }
         // setTripId(state.trips.respTripId[0])
-        console.log(tripId)
         // console.log(budget)
     })
-    generateTripLink(e)
   }
 
 useEffect(() => {
@@ -47,6 +47,7 @@ const generateTripLink = (e) => {
 }
 
 const validInputs = !tripName ? false : true
+const canShare = tripId ? false : true
 
   return (
     <div className="share-pg">
@@ -75,6 +76,7 @@ const validInputs = !tripName ? false : true
         <button
           onClick={(e) => generateTripLink(e)}
           className="share-trip-btn share-btn"
+          disabled={!canShare}
         >Get a link for this trip</button>
       </form>
     </div>
