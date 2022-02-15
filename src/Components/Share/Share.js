@@ -24,13 +24,14 @@ const Share = () => {
       )
       .then(() => {
         if (state.trips.allTrips){
+          console.log(state.trips.allTrips.id, 'ID')
           setTripId(state.trips.allTrips.id)
         }
         // setTripId(state.trips.respTripId[0])
         console.log(tripId)
         // console.log(budget)
     })
-    generateTripLink()
+    generateTripLink(e)
   }
 
 useEffect(() => {
@@ -38,9 +39,10 @@ useEffect(() => {
   setDates(state.trips.tempTrip.dates)
 }, [])
 
-const generateTripLink = () => {
-  const linkUrl = `https://free-tomorrow-be.herokuapp.com/trips/${tripId}`
-  console.log(linkUrl)
+const generateTripLink = (e) => {
+  e.preventDefault()
+  const linkUrl = `https:/localhost:3000/:${tripId}`
+  console.log(linkUrl, 'link url')
 }
 
 
@@ -68,7 +70,7 @@ const generateTripLink = () => {
           onClick={(e) => createTrip(e)}
         >Create this trip</button>
         <button
-          // onClick={generateTripLink}
+          onClick={(e) => generateTripLink(e)}
           className="share-trip-btn share-btn"
         >Get a link for this trip</button>
       </form>
