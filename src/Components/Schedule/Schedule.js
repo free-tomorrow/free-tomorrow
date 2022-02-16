@@ -7,35 +7,18 @@ import { addDates } from '../../state/tripSlice.js';
 import { store } from '../../state/store.js';
 
 const Schedule = () => {
-
   const [value, setValue] = useState(new Date());
   const [dateRange, setDateRange] = useState('');
   const [totalDates, setTotalDates] = useState([])
-  // const [trip, setTrip] = useState('');
 
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const addDateRange = () => {
-    if (dateRange) {
-      dispatch(
-        addDates(dateRange)
-      )
-      setTotalDates([...totalDates, dateRange])
-    }
-  }
-
   const logDates = (value) => {
     setValue([value[0], value[1]])
-
     const startDate = value[0].getTime()
     const endDate = value[1].getTime();
-  
-
-
     setDateRange({ startDate: startDate, endDate: endDate });
-
-    addDateRange();
   }
 
 
@@ -61,7 +44,7 @@ const Schedule = () => {
           </section>
           {/* {displaySelectedDates()} */}
           <Link to="/budget">
-            <button className="schedule-continue-btn" onClick={addDateRange}>Continue</button>
+            <button className="schedule-continue-btn" onClick={console.log(dateRange)}>Continue</button>
           </Link>
         </div>
       )
@@ -69,7 +52,9 @@ const Schedule = () => {
   }
 
   useEffect(() => {
-    console.log('DATES CHANGED', totalDates)
+    if(dateRange){
+      dispatch(addDates(dateRange))
+    }
   }, [dateRange])
   
 
@@ -92,6 +77,7 @@ const Schedule = () => {
             {/* </div> */}
           </section>
           <Calendar
+            activeStartDate={new Date()}
             onChange={logDates}
             defaultValue=""
             selectRange={true}
