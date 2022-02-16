@@ -6,7 +6,6 @@
 }
 
 .welcome-container{
-  // border: 1px solid purple;
   position:relative;
   display: flex;
   flex-direction: column;
@@ -22,10 +21,12 @@
   padding: 5%;
   color: $font-color;
   text-align:center;
+  font-family: 'Roboto Condensed', sans-serif;
 
   h1 {
     font-size: 3rem;
     margin-bottom: 10px;
+    font-weight: bold;
   }
 
   h2 {
@@ -43,7 +44,7 @@
 .homepg-signup-btn-container {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 70%;
   align-items: center;
   justify-content: center;
 }
@@ -51,14 +52,13 @@
 
 .homepg-signup-btn {
   cursor: pointer;
-  background: $accent-color-one;
+  background: #9B6127;
   border: 1px solid black;
   border-radius: 5px;
   color: white;
-  font-size: 1.225rem;
-  font-weight:200;
+  font-size: 1.5rem;
   padding: 15px 20px;
-  font-family:"Poppins", sans-serif;
+  font-family: 'Oswald', sans-serif;
   position: relative;
   z-index:100;
   transition:all 300ms ease;
@@ -66,24 +66,24 @@
     font-size:1.5em;
     box-shadow: 4px 6px $secondary-color;
   }
-  // font-family:'Sulphur Point', sans-serif;
 }
 
 .homepg-login-link {
-  // border: 2px solid red;
+  font-size: 1.15rem;
   margin: 2.5% 0;
   a {
     text-decoration-style: wavy;
+    color: white;
   }
 }
 
 .aliens-img{
-  width: 40vw;
+  width: 45vw;
   height: auto;
   position: relative;
-  right: 25%;
-  top: 15%;
-  opacity: 0.75;
+  right: 20%;
+  top: 27%;
+  opacity: 0.8;
 }
 ::selection {
   color: magenta;
@@ -108,19 +108,5 @@
     h2 {
       font-size: 1.15rem;
     }
-  }
-
-  .homepg-signup-btn-container{
-    margin: 5% 0;
-  }
-
-  .homepg-signup-btn{
-    font-size: .85rem;
-    padding: 10px 10px;
-  }
-
-  .aliens-img{
-    position: initial;
-
   }
 }

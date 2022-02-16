@@ -2,7 +2,7 @@
 
 .header {
   min-height: 10vh;
-  background-image: url(https://i.pinimg.com/originals/90/ca/e0/90cae0cf9b6cded6456a336101de9fd8.jpg);
+  // background-image: url(https://i.pinimg.com/originals/90/ca/e0/90cae0cf9b6cded6456a336101de9fd8.jpg);
   background-position: fixed;
   display: flex;
   justify-content: space-between;
@@ -17,19 +17,20 @@
 .logo {
   width: 5em;
   height: auto;
-  margin-left: 1rem;
+  margin: 1rem;
   filter: drop-shadow(3px 3px black);
 }
 
 .login-btn,
 .logout-btn {
-  background-color: $accent-color-two;
+  background-color: #68749F;
   border: none;
   border-radius: 5px;
   padding: .25rem 1.55rem;
   font-size: 1.3rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 200;
+  font-family: 'Oswald', sans-serif;
+  color: $font-color;
+  font-weight: bold;
   box-shadow: 2px 2px black;
 
   &:hover {
@@ -44,7 +45,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-right: 2%;
+  margin: 0 2rem;
 }
 
 .nav-link {
