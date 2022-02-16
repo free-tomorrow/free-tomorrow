@@ -1,4 +1,4 @@
-describe('Share Page', () => {
+describe('Budget Page', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/budget')
   })
