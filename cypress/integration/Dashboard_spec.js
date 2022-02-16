@@ -1,12 +1,13 @@
 describe('Dashboard', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/')
-    .get('.login-btn')
-    .click()
-    .get('.login-email-input')
-    .type('drnecrason@comcast.net')
-    .get('.loginpg-btn')
-    .click()
+    cy.intercept('GET', 'https://free-tomorrow-be.herokuapp.com/users/', { status: 200, fixture: 'users'})
+    cy.visit('http://localhost:3000/dashboard/1')
+    // .get('.login-btn')
+    // .click()
+    // .get('.login-email-input')
+    // .type('drnecrason@comcast.net')
+    // .get('.loginpg-btn')
+    // .click()
   })
 
   it('should have a sample test', () => {
