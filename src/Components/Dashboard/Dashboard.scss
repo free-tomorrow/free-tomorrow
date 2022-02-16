@@ -6,7 +6,7 @@
 .dashboard-greeting {
   text-align: center;
   h1 {
-    font-size: 2rem
+    font-size: 2.5rem
   }
   font-size: 1.5em;
 }
@@ -21,7 +21,7 @@
   text-align: center;
   font-size: 1.5rem;
   border: 2px solid red;
-  width: 75%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -31,12 +31,11 @@
 
 
 .dashboard-cards {
-  // border: 5px solid $secondary-color;
   height: 90%;
   display: flex;
   flex-wrap: wrap;
   justify-content:center;
-  overflow: scroll;
+  overflow-y: scroll;
   
 }
 
@@ -50,14 +49,14 @@
 
 .dashboard-create-btn {
   cursor: pointer;
-  background: $accent-color-one;
+  background: #9B6127;
   border: 1px solid black;
   border-radius: 5px;
   color: white;
   font-size: 1.1rem;
   font-weight: 200;
   padding: 6px 0px;
-  font-family: $font;
+  font-family: $button-font;
   font-weight: 200;
   box-shadow: 2px 2px $secondary-color;
   margin-bottom: .5%;

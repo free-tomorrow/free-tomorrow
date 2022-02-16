@@ -2,22 +2,15 @@
 
 .header {
   min-height: 10vh;
-  // background-image: url(https://i.pinimg.com/originals/90/ca/e0/90cae0cf9b6cded6456a336101de9fd8.jpg);
-  background-position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // border-top-left-radius:10px;
-  // border-top-right-radius:10px;
-  // border-bottom-left-radius: 50% 10%;
-  // border-bottom-right-radius: 50% 10%;
-  // padding: 1% 0%;
 }
 
 .logo {
-  width: 5em;
+  width: 4em;
   height: auto;
-  margin: 1rem;
+  margin: 1.3rem;
   filter: drop-shadow(3px 3px black);
 }
 
@@ -29,7 +22,7 @@
   padding: .25rem 1.55rem;
   font-size: 1.3rem;
   font-family: 'Oswald', sans-serif;
-  color: $font-color;
+  // color: $font-color;
   font-weight: bold;
   box-shadow: 2px 2px black;
 

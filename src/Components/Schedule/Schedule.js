@@ -97,7 +97,7 @@ const Schedule = () => {
             defaultValue=""
             selectRange={true}
             minDate={new Date()}
-            defaultView='year' />
+            defaultView='month' />
         </div>
         {displaySelectedDates()}
         {/* <div className="schedule-btn-container">

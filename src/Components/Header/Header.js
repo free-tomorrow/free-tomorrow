@@ -1,6 +1,6 @@
 import './Header.scss'
 import { NavLink, useNavigate } from 'react-router-dom';
-import logo from '../../assets/co_logo.svg';
+import logo from '../../assets/Header-Icon.png';
 import { removeUserFromStore } from '../../state/userSlice';
 import { useSelector, useDispatch } from 'react-redux';
 

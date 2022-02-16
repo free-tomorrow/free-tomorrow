@@ -1,20 +1,17 @@
 @import '../../sass/variables.scss';
 
 .schedule {
-  background-color: $primary-color;
   height: 80vh;
 }
 
 .schedule-content {
   display: flex;
   flex-direction: row;
-  align-items: center;
   height: 100%;
   justify-content: center;
 }
 
 .schedule-btn-container {
-  border: 1px solid red;
   text-align: center;
   display: flex;
   align-items: center;
@@ -28,8 +25,6 @@
   h1 {
     font-size: 2.5rem;
   }
-
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,13 +36,12 @@
 
 .dates-list {
   p {
-    color: red;
     font-size: 1.35rem;
   }
 
   color: $font-color;
   font-size: 1.75em;
-  overflow:scroll;
+  overflow: hidden;
   padding: 4%;
 }
 
@@ -61,94 +55,27 @@
 
 .schedule-continue-btn {
   cursor: pointer;
-  background-color: $accent-color-two;
+  background-color: #68749F;
   border: none;
   color: white;
   font-size: 1.5rem;
-  font-family: $font;
-  font-weight: 200;
-  padding: 5% 7%;
-  // margin: 2rem;
+  font-family: $button-font;
+  padding: 5% 25%;
   border-radius: 5px;
 }
 
 // calendar styling
 
-.react-calendar {
-  // width: 40%;
-  max-width: 100%;
-  background-color: #fff;
-  color: #222;
-  border-radius: 8px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  font-family: $font;
-  line-height: 1.125em;
-}
-
-// .react-calendar__navigation button {
-//   color: $accent-color-one;
-//   min-width: 44px;
-//   background: none;
-//   font-size: 16px;
-//   margin-top: 8px;
-// }
-// .react-calendar__navigation button:enabled:hover,
-// .react-calendar__navigation button:enabled:focus {
-//   background-color: #f8f8fa;
-// }
-// .react-calendar__navigation button[disabled] {
-//   background-color: #f0f0f0;
-// }
-// abbr[title] {
-//   text-decoration: none;
+// .react-calendar {
+//   max-width: 100%;
+//   background-color: #022831;
+//   color: #222;
+//   border-radius: 8px;
+//   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+//   font-family: $main-font;
+//   line-height: 1.125em;
 // }
 
-// .react-calendar__tile:enabled:hover,
-// .react-calendar__tile:enabled:focus {
-//   background: #f8f8fa;
-//   color: $accent-color-one;
-// }
-// .react-calendar__tile--now {
-//   background: #6f48eb33;
-//   font-weight: bold;
-//   color: $accent-color-one;
-// }
-// .react-calendar__tile--now:enabled:hover,
-// .react-calendar__tile--now:enabled:focus {
-//   background: #6f48eb33;
-//   font-weight: bold;
-//   color: $accent-color-one;
-// }
-// .react-calendar__tile--hasActive:enabled:hover,
-// .react-calendar__tile--hasActive:enabled:focus {
-//   background: #f8f8fa;
-// }
-// .react-calendar__tile--active {
-//   background: $accent-color-one;
-//   font-weight: bold;
-//   color: white;
-// }
-// .react-calendar__tile--active:enabled:hover,
-// .react-calendar__tile--active:enabled:focus {
-//   background: $accent-color-one;
-//   color: white;
-// }
-// .react-calendar--selectRange .react-calendar__tile--hover {
-//   background-color: #f8f8fa;
-// }
-// .react-calendar__tile--range {
-//   background: #f8f8fa;
-//   color: $accent-color-one;
-//   border-radius: 0;
-//  }
-// .react-calendar__tile--rangeStart {
-//   background: $accent-color-one;
-//   color: white;
-// }
-// .react-calendar__tile--rangeEnd {
-//   background: $accent-color-one;
-//   color: white;
-// }
 
 @media screen and (max-width: 1000px) {
   .schedule-content {

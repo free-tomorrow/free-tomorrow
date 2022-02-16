@@ -1,19 +1,13 @@
 @import '../../sass/variables.scss';
 .share-pg {
   height: 80vh;
-  border: 1px solid white;
+  padding: 7vh 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-// .share-card-wrapper{
-//   height: 400px;
-//   width: 350px;
-//   border: 2px solid orange;
-// }
 
 .share-form {
-  border: 2px solid red;
   height: 50%;
   width: 70%;
   display: flex;
@@ -30,13 +24,12 @@
     font-weight: 200;
     margin-bottom: 1.5%;
     padding: 5px 10px;
-    font-family: $font;
-    color: $secondary-color;
+    font-family: $button-font;
     box-shadow: 5px 5px $secondary-color;
     transition: all 450ms ease;
     outline: none;
     &:placeholder-shown {
-      font-family: ‘Poppins’, sans-serif;
+      font-family: $button-font;
       font-weight: 200;
     }
   }
@@ -47,7 +40,7 @@
 
 .share-btn{
   cursor: pointer;
-  background: $accent-color-two;
+  background: #9B6127;
   border: 1px solid black;
   border-radius: 5px;
   color: white;
@@ -55,7 +48,7 @@
   font-weight: 200;
   width: 25%;
   padding: 6px 0px;
-  font-family: $font;
+  font-family: $button-font;
   font-weight: 200;
   box-shadow: 2px 2px $secondary-color;
   margin-bottom: .5%;
@@ -67,10 +60,6 @@
   }
 }
 
-.create-trip-btn{
-}
-.share-trip-btn{
-}
 
 @media screen and (max-width: 1000px) {
   .share-form {
