@@ -73,6 +73,8 @@ export const userSlice = createSlice({
     },
     [createUserAsync.fulfilled] : (state, action) => {
       console.log(action, 'create user action')
+      const savedUser = JSON.stringify(action.payload.currentUser)
+      localStorage.setItem('savedUser', savedUser)
       // state.push(action.payload.currentUser)
       return action.payload.currentUser
     }

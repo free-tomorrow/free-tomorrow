@@ -1,34 +1,20 @@
-describe('Schedule component tests', () => {
+describe('Schedule Page', () => {
 
   beforeEach(() => {
-
     cy.visit('http://localhost:3000/schedule')
-    // cy.get('p[class="homepg-login-link"]')
-    // .click()
-    // cy.type('gregwhoisj@gmail.com')
-
   })
 
   it('should allow the user to visit the schedule page', () => {
-
     cy.url('eq', 'http://localhost:3000/schedule')
-
   })
 
-  it('should render the correct elements', () => {
-
+  it('should render the calendar elements on load', () => {
     cy.get('section[class="schedule-txt"]').should('exist')
-    cy.get('div[class="schedule-txt-p-cont"]').should('exist')
-    cy.get('div[class="btn-container"]').should('exist')
-    cy.get('div[class="calendar-container"]').should('exist')
-    cy.get('.calendar').should('exist')
-    cy.get('button[class="continue-btn"]').should('exist')
-    cy.get('a[class="budget-link"]').should('exist')
-
+    cy.get('div[class="calendar-wrapper"]').should('exist')
+    cy.get('.react-calendar').should('exist')
   })
 
   it('should introduce the user to the page', () => {
-
     cy.get('section[class="schedule-txt"]').should('exist')
     cy.get('h1').should('contain', 'When are you free?')
     cy.get('p').should('contain', 'Select as many dates as you like...')
@@ -37,13 +23,13 @@ describe('Schedule component tests', () => {
   })
 
   it.skip('should allow the user to select dates on the calendar', () => {
-
+//need to fix Schedule calendar bug before continuing
     cy.get('.react-calendar__year-view__months > :nth-child(8)')
-    .click()
+    .click({multiple:true})
     cy.get('.react-calendar__month-view__days > :nth-child(18)')
-    .click()
+    .click({multiple:true})
     cy.get(':nth-child(26)')
-    .click()
+    .click({multiple:true})
     cy.get(':nth-child(28)')
     .click()
     cy.get()
@@ -62,10 +48,12 @@ describe('Schedule component tests', () => {
 
   })
 
-  it.skip('should link back to home', () => {
-
-
-
+  it('should link back to home on click of site logo', () => {
+    cy.get('.logo')
+    .click()
+    .url('eq','http://localhost:3000/')
+    .get('.calendar-wrapper')
+    .should('not.exist')
   })
 
   it.skip('should link to all other pages', () => {

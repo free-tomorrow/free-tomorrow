@@ -37,7 +37,7 @@ const Dashboard = () => {
   const showSharedTrip = () => {
     if(!sharedTripId) {
       return (
-        <p>You have no pending trips.</p>
+        <p>You have no pending trip invitations.</p>
       )
     } else {
       return (

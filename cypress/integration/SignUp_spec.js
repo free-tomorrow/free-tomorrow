@@ -23,7 +23,7 @@ describe('SignUp page', () => {
     .type('bobloblaw@loblaw.law')
   })
 
-  it.skip('should clear inputs on click of sign up button', () => {
+  it('should clear inputs on click of sign up button', () => {
     cy.get('.signup-form > .signup-input-name')
     .type('Bob Loblaw')
     .get('.signup-input-email')

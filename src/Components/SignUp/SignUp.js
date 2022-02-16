@@ -26,9 +26,14 @@ const SignUp = () => {
       }))
       .then(() => {
         navigate(`/dashboard/:${state.users.id}`)
-
       })
     }
+    clearInputs()
+  }
+
+  const clearInputs = () => {
+    setUsername('')
+    setEmail('')
   }
 
   userId = useSelector((state) => {
