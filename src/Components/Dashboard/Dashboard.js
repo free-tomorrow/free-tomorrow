@@ -58,11 +58,20 @@ const Dashboard = () => {
   //     })
   //   }
 
-
+  // const getDates = () => {
+  //   state.users.trip_set.forEach(trip => 
+  //     trip.proposed_dates.map(dateSet => {
+  //       return (
+          
+  //             <p>{dateSet.start_date} - {dateSet.end_date}</p>
+  //       )
+  //     }))
+  // }
 
   const createTripCards = () => {
     if(currentUser['trip_set']) {
       const currentUserCards = state.users['trip_set'].map((trip) => {
+        console.log(trip)
         return (
           <TripCard
           key={Math.floor(Math.random() * .5)}
@@ -70,6 +79,7 @@ const Dashboard = () => {
           createdBy={trip.created_by}
           confirmed={trip.confirmed}
           budget={trip.budget}
+          dates={trip.proposed_dates}
           // users={trip.users}
           />
           )

@@ -61,8 +61,7 @@ export const userSlice = createSlice({
       return action.payload
     },
     removeUserFromStore: (state, action) => {
-      console.log(state.users)
-      // state.users.pop()
+      state.users.pop()
     }
   },
   extraReducers : {

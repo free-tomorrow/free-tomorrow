@@ -123,6 +123,7 @@ export const tripSlice = createSlice({
       const savedTrip = JSON.stringify(action.payload.newTrip)
       localStorage.setItem('savedTrip', savedTrip)
       state.allTrips = action.payload.newTrip
+      state.tempTrip.tripName = savedTrip.name
       // state.respTripId.push(action.payload.newTrip.id)
     },
     [getAllTripsAsync.pending]: (state, action) => {

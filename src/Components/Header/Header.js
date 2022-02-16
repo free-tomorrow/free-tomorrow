@@ -14,6 +14,9 @@ const Header = () => {
     e.preventDefault()
     navigate('/')
     localStorage.clear()
+    dispatch (
+      removeUserFromStore()
+    )
 
   }
 

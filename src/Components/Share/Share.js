@@ -12,10 +12,10 @@ const Share = () => {
   const [url, setUrl] = useState('');
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  console.log(tripName)
   console.log(state)
   const createTrip = (e) => {
     e.preventDefault()
+    console.log(tripName)
     dispatch(
       createNewTripAsync({
         name: tripName,
