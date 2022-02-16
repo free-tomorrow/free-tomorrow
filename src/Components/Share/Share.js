@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react'
 import { createNewTripAsync } from '../../state/tripSlice';
 import { useNavigate } from 'react-router-dom'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import copyImg from '../../assets/copy_icon.png'
 
 const Share = () => {
   const [tripName, setTripName] = useState('');
@@ -14,6 +15,7 @@ const Share = () => {
   // const [url, setUrl] = useState('');
   const [link, setLink] = useState(``);
   const [copied, setCopied] = useState(false)
+  const [copyMsg, setCopyMsg] = useState('')
 
 
   const state = useSelector((state) => state);
@@ -59,8 +61,19 @@ const Share = () => {
   }
 
   useEffect(() => {
-
+    
   }, [link])
+
+  const createCopyMsg = (e) => {
+    e.preventDefault()
+      setCopyMsg(
+        
+          <p className="copy-msg">Copied!</p>
+        
+      )
+
+    console.log(copyMsg)
+  }
 
   const goHome = (e) => {
     e.preventDefault();
@@ -104,16 +117,16 @@ const Share = () => {
           className="share-trip-btn share-btn"
           disabled={!canShare}
         >Get a link for this trip</button>
-         <div>
-        <input value={link} readonly onCopy={(e) => setCopied(true)}/>
+         <div className="copy-to-clipboard">
+          <input value={link} readonly onCopy={(e) => setCopied(true)}/>
 
 
-          <CopyToClipboard text={link}>
-            <button onClick={(e) => e.preventDefault()}>Copy to clipboard with button</button>
-          </CopyToClipboard>
+            <CopyToClipboard text={link}>
+              <button onClick={(e) => createCopyMsg(e)}><img src={copyImg} className="copy-img"></img></button>
+            </CopyToClipboard>
 
-          {copied ? <p>Copied.</p> : null}
-      </div>
+            {copyMsg}
+        </div>
 
         <button onClick={(e) => goHome(e)}>Back to dashboard</button>
       </form>

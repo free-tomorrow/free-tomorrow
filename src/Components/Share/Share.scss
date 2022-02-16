@@ -8,14 +8,21 @@
 }
 
 .share-form {
-  height: 50%;
+  height: 80%;
   width: 70%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   padding: 3%;
+  button {
+    font-family: $button-font;
+    font-size: 1.3rem;
+    background-color: #68749F;
+    border-radius: 5px;
+    border: 2px solid black;
+  }
   input{
     border: 2px solid black;
     border-radius: 5px;
@@ -57,6 +64,31 @@
     background: #867F7D;
     box-shadow:initial;
     opacity: .75;
+  }
+}
+
+.copy-msg {
+  color: $font-color;
+  font-size: 1.5rem;
+}
+
+.copy-to-clipboard {
+  display: flex;
+  width: 100%;
+  height: 4rem;
+  justify-content: center;
+  align-items: center;
+  input {
+    font-size: 1rem;
+    height: 2.5rem;
+  }
+  .copy-img {
+    height: 2rem;
+  }
+  button {
+    background-color: white;
+    height: 2.4rem;
+    
   }
 }
 
