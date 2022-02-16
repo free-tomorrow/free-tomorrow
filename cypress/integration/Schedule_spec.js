@@ -1,18 +1,11 @@
-describe('Schedule component tests', () => {
+describe('Schedule Page', () => {
 
   beforeEach(() => {
-
     cy.visit('http://localhost:3000/schedule')
-    // cy.get('p[class="homepg-login-link"]')
-    // .click()
-    // cy.type('gregwhoisj@gmail.com')
-
   })
 
   it('should allow the user to visit the schedule page', () => {
-
     cy.url('eq', 'http://localhost:3000/schedule')
-
   })
 
   it('should render the calendar elements on load', () => {
@@ -22,7 +15,6 @@ describe('Schedule component tests', () => {
   })
 
   it('should introduce the user to the page', () => {
-
     cy.get('section[class="schedule-txt"]').should('exist')
     cy.get('h1').should('contain', 'When are you free?')
     cy.get('p').should('contain', 'Select as many dates as you like...')
