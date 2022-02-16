@@ -38,7 +38,7 @@ const Header = () => {
       const parsedUserId = JSON.parse(currentUser).id;
       console.log(parsedUserId, 'PARSED USER ID')
       return (
-        <NavLink to={`/dashboard/:${parsedUserId}`}>Dashboard</NavLink>
+        <NavLink to={`/dashboard/:${parsedUserId}`} className="nav-link">Dashboard</NavLink>
       )
     }
   }

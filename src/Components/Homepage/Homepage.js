@@ -1,5 +1,5 @@
 import './Homepage.scss';
-import TravelAliens from '../../assets/travel_aliens.png'
+import Train from '../../assets/train.svg'
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { addUser } from '../../state/userSlice';
@@ -61,7 +61,7 @@ const Homepage = () => {
         <h2>An app that helps you get your travel plans out of the air and onto the ground.</h2>
       </section>
       {redirectIfLoggedIn()}
-      <img src={TravelAliens} className="aliens-img" alt="one eyed aliens" />
+      <img src={Train} className="aliens-img" alt="one eyed aliens" />
       </div>
 
 
