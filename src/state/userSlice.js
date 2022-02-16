@@ -61,7 +61,10 @@ export const userSlice = createSlice({
       return action.payload
     },
     removeUserFromStore: (state, action) => {
-      state.users = {};
+      localStorage.clear()
+      console.log(action.payload, 'REMOVE USER')
+      state.users = action.payload
+      // return action.payload
     }
   },
   extraReducers : {
@@ -69,6 +72,7 @@ export const userSlice = createSlice({
       const savedUser = JSON.stringify(action.payload.currentUser)
       localStorage.setItem('savedUser', savedUser)
       console.log(savedUser, 'savedUser')
+      console.log(state)
       return action.payload.currentUser
     },
     [createUserAsync.fulfilled] : (state, action) => {
