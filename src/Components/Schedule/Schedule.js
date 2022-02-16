@@ -4,7 +4,6 @@ import { Calendar } from 'react-calendar';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addDates } from '../../state/tripSlice.js';
-import 'react-calendar/dist/Calendar.css';
 import { store } from '../../state/store.js';
 
 const Schedule = () => {
@@ -97,7 +96,7 @@ const Schedule = () => {
             defaultValue=""
             selectRange={true}
             minDate={new Date()}
-            defaultView='year' />
+            defaultView='month' />
         </div>
         {displaySelectedDates()}
         {/* <div className="schedule-btn-container">

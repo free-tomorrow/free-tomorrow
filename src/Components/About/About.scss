@@ -1,0 +1,55 @@
+@import '../../sass/variables.scss';
+
+.about {
+  display: flex;
+  padding: 2%;
+  height:90vh;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    font-family: $main-font;
+  }
+  h2 {
+    font-size: 2rem;
+    font-weight:bold;
+  }
+  h3 {
+    font-size: 1.5rem;
+    padding: 0 0 30% 0;
+  }
+}
+
+.team-container {
+  padding: 2%;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  height: 80vh;
+  img {
+    width: 70%;
+  }
+}
+
+.frontend-team-container, .backend-team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.frontend-peeps, .backend-peeps {
+  display: flex;
+  padding: 4% 0;
+  height: 100%;
+  width: 100%;
+}
+
+.regan, .delilah, .greg, .sam {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

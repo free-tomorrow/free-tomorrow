@@ -29,8 +29,8 @@ const Budget = () => {
     
     if(budget) {
       return (
-        <Link to="/share">
-        <button onClick={createBudget} className="budget-continue-btn">{phrase}</button>
+        <Link to="/share" style={{width: "fit-content"}}>
+          <button onClick={createBudget} className="budget-continue-btn">{phrase}</button>
         </Link>
       )
     }

@@ -26,10 +26,11 @@
 
 .budget-btn {
   cursor: pointer;
-  background-color: $accent-color-one;
+  background-color: #9B6127;
+  font-family: $button-font;
   border: none;
   color: white;
-  font-size: 1rem;
+  font-size: 1.25rem;
   padding: 5%;
   margin: 0.5rem;
   border-radius: 5px;
@@ -37,11 +38,12 @@
 
 .budget-continue-btn {
   cursor: pointer;
-  background-color: $accent-color-two;
+  background-color: #68749F;
+  width: 100%;
   border: none;
   color: white;
-  font-size: 1.5rem;
-  padding: 10%;
+  font-size: 1.25rem;
+  padding: 5%;
   margin: 2rem;
   border-radius: 5px;
 }

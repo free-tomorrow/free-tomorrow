@@ -37,12 +37,12 @@ const Dashboard = () => {
   const showSharedTrip = () => {
     if(!sharedTripId) {
       return (
-        <p>You have no pending trip invitations.</p>
+        <p>You have no pending trip invitations</p>
       )
     } else {
       return (
         <>
-          <p>You've been invited on a trip! We need a little more info.</p>
+          <p>You've been invited on a trip! We need a little more info...</p>
           <Link to="/add"><button>Click here</button></Link>
         </>
       )
@@ -121,7 +121,6 @@ const Dashboard = () => {
           </Link>
           </div>
           <div className="dash-cards-wrapper">
-            <h2>Your Trips</h2>
             <div className="dashboard-cards">
               {createTripCards()}
             </div>

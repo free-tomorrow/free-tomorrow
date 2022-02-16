@@ -1,12 +1,17 @@
 @import '../../sass/variables.scss';
 
 .dashboard {
-  height: 80vh;
+  height: 100%;
 }
 .dashboard-greeting {
-  text-align: center;
+  padding: 0 0 2rem 0;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   h1 {
-    font-size: 2rem
+    font-size: 2.5rem
   }
   font-size: 1.5em;
 }
@@ -20,45 +25,70 @@
 .dash-cards-wrapper{
   text-align: center;
   font-size: 1.5rem;
-  border: 2px solid red;
-  width: 75%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
-
+  color-scheme: dark;
+  padding: 0 2%;
+  max-height: 60vh;
 }
 
 
 .dashboard-cards {
-  // border: 5px solid $secondary-color;
   height: 90%;
   display: flex;
   flex-wrap: wrap;
   justify-content:center;
-  overflow: scroll;
-  
+  overflow-y: scroll;
 }
 
 .create-invite-wrapper{
-  border: 1px solid white;
   width:50%;
   display: flex;
   flex-direction: column;
   align-items:center;
+  padding: 2%;
 }
 
 .dashboard-create-btn {
   cursor: pointer;
-  background: $accent-color-one;
+  background: #9B6127;
   border: 1px solid black;
   border-radius: 5px;
   color: white;
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   font-weight: 200;
-  padding: 6px 0px;
-  font-family: $font;
+  padding: 1rem;
+  font-family: $button-font;
   font-weight: 200;
   box-shadow: 2px 2px $secondary-color;
   margin-bottom: .5%;
+}
+
+@media screen and (max-width: 750px) {
+  .dashboard-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dash-cards-wrapper {
+    width: 90%;
+  }
+
+  .dashboard-create-btn {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .dashboard {
+    margin-top: 2rem;
+  }
+
+  .dashboard-create-btn {
+    font-size: 1.2rem;
+  }
 }

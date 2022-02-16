@@ -1,5 +1,5 @@
 import './Homepage.scss';
-import TravelAliens from '../../assets/travel_aliens.png'
+import CalendarImg from '../../assets/calendar_green.png'
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { addUser } from '../../state/userSlice';
@@ -49,9 +49,6 @@ const Homepage = () => {
     return homepgLinks;
   }
 
-//  useEffect on load to check if there is an id in the current URL
-// if there is an id at the end of the path, grab it and put it in local storage
-
 
   return (
     <div className="homepage">
@@ -61,7 +58,7 @@ const Homepage = () => {
         <h2>An app that helps you get your travel plans out of the air and onto the ground.</h2>
       </section>
       {redirectIfLoggedIn()}
-      <img src={TravelAliens} className="aliens-img" alt="one eyed aliens" />
+      <img src={CalendarImg} className="calendar-img" alt="calendar" />
       </div>
 
 
@@ -70,10 +67,6 @@ const Homepage = () => {
     </div>
   )
 }
-
-
-
-
 
 
 export default Homepage;
