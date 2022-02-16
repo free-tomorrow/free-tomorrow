@@ -5,7 +5,7 @@
 }
 .dashboard-greeting {
   padding: 0 0 2rem 0;
-  height: 20vh;
+  height: 25vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -52,7 +52,7 @@
   padding: 2%;
 }
 
-.dashboard-create-btn {
+.dashboard-create-btn, .add-to-trip-btn {
   cursor: pointer;
   background: #9B6127;
   border: 1px solid black;
@@ -60,7 +60,7 @@
   color: white;
   font-size: 1.6rem;
   font-weight: 200;
-  padding: 1rem;
+  padding: 0.2rem 1rem;
   font-family: $button-font;
   font-weight: 200;
   box-shadow: 2px 2px $secondary-color;

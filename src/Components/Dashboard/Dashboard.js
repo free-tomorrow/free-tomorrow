@@ -43,7 +43,7 @@ const Dashboard = () => {
       return (
         <>
           <p>You've been invited on a trip! We need a little more info...</p>
-          <Link to="/add"><button>Click here</button></Link>
+          <Link to="/add"><button className="add-to-trip-btn">Click here</button></Link>
         </>
       )
     }
