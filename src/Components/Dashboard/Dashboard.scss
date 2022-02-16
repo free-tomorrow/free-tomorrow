@@ -60,9 +60,35 @@
   color: white;
   font-size: 1.6rem;
   font-weight: 200;
-  padding: 1.5rem;
+  padding: 1rem;
   font-family: $button-font;
   font-weight: 200;
   box-shadow: 2px 2px $secondary-color;
   margin-bottom: .5%;
+}
+
+@media screen and (max-width: 750px) {
+  .dashboard-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dash-cards-wrapper {
+    width: 90%;
+  }
+
+  .dashboard-create-btn {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .dashboard {
+    margin-top: 2rem;
+  }
+
+  .dashboard-create-btn {
+    font-size: 1.2rem;
+  }
 }
