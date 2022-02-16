@@ -22,6 +22,7 @@
     background-color: #68749F;
     border-radius: 5px;
     border: 2px solid black;
+    cursor: pointer;
   }
   input{
     border: 2px solid black;
@@ -99,7 +100,8 @@
   button {
     background-color: white;
     height: 2.4rem;
-    
+    cursor: pointer;
+    margin: 1%;
   }
 }
 

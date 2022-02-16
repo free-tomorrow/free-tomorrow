@@ -12,7 +12,6 @@ const Share = () => {
   const [budget, setBudget] = useState('');
   const [dates, setDates] = useState('');
   const [tripId, setTripId] = useState('');
-  // const [url, setUrl] = useState('');
   const [link, setLink] = useState(``);
   const [copied, setCopied] = useState(false)
   const [copyMsg, setCopyMsg] = useState('')
@@ -24,7 +23,6 @@ const Share = () => {
 
   const createTrip = (e) => {
     e.preventDefault()
-    console.log(tripName)
     dispatch(
       createNewTripAsync({
         name: tripName,
@@ -80,7 +78,7 @@ const Share = () => {
     const savedUser = localStorage.getItem('savedUser');
     const userId = JSON.parse(savedUser).id;
     navigate(`/dashboard/${userId}`);
-
+    localStorage.removeItem('savedTrip');
   }
 
 
