@@ -10,15 +10,16 @@ const Header = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+
   const signOut = (e) => {
     e.preventDefault()
     navigate('/')
-    localStorage.clear()
     dispatch (
       removeUserFromStore()
     )
-
+    localStorage.clear()
   }
+
 
   const isLoggedIn = state.users.id ? true : false
 
@@ -34,12 +35,15 @@ const Header = () => {
 
   const showDashboard = () => {
     if (isLoggedIn) {
+      console.log(state.users.id, 'isLoggedIn')
       const currentUser = localStorage.getItem('savedUser');
       const parsedUserId = JSON.parse(currentUser).id;
-      console.log(parsedUserId, 'PARSED USER ID')
+  
       return (
         <NavLink to={`/dashboard/:${parsedUserId}`} className="nav-link">Dashboard</NavLink>
       )
+    } else {
+      console.log(state.users.id, 'else')
     }
   }
 

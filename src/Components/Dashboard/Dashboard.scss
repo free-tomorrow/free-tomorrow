@@ -1,10 +1,15 @@
 @import '../../sass/variables.scss';
 
 .dashboard {
-  height: 80vh;
+  height: 100%;
 }
 .dashboard-greeting {
-  text-align: center;
+  padding: 0 0 2rem 0;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   h1 {
     font-size: 2.5rem
   }
@@ -20,13 +25,14 @@
 .dash-cards-wrapper{
   text-align: center;
   font-size: 1.5rem;
-  border: 2px solid red;
   width: 70%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: center;
-
+  color-scheme: dark;
+  padding: 0 2%;
+  max-height: 60vh;
 }
 
 
@@ -36,15 +42,14 @@
   flex-wrap: wrap;
   justify-content:center;
   overflow-y: scroll;
-  
 }
 
 .create-invite-wrapper{
-  border: 1px solid white;
   width:50%;
   display: flex;
   flex-direction: column;
   align-items:center;
+  padding: 2%;
 }
 
 .dashboard-create-btn {
@@ -53,9 +58,9 @@
   border: 1px solid black;
   border-radius: 5px;
   color: white;
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   font-weight: 200;
-  padding: 6px 0px;
+  padding: 1.5rem;
   font-family: $button-font;
   font-weight: 200;
   box-shadow: 2px 2px $secondary-color;
