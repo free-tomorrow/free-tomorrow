@@ -32,19 +32,19 @@ const Schedule = () => {
 
 
       return (
-        <p>{start.toDateString()} - {end.toDateString()}</p>
+        <p key={Math.floor(Math.random() * Date.now())}> {start.toDateString()} - {end.toDateString()}</p>
+        
       )
     })
     if (state.trips.tempTrip.dates.length) {
       return (
         <div className="schedule-btn-container">
-          <section className="dates-list">
+          <section  className="dates-list">
             <h2>You're free:</h2>
             {allDates}
           </section>
-          {/* {displaySelectedDates()} */}
           <Link to="/budget">
-            <button className="schedule-continue-btn" onClick={console.log(dateRange)}>Continue</button>
+            <button className="schedule-continue-btn">Continue</button>
           </Link>
         </div>
       )
@@ -79,7 +79,6 @@ const Schedule = () => {
           <Calendar
             activeStartDate={new Date()}
             onChange={logDates}
-            defaultValue=""
             selectRange={true}
             minDate={new Date()}
             defaultView='month' />
