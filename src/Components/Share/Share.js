@@ -3,6 +3,7 @@ import TripCard from '../TripCard/TripCard';
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useState, useEffect } from 'react'
 import { createNewTripAsync } from '../../state/tripSlice';
+import { useNavigate } from 'react-router-dom'
 
 const Share = () => {
   const [tripName, setTripName] = useState('');
@@ -12,6 +13,7 @@ const Share = () => {
   const [url, setUrl] = useState('');
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   console.log(state)
   const createTrip = (e) => {
     e.preventDefault()
@@ -46,6 +48,14 @@ const Share = () => {
     console.log(linkUrl.href, 'link url')
     setUrl(linkUrl)
     console.log(url)
+  }
+
+  const goHome = (e) => {
+    e.preventDefault();
+    const savedUser = localStorage.getItem('savedUser');
+    const userId = JSON.parse(savedUser).id;
+    navigate(`/dashboard/${userId}`);
+
   }
 
   const shareLink = url ?
@@ -89,6 +99,7 @@ const Share = () => {
           className="share-trip-btn share-btn"
           disabled={!canShare}
         >Get a link for this trip</button>
+        <button onClick={(e) => goHome(e)}>Back to dashboard</button>
       </form>
     </div>
   )
