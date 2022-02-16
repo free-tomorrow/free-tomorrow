@@ -67,16 +67,46 @@
 
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 750px) {
+  .nav-bar {
+    min-height: 4rem;
+    a {
+      font-size: 1rem;
+    }
+    button {
+      font-size: 1rem;
+    }
+  }
+
+  .welcome-container {
+    padding: 10% 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    padding: 1rem 0;
+    flex-direction: column;
+  }
 
   .nav-bar {
-    justify-content: space-around;
+    padding: 0.2rem 0;
+    flex-direction: column;
+  }
+
+  .welcome-container {
+    padding: 20% 0;
+  }
+
+  .calendar-img {
+    margin-top: 5rem;
   }
 
   .nav-link,
   .login-btn,
   .logout-btn {
-    font-size: .55em;
+    font-size: 1rem;
+    padding: 10px;
   }
 
   .login-btn, 
