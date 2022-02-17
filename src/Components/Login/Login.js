@@ -54,9 +54,6 @@ const Login = () => {
             disabled={!validInput}
             onClick={(e) => logUserIn(e)}>
             Log In</button>
-          {/* <Link to={`/dashboard/${userId}`}
-            style={{ border: "1px solid red" }}>HERE
-          </Link> */}
         </form>
       </div>
     </div >

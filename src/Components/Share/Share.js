@@ -30,32 +30,38 @@ const Share = () => {
         budget: budget,
         dates: dates
       })
+    ).then(() => {
+      const savedTrip = localStorage.getItem('savedTrip')
+      let id = JSON.parse(savedTrip).id
+      setTripId(id)
+
+    }
+
     )
-    const savedId = localStorage.getItem('tripId')
-    setTripId(JSON.parse(savedId))
-      
   }
+
+  useEffect(() => {
+    console.log(tripId, 'tripID')
+    if(tripId) {
+      generateTripLink()
+
+    }
+  }, [tripId])
   
 
   useEffect(() => {
+    console.log(localStorage)
     setBudget(state.trips.tempTrip.budget)
     setDates(state.trips.tempTrip.dates)
   }, [])
 
-  const generateTripLink = (e) => {
-    e.preventDefault()
+  const generateTripLink = () => {
 
     const linkUrl = `https://freetomorrow.netlify.app/:${tripId}`
     setLink(linkUrl)
-    
 
   }
 
-
-
-  useEffect(() => {
-    
-  }, [tripId])
 
   const createCopyMsg = (e) => {
     e.preventDefault()
@@ -75,9 +81,7 @@ const Share = () => {
   }
 
 
-
-  // const validInputs = !tripName ? false : true
-  const canShare = tripId ? true : false
+  const validInputs = !tripName ? false : true
 
   return (
     <div className="share-pg">
@@ -100,14 +104,9 @@ const Share = () => {
           onChange={(e) => setTripName(e.target.value)} />
         <button
           className="create-trip-btn share-btn"
-          // disabled={!validInputs}
+          disabled={!validInputs}
           onClick={(e) => createTrip(e)}
         >Create this trip</button>
-        <button
-          onClick={(e) => generateTripLink(e)}
-          className="share-trip-btn share-btn"
-          disabled={!canShare}
-        >Get a link for this trip</button>
          <div className="copy-to-clipboard">
           <input className="link-input" value={link} readOnly onCopy={(e) => setCopied(true)}/>
 

@@ -71,9 +71,6 @@ const SignUp = () => {
 
           <button
             className="signup-pg-btn" onClick={(e) => registerUser(e)}>Sign Up</button>
-          {/* if including a signup button in the header, it needs to have a different className. 
-          "header- signup-btn" */}
-          <Link to={`/dashboard/${userId}`}>CLICK ME</Link>
         </form>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 export const createNewTripAsync = createAsyncThunk(
   'trips/createNewTripAsync',
   async (payload) => {
+    console.log(payload, 'THIS IS THE PAYLOAD')
     const resp = await fetch('https://free-tomorrow-be.herokuapp.com/trips/', {
       method: 'POST',
       headers: {
@@ -17,36 +18,18 @@ export const createNewTripAsync = createAsyncThunk(
         dates: payload.dates
       })
     })
-    // });
+ 
 
     if (resp.ok) {
       const newTrip = await resp.json();
-      const savedTrip = JSON.stringify(newTrip)
-      
-      localStorage.setItem('tripId', savedTrip.id)
-      localStorage.setItem('savedTrip', savedTrip)
 
-      return { savedTrip };
+      return { newTrip };
     } else {
-
-      // state.error = resp.status
+      console.log('ERROR')
     }
   }
 );
 
-// export const getAllTripsAsync = createAsyncThunk(
-//   'trips/getAllTripsAsync',
-//   async () => {
-//     const resp = await fetch('https://free-tomorrow-be.herokuapp.com/trips/')
-//     if (resp.ok) {
-//       const allTrips = await resp.json()
-//       console.log(allTrips)
-//       return { allTrips }
-//     } else {
-//       console.log(resp.err)
-//     }
-//   },
-// )
 
 export const getSharedTripAsync = createAsyncThunk(
   'trips/getSharedTripAsync',
@@ -70,7 +53,6 @@ export const getSharedTripAsync = createAsyncThunk(
 export const editSharedTripAsync = createAsyncThunk(
   'trips/editSharedTripAsync',
   async (payload) => {
-    // if(payload.budget || payload.dates.length) {
     const resp = await fetch(`https://free-tomorrow-be.herokuapp.com/trips/${payload.tripId}/`, {
       method: 'PATCH',
       headers: {
@@ -140,26 +122,23 @@ export const tripSlice = createSlice({
   },
   extraReducers: {
     [createNewTripAsync.fulfilled]: (state, action) => {
-      // const savedTrip = JSON.stringify(action.payload.newTrip)
-      // localStorage.setItem('savedTrip', savedTrip)
-      // state.allTrips = action.payload.newTrip
-      // state.tempTrip.tripName = savedTrip.name
-      return action.payload.savedTrip;
+   
+      const savedTrip = JSON.stringify(action.payload.newTrip)
+      localStorage.setItem('savedTrip', savedTrip)
+  
+      return action.payload.newTrip;
     },
-    // [getAllTripsAsync.fulfilled]: (state, action) => {
-    //   state.allTrips = action.payload.allTrips;
-    // },
-    // [getSharedTripAsync.fulfilled]: (state, action) => {
+    [getSharedTripAsync.fulfilled]: (state, action) => {
 
-    //     return action.payload.sharedTrip;
+        return action.payload.sharedTrip;
     
-    // },
+    },
     [editSharedTripAsync.fulfilled]: (state, action) => {
 
       return action.payload.editedTrip
     },
     [getUserTripsAsync.fulfilled]: (state, action) => {
-      // state.allTrips = action.payload.allUserTrips;
+
       return action.payload.allUserTrips;
     }
   },

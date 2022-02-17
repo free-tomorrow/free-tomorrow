@@ -3,7 +3,6 @@
 //make mixin for forms?
 
 .signup {
-  border: 1px solid red;
   height: 80vh;
   text-align: center;
 }
@@ -11,7 +10,6 @@
 .signup-content {
   height: 100%;
   display: flex;
-  //need to adjust position of this div to relative or absolute, if adding an image later
   flex-direction: column;
   align-items: center;
   line-height: 1.6;
@@ -41,7 +39,7 @@
   border: 2px solid black;
   border-radius: 5px;
   text-align: center;
-  font-size: .995em;
+  font-size: 1.1em;
   font-weight: 200;
   width: 15vw;
   margin-bottom: 1.5%;
@@ -53,18 +51,17 @@
   outline: none;
 
   &:placeholder-shown {
-    font-family: 'Poppins', sans-serif;
+    font-family: $button-font;
     font-weight: 200;
   }
 
   &:focus {
-    font-family: 'Poppins', sans-serif;
+    font-family: $button-font;
     font-weight: 200;
     color: initial;
     width: 20vw;
     font-size: 1.25em;
     box-shadow: 7px 7px $secondary-color;
-    // margin:4.8125%;
   }
 }
 
@@ -77,36 +74,35 @@
   width: 23vw;
   margin-bottom: 2.5%;
   padding: 5px 10px;
-  font-family: $main-font;
+  font-family: $button-font;
   color: $secondary-color;
   box-shadow: 5px 5px $secondary-color;
   transition: all 450ms ease;
   outline: none;
 
   &:placeholder-shown {
-    font-family: 'Poppins', sans-serif;
+    font-family: $button-font;
     font-weight: 200;
     color:transparent;
   }
 
   &:focus {
-    font-family: 'Poppins', sans-serif;
+    font-family: $button-font;
     font-weight: 200;
     color: initial;
     width: 35vw;
     font-size: 1.25em;
     box-shadow: 7px 7px $secondary-color;
-    // margin:4.8125%;
   }
 }
 
 .signup-pg-btn {
   cursor: pointer;
-  background: $accent-color-two;
+  background: #9B6127;
   border: 1px solid black;
   border-radius: 5px;
   color: white;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 200;
   width: 20%;
   padding: 10px 30px;
