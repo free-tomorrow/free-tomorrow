@@ -45,7 +45,7 @@ const Share = () => {
   const generateTripLink = (e) => {
     e.preventDefault()
 
-    const linkUrl = `https:/localhost:3000/:${tripId}`
+    const linkUrl = `https://freetomorrow.netlify.app/:${tripId}`
     setLink(linkUrl)
     
 
