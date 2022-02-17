@@ -18,26 +18,31 @@ const Header = () => {
       removeUserFromStore()
     )
     localStorage.clear()
+    window.location.reload(true)
   }
 
 
   const isLoggedIn = state.users.id ? true : false
 
   const toggleButton = () => {
-    return isLoggedIn ? (
+    if(isLoggedIn) {
+      return (
       <NavLink to="/" className="logout-link"><button onClick={(e) => signOut(e)} className="logout-btn">Log Out</button></NavLink>
     )
-      :
-      (
-        <NavLink to="/login" className="login-link"><button className="login-btn">Log In</button></NavLink>
-      )
+      }
+      else { 
+        return (
+          <NavLink to="/login" className="login-link"><button className="login-btn">Log In</button></NavLink>
+          )
+        }
   }
 
   const showDashboard = () => {
     if (isLoggedIn) {
-      console.log(state.users.id, 'isLoggedIn')
       const currentUser = localStorage.getItem('savedUser');
+      console.log(currentUser)
       const parsedUserId = JSON.parse(currentUser).id;
+      console.log(parsedUserId)
   
       return (
         <NavLink to={`/dashboard/:${parsedUserId}`} className="nav-link">Dashboard</NavLink>
