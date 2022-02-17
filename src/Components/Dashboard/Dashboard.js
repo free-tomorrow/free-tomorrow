@@ -5,7 +5,7 @@ import TripCard from '../TripCard/TripCard';
 import { Link, useLocation } from 'react-router-dom';
 import { store } from '../../state/store';
 import { addUserToStore } from '../../state/userSlice';
-import { getAllTripsAsync, getSharedTripAsync } from '../../state/tripSlice';
+import { getAllTripsAsync, getSharedTripAsync, getUserTripsAsync } from '../../state/tripSlice';
 
 const Dashboard = () => {
   const state = useSelector((state) => state);
@@ -16,6 +16,7 @@ const Dashboard = () => {
   const location = useLocation().pathname;
   const retrievedUser = localStorage.getItem('savedUser');
   const parsedUser = JSON.parse(retrievedUser);
+  // let currentUserCards;
 
 
   const sendUserToStore = () => {
@@ -49,52 +50,54 @@ const Dashboard = () => {
     }
   }
 
+  // useEffect(() => {
+  //   console.log(currentTrips)
+  //   createTripCards()
+  // }, [currentTrips])
 
-  // const getAllTrips = () => {
-  //   dispatch(
-  //     getAllTripsAsync()
-  //     )
-  //     .then(() => {
-  //     })
-  //   }
 
-  // const getDates = () => {
-  //   state.users.trip_set.forEach(trip => 
-  //     trip.proposed_dates.map(dateSet => {
-  //       return (
-          
-  //             <p>{dateSet.start_date} - {dateSet.end_date}</p>
-  //       )
-  //     }))
-  // }
 
   const createTripCards = () => {
-    if(currentUser['trip_set']) {
-      const currentUserCards = state.users['trip_set'].map((trip) => {
+    if(currentUser.trip_set) {
+     const currentUserCards = state.users.trip_set.map((trip) => {
         console.log(trip)
         return (
           <TripCard
-          key={Math.floor(Math.random() * .5)}
-          tripName={trip.name}
-          createdBy={trip.created_by}
-          confirmed={trip.confirmed}
-          budget={trip.budget}
-          dates={trip.proposed_dates}
-          // users={trip.users}
+            key={Math.floor(Math.random() * Date.now())}
+            tripName={trip.name}
+            createdBy={trip.created_by}
+            confirmed={trip.confirmed}
+            budget={trip.budget}
+            dates={trip.possible_dates}
           />
           )
         })
         return currentUserCards
       }
       else {
-        console.log('nothing here for ya')
+       
       }
     }
 
   useEffect(() => {
     sendUserToStore()
-    getSharedTrip()
+    // dispatch (
+    //   getUserTripsAsync(parsedUser.id)
+    //   )
+        getSharedTrip()
+        // setCurrentTrips(state.trips.allTrips)
+        // createTripCards()
+    
+
+    
+    // setCurrentTrips(state.trips.allTrips)
+    // localStorage.setItem('userTrips', currentTrips)
   }, [])
+
+  // useEffect(() => {
+  //   setCurrentTrips(state.trips.allTrips)
+  //   // localStorage.setItem('userTrips', currentTrips)
+  // }, [sharedTripId])
 
 
   if (!state.users.id) {
@@ -110,7 +113,7 @@ const Dashboard = () => {
         </div>
         <div className="dashboard-content">
           <div className="create-invite-wrapper">
-          <Link to="/schedule">
+          <Link to="/schedule" >
             <button className="dashboard-create-btn">Create a new trip</button>
           </Link>
           {showSharedTrip()}

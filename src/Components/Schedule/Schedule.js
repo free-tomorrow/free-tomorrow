@@ -19,9 +19,9 @@ const Schedule = () => {
   }
 
   const displaySelectedDates = () => {
-    console.log(state.trips.tempTrip.dates, 'DATES IN STATE')
+   
     const allDates = state.trips.tempTrip.dates.map(range => {
-      console.log(range, 'EACH DATE RANGE')
+     
       const start = new Date(range.start_date)
       const end = new Date(range.end_date)
       return (

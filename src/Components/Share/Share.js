@@ -31,15 +31,11 @@ const Share = () => {
         dates: dates
       })
     )
-      .then(() => {
-        localStorage.setItem('tripId', state.trips.allTrips.id)
-        setTripId(state.trips.allTrips.id)
-        console.log(state.trips.allTrips.id, 'ID')
-        console.log(tripId)
-        generateTripLink(e)
-        
-      })
+    const savedId = localStorage.getItem('tripId')
+    setTripId(JSON.parse(savedId))
+      
   }
+  
 
   useEffect(() => {
     setBudget(state.trips.tempTrip.budget)
@@ -48,13 +44,10 @@ const Share = () => {
 
   const generateTripLink = (e) => {
     e.preventDefault()
-    const savedId = localStorage.getItem('tripId')
-    setTripId(JSON.parse(savedId))
-    console.log(tripId, 'tripId')
 
-    const linkUrl = `https:/localhost:3000/:${tripId}`
+    const linkUrl = `https://freetomorrow.netlify.app/:${tripId}`
     setLink(linkUrl)
-    console.log(link)
+    
 
   }
 
@@ -69,8 +62,6 @@ const Share = () => {
           <p className="copy-msg">Copied!</p>
         
       )
-
-    console.log(copyMsg)
   }
 
   const goHome = (e) => {
@@ -116,7 +107,7 @@ const Share = () => {
           disabled={!canShare}
         >Get a link for this trip</button>
          <div className="copy-to-clipboard">
-          <input className="link-input" value={link} readonly onCopy={(e) => setCopied(true)}/>
+          <input className="link-input" value={link} readOnly onCopy={(e) => setCopied(true)}/>
 
 
             <CopyToClipboard text={link}>
@@ -126,7 +117,7 @@ const Share = () => {
             {copyMsg}
         </div>
 
-        <button onClick={(e) => goHome(e)}>Back to dashboard</button>
+        <button className="share-dashboard-btn" onClick={(e) => goHome(e)}>Back to dashboard</button>
       </form>
     </div>
   )

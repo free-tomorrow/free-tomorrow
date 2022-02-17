@@ -12,7 +12,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   text-align: center;
   padding: 3%;
@@ -31,7 +31,7 @@
     font-size: 1.5rem;
     font-weight: 200;
     margin-bottom: 1.5%;
-    padding: 5px 10px;
+    padding: 3px 10px;
     font-family: $button-font;
     box-shadow: 5px 5px $secondary-color;
     transition: all 450ms ease;
@@ -50,12 +50,12 @@
     width: 40%;
   }
 
-  .copy-to-clipboard {
-    display: flex;
-    flex-direction: column;
-    margin: 5% 0;
-    align-content: center;
-  }
+  // .copy-to-clipboard {
+  //   display: flex;
+  //   flex-direction: column;
+  //   margin: 5% 0;
+  //   align-content: center;
+  // }
 
 .share-btn{
   cursor: pointer;
@@ -85,6 +85,7 @@
 }
 
 .copy-to-clipboard {
+  margin: 1% 0;
   display: flex;
   width: 100%;
   height: 4rem;
@@ -103,6 +104,10 @@
     cursor: pointer;
     margin: 1%;
   }
+}
+
+.share-dashboard-btn {
+  color: $font-color;
 }
 
 

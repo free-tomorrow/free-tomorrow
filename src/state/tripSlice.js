@@ -21,37 +21,39 @@ export const createNewTripAsync = createAsyncThunk(
 
     if (resp.ok) {
       const newTrip = await resp.json();
-      // console.log(newTrip)
+      localStorage.setItem('tripId', newTrip.id)
+
       return { newTrip };
     } else {
-      // console.log(resp.errors)
+
       // state.error = resp.status
     }
   }
 );
 
-export const getAllTripsAsync = createAsyncThunk(
-  'trips/getAllTripsAsync',
-  async () => {
-    const resp = await fetch('https://free-tomorrow-be.herokuapp.com/trips/')
-    if (resp.ok) {
-      const allTrips = await resp.json()
-      return { allTrips }
-    } else {
-      console.log(resp.err)
-    }
-  },
-)
+// export const getAllTripsAsync = createAsyncThunk(
+//   'trips/getAllTripsAsync',
+//   async () => {
+//     const resp = await fetch('https://free-tomorrow-be.herokuapp.com/trips/')
+//     if (resp.ok) {
+//       const allTrips = await resp.json()
+//       console.log(allTrips)
+//       return { allTrips }
+//     } else {
+//       console.log(resp.err)
+//     }
+//   },
+// )
 
 export const getSharedTripAsync = createAsyncThunk(
   'trips/getSharedTripAsync',
   async (payload) => {
-    // console.log(payload, 'PAYLOAD!')
+
     if (payload) {
       const resp = await fetch(`https://free-tomorrow-be.herokuapp.com/trips/${payload}/`)
       if (resp.ok) {
         const sharedTrip = await resp.json()
-        console.log(sharedTrip, 'SHARED TRIP JSON')
+    
         let stringSharedTrip = JSON.stringify(sharedTrip)
         localStorage.setItem('sharedTrip', stringSharedTrip)
         return { sharedTrip }
@@ -81,8 +83,22 @@ export const editSharedTripAsync = createAsyncThunk(
     })
     if (resp.ok) {
       const editedTrip = await resp.json()
-      console.log(editedTrip, 'EDITED TRIP DATA')
       return { editedTrip }
+    } else {
+      console.log(resp.err)
+    }
+  }
+)
+
+export const getUserTripsAsync = createAsyncThunk(
+  'trips/getUserTripsAsync',
+  async (payload) => {
+    const resp = await fetch(`https://free-tomorrow-be.herokuapp.com/users/${payload}`)
+    if(resp.ok) {
+      const user = await resp.json()
+      const allUserTrips = user.trip_set;
+      console.log(allUserTrips, 'all users trips resp')
+      return { allUserTrips }
     } else {
       console.log(resp.err)
     }
@@ -119,38 +135,27 @@ export const tripSlice = createSlice({
   },
   extraReducers: {
     [createNewTripAsync.fulfilled]: (state, action) => {
-      // something needs to go here. bad request
       const savedTrip = JSON.stringify(action.payload.newTrip)
       localStorage.setItem('savedTrip', savedTrip)
       state.allTrips = action.payload.newTrip
       state.tempTrip.tripName = savedTrip.name
-      // state.respTripId.push(action.payload.newTrip.id)
+      
     },
-    [getAllTripsAsync.pending]: (state, action) => {
-      // console.log("PENDING")
-    },
-    [getAllTripsAsync.fulfilled]: (state, action) => {
-      state.allTrips = action.payload.allTrips;
-      // console.log(state.allTrips)
-      // console.log("FULFILLED")
-    },
-    [getSharedTripAsync.pending]: (state, action) => {
-      // state.sharedTrip = action.payload.sharedTrip;
-      console.log(action.payload, 'pending')
-      // console.log(action.payload)
-    },
-    [getSharedTripAsync.fulfilled]: (state, action) => {
-      state.sharedTrip = action.payload.sharedTrip;
-      // let stringSharedTrip = JSON.stringify(state.trips.sharedTrip)
-      // localStorage.setItem('sharedTrip', stringSharedTrip)
-      console.log(action.payload, 'fulfilled')
-      // console.log(stringSharedTrip, 'stringSharedTrip')
-      // console.log(action.payload)
-    },
+    // [getAllTripsAsync.fulfilled]: (state, action) => {
+    //   state.allTrips = action.payload.allTrips;
+    // },
+    // [getSharedTripAsync.fulfilled]: (state, action) => {
+
+    //     return action.payload.sharedTrip;
+    
+    // },
     [editSharedTripAsync.fulfilled]: (state, action) => {
-      // const index = state.findIndex((trip) => trip.id === action.payload.editedTrip.id)
-      console.log(action.payload.editedTrip, "EDITED TRIP")
+
       return action.payload.editedTrip
+    },
+    [getUserTripsAsync.fulfilled]: (state, action) => {
+      state.allTrips = action.payload.allUserTrips;
+      // return action.payload.allUserTrips;
     }
   },
 

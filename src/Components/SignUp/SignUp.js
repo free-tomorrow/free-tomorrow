@@ -15,7 +15,6 @@ const SignUp = () => {
 
 
   const registerUser = (e) => {
-    console.log(username, email)
     e.preventDefault();
     if (!username || !email) {
       //need some error handling here
@@ -37,10 +36,8 @@ const SignUp = () => {
   }
 
   userId = useSelector((state) => {
-    console.log(state)
     return state.users.id
   })
-  console.log(userId)
 
   return (
     <div className="signup">

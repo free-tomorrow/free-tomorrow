@@ -15,9 +15,7 @@ export const getUserAsync = createAsyncThunk(
         
             if (resp.ok) {
                 const currentUser = await resp.json();
-                // const savedUser = JSON.stringify(currentUser)
-                // localStorage.setItem('savedUser', savedUser)
-                // console.log(savedUser, 'savedUser')
+               
                 return { currentUser };
               } else {
                   console.log(resp.error)
@@ -52,6 +50,7 @@ export const createUserAsync = createAsyncThunk(
 
 
 
+
 export const userSlice = createSlice({
   name: 'users',
   initialState: [
@@ -62,7 +61,7 @@ export const userSlice = createSlice({
     },
     removeUserFromStore: (state, action) => {
       localStorage.clear()
-      console.log(action.payload, 'REMOVE USER')
+  
       state.users = action.payload
       // return action.payload
     }
@@ -71,12 +70,11 @@ export const userSlice = createSlice({
     [getUserAsync.fulfilled] : (state,action) => {
       const savedUser = JSON.stringify(action.payload.currentUser)
       localStorage.setItem('savedUser', savedUser)
-      console.log(savedUser, 'savedUser')
-      console.log(state)
+     
       return action.payload.currentUser
     },
     [createUserAsync.fulfilled] : (state, action) => {
-      console.log(action, 'create user action')
+    
       const savedUser = JSON.stringify(action.payload.currentUser)
       localStorage.setItem('savedUser', savedUser)
       // state.push(action.payload.currentUser)

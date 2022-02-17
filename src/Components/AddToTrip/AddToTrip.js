@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './AddToTrip.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import {editSharedTripAsync} from '../../state/tripSlice';
@@ -12,6 +12,7 @@ const AddToTrip = () => {
   const [datesArr, setDatesArr] = useState([]);
   const [currentUser, setCurrentUser] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const retrieveTrip = () => {
     let retrievedTrip = localStorage.getItem('sharedTrip')
@@ -20,21 +21,18 @@ const AddToTrip = () => {
 
   const updateTripDetails = (e) => {
     e.preventDefault();
-    console.log(currentUser, 'currentUser')
-    console.log(newBudget, datesArr)
     if(parseInt(newBudget) || datesArr.length) {
       dispatch (
         editSharedTripAsync({
           tripId: sharedTrip.id,
           userId: currentUser.id,
-          budget: newBudget,
-          dates: datesArr
+          budget: newBudget || null,
+          dates: datesArr || null
         })
         )
+        navigate(`/dashboard/${currentUser.id}`)
       } else {
-        dispatch(editSharedTripAsync({
-          
-        }))
+        navigate(`/dashboard/${currentUser.id}`)
       }
     // this is where we need to call the PATCH thunk 
     // to update the trip object and send new dates or budget IF AND ONLY IF they've changed (if they got added to localStorage)
@@ -45,11 +43,10 @@ const AddToTrip = () => {
       const allDates = sharedTrip.possible_dates.map((dateSet) => {
         let startDate = new Date(dateSet.start_date).toDateString();
         let endDate = new Date(dateSet.end_date).toDateString();
-        console.log(dateSet.start_date)
         let dateId = sharedTrip.possible_dates.indexOf(dateSet)
-        // console.log(startDate)
+      
         return (
-          <div className="date-radio">
+          <div key={dateId} className="date-radio">
             <input type="checkbox" onChange={(e) => updateDates(e)} value={[startDate, endDate]} id={dateId} key={dateId}></input><label htmlFor={dateId}>{startDate} to {endDate}</label>
           </div>
         )
@@ -64,7 +61,6 @@ const AddToTrip = () => {
     } else {
       // let index = datesArr.indexOf(e.target.value)
       // datesArr.splice(index, 1)
-      // console.log(datesArr)
     }
   }
 
