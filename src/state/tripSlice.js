@@ -18,7 +18,7 @@ export const createNewTripAsync = createAsyncThunk(
         dates: payload.dates
       })
     })
-    // });
+ 
 
     if (resp.ok) {
       const newTrip = await resp.json();
@@ -26,24 +26,10 @@ export const createNewTripAsync = createAsyncThunk(
       return { newTrip };
     } else {
       console.log('ERROR')
-      // state.error = resp.status
     }
   }
 );
 
-// export const getAllTripsAsync = createAsyncThunk(
-//   'trips/getAllTripsAsync',
-//   async () => {
-//     const resp = await fetch('https://free-tomorrow-be.herokuapp.com/trips/')
-//     if (resp.ok) {
-//       const allTrips = await resp.json()
-//       console.log(allTrips)
-//       return { allTrips }
-//     } else {
-//       console.log(resp.err)
-//     }
-//   },
-// )
 
 export const getSharedTripAsync = createAsyncThunk(
   'trips/getSharedTripAsync',
@@ -67,7 +53,6 @@ export const getSharedTripAsync = createAsyncThunk(
 export const editSharedTripAsync = createAsyncThunk(
   'trips/editSharedTripAsync',
   async (payload) => {
-    // if(payload.budget || payload.dates.length) {
     const resp = await fetch(`https://free-tomorrow-be.herokuapp.com/trips/${payload.tripId}/`, {
       method: 'PATCH',
       headers: {
@@ -137,19 +122,12 @@ export const tripSlice = createSlice({
   },
   extraReducers: {
     [createNewTripAsync.fulfilled]: (state, action) => {
-      // console.log(action.payload.newTrip, 'SAVED TRIP IN REDUCER')
+   
       const savedTrip = JSON.stringify(action.payload.newTrip)
       localStorage.setItem('savedTrip', savedTrip)
-      // localStorage.setItem('tripId', savedTrip.id)
-      // state.allTrips = action.payload.newTrip
-      // state.tempTrip.tripName = action.payload.newTrip.name;
-      // console.log(state.allTrips)
-      // console.log(state.tempTrip)
+  
       return action.payload.newTrip;
     },
-    // [getAllTripsAsync.fulfilled]: (state, action) => {
-    //   state.allTrips = action.payload.allTrips;
-    // },
     [getSharedTripAsync.fulfilled]: (state, action) => {
 
         return action.payload.sharedTrip;
@@ -160,7 +138,7 @@ export const tripSlice = createSlice({
       return action.payload.editedTrip
     },
     [getUserTripsAsync.fulfilled]: (state, action) => {
-      // state.allTrips = action.payload.allUserTrips;
+
       return action.payload.allUserTrips;
     }
   },

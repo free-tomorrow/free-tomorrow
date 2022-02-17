@@ -28,7 +28,7 @@ const Dashboard = () => {
 
   const getSharedTrip = () => {
     let tripId = localStorage.getItem('sharedTripId')
-    console.log(tripId)
+   
     setSharedTripId(tripId)
     dispatch (
       getSharedTripAsync(tripId)
@@ -49,11 +49,6 @@ const Dashboard = () => {
       )
     }
   }
-
-  // useEffect(() => {
-  //   console.log(currentTrips)
-    
-  // }, [currentTrips])
 
 
 
@@ -80,23 +75,10 @@ const Dashboard = () => {
 
   useEffect(() => {
     sendUserToStore()
-    // dispatch (
-    //   getUserTripsAsync(parsedUser.id)
-    //   )
+   
         getSharedTrip()
-        // setCurrentTrips(state.trips.allTrips)
-        // createTripCards()
-    
 
-    
-    // setCurrentTrips(state.trips.allTrips)
-    // localStorage.setItem('userTrips', currentTrips)
   }, [])
-
-  // useEffect(() => {
-  //   setCurrentTrips(state.trips.allTrips)
-  //   // localStorage.setItem('userTrips', currentTrips)
-  // }, [sharedTripId])
 
 
   if (!state.users.id) {

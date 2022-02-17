@@ -56,7 +56,6 @@ const Share = () => {
   }, [])
 
   const generateTripLink = () => {
-    // e.preventDefault()
 
     const linkUrl = `https://freetomorrow.netlify.app/:${tripId}`
     setLink(linkUrl)
@@ -83,7 +82,6 @@ const Share = () => {
 
 
   const validInputs = !tripName ? false : true
-  // const canShare = tripId ? true : false
 
   return (
     <div className="share-pg">
@@ -109,11 +107,6 @@ const Share = () => {
           disabled={!validInputs}
           onClick={(e) => createTrip(e)}
         >Create this trip</button>
-        {/* <button
-          onClick={(e) => generateTripLink(e)}
-          className="share-trip-btn share-btn"
-          disabled={!canShare}
-        >Get a link for this trip</button> */}
          <div className="copy-to-clipboard">
           <input className="link-input" value={link} readOnly onCopy={(e) => setCopied(true)}/>
 
