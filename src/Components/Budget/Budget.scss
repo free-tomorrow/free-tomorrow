@@ -14,6 +14,7 @@
 .txt-container {
   padding: 5% 0 2% 0;
   color: $font-color;
+  text-align: center;
 
   h1 {
     font-size: 2.6rem;
@@ -58,4 +59,21 @@
 .cheeky-msg {
   font-size: 1.5rem;
   color: $font-color;
+}
+
+@media screen and(max-width: 1000px) {
+  .txt-container {
+    margin-top: 30px;
+    h1 {
+      font-size: 1.9rem;
+    }
+    p{
+      font-size: 1.1rem;
+    }
+  }
+
+  .budget-btn, .budget-continue-btn{
+    font-size: 1.05rem;
+  }
+
 }
