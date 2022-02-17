@@ -34,9 +34,6 @@ const Share = () => {
       .then(() => {
         localStorage.setItem('tripId', state.trips.allTrips.id)
         setTripId(state.trips.allTrips.id)
-        
-        generateTripLink(e)
-        
       })
   }
 
@@ -49,10 +46,9 @@ const Share = () => {
     e.preventDefault()
     const savedId = localStorage.getItem('tripId')
     setTripId(JSON.parse(savedId))
-
-
     const linkUrl = `https:/localhost:3000/:${tripId}`
     setLink(linkUrl)
+    
 
   }
 
@@ -122,7 +118,7 @@ const Share = () => {
             {copyMsg}
         </div>
 
-        <button onClick={(e) => goHome(e)}>Back to dashboard</button>
+        <button className="share-dashboard-btn" onClick={(e) => goHome(e)}>Back to dashboard</button>
       </form>
     </div>
   )
