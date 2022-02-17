@@ -55,6 +55,13 @@ const AddToTrip = () => {
   }
 
 
+  const updateDates = (e) => {
+    if(!datesArr.includes(e.target.value)) {
+    } else {
+    }
+  }
+
+
   const lowerBudget = (e) => {
     setNewBudget(e.target.value)
   }

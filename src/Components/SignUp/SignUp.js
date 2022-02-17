@@ -10,6 +10,7 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const state = useSelector((state) => state)
+  let userId;
 
 
   const registerUser = (e) => {
