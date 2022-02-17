@@ -132,3 +132,12 @@
 
   }
 }
+
+@media screen and (max-width: 500px) {
+  .login-content {
+    margin: 20% 0;
+    input {
+      width: 40vw;
+    }
+  }
+}

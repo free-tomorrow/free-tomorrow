@@ -41,10 +41,10 @@ const Dashboard = () => {
       )
     } else {
       return (
-        <>
+        <div className="invited-container">
           <p>You've been invited on a trip! We need a little more info...</p>
-          <Link to="/add"><button>Click here</button></Link>
-        </>
+          <Link to="/add"><button className="add-to-trip-btn">Click here</button></Link>
+        </div>
       )
     }
   }
@@ -94,17 +94,12 @@ const Dashboard = () => {
   useEffect(() => {
     sendUserToStore()
     getSharedTrip()
-
-    // getAllTrips()
   }, [])
-  // setTimeout(() => {
-  //   tripCards = createTripCards()
 
-  // }, 4000)
 
   if (!state.users.id) {
     return (
-      <h1>LMAO SUPER FUCK</h1>
+      <h1>UH OH!</h1>
     )
   } else {
     return (
@@ -112,21 +107,19 @@ const Dashboard = () => {
         <div className="dashboard-greeting">
           <h1>Welcome {currentUser.name}</h1>
           <p>Here's an overview of your account</p>
-          {showSharedTrip()}
         </div>
         <div className="dashboard-content">
           <div className="create-invite-wrapper">
           <Link to="/schedule">
             <button className="dashboard-create-btn">Create a new trip</button>
           </Link>
+          {showSharedTrip()}
           </div>
           <div className="dash-cards-wrapper">
             <div className="dashboard-cards">
               {createTripCards()}
             </div>
           </div>
-          {/* <p>You've been invited on a trip! We need a little more info.</p>
-          <Link to="/add"><button>Click here</button></Link> */}
         </div>
       </div>
     )

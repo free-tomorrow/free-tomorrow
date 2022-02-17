@@ -3,19 +3,26 @@ import TripCard from '../TripCard/TripCard';
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useState, useEffect } from 'react'
 import { createNewTripAsync } from '../../state/tripSlice';
+import { useNavigate } from 'react-router-dom'
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import copyImg from '../../assets/copy_icon.png'
 
 const Share = () => {
   const [tripName, setTripName] = useState('');
   const [budget, setBudget] = useState('');
   const [dates, setDates] = useState('');
   const [tripId, setTripId] = useState('');
-  const [url, setUrl] = useState('');
+  const [link, setLink] = useState(``);
+  const [copied, setCopied] = useState(false)
+  const [copyMsg, setCopyMsg] = useState('')
+
+
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  console.log(state)
+  const navigate = useNavigate();
+
   const createTrip = (e) => {
     e.preventDefault()
-    console.log(tripName)
     dispatch(
       createNewTripAsync({
         name: tripName,
@@ -25,12 +32,12 @@ const Share = () => {
       })
     )
       .then(() => {
+        localStorage.setItem('tripId', state.trips.allTrips.id)
         setTripId(state.trips.allTrips.id)
         console.log(state.trips.allTrips.id, 'ID')
         console.log(tripId)
         generateTripLink(e)
-        // setTripId(state.trips.respTripId[0])
-        // console.log(budget)
+        
       })
   }
 
@@ -41,20 +48,39 @@ const Share = () => {
 
   const generateTripLink = (e) => {
     e.preventDefault()
-    console.log(tripId)
-    const linkUrl = new URL(`https:/localhost:3000/dashboard/:${tripId}`)
-    console.log(linkUrl.href, 'link url')
-    setUrl(linkUrl)
-    console.log(url)
+    const savedId = localStorage.getItem('tripId')
+    setTripId(JSON.parse(savedId))
+    console.log(tripId, 'tripId')
+
+    const linkUrl = `https:/localhost:3000/:${tripId}`
+    setLink(linkUrl)
+    console.log(link)
+
   }
 
-  const shareLink = url ?
-    (
-      <div className="share-link-wrapper">
-        <p>You're all set! Just share this link with your friends</p>
-        <p>{url}</p>
-      </div>
-    ) : console.log(4)
+  useEffect(() => {
+    
+  }, [link])
+
+  const createCopyMsg = (e) => {
+    e.preventDefault()
+      setCopyMsg(
+        
+          <p className="copy-msg">Copied!</p>
+        
+      )
+
+    console.log(copyMsg)
+  }
+
+  const goHome = (e) => {
+    e.preventDefault();
+    const savedUser = localStorage.getItem('savedUser');
+    const userId = JSON.parse(savedUser).id;
+    navigate(`/dashboard/${userId}`);
+    localStorage.removeItem('savedTrip');
+  }
+
 
 
   const validInputs = !tripName ? false : true
@@ -89,6 +115,18 @@ const Share = () => {
           className="share-trip-btn share-btn"
           disabled={!canShare}
         >Get a link for this trip</button>
+         <div className="copy-to-clipboard">
+          <input className="link-input" value={link} readonly onCopy={(e) => setCopied(true)}/>
+
+
+            <CopyToClipboard text={link}>
+              <button onClick={(e) => createCopyMsg(e)}><img src={copyImg} className="copy-img"></img></button>
+            </CopyToClipboard>
+
+            {copyMsg}
+        </div>
+
+        <button onClick={(e) => goHome(e)}>Back to dashboard</button>
       </form>
     </div>
   )
