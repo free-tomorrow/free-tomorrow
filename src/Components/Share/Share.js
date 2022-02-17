@@ -112,7 +112,7 @@ const Share = () => {
           disabled={!canShare}
         >Get a link for this trip</button>
          <div className="copy-to-clipboard">
-          <input className="link-input" value={link} readonly onCopy={(e) => setCopied(true)}/>
+          <input className="link-input" value={link} readOnly onCopy={(e) => setCopied(true)}/>
 
 
             <CopyToClipboard text={link}>

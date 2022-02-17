@@ -30,19 +30,19 @@ export const createNewTripAsync = createAsyncThunk(
   }
 );
 
-export const getAllTripsAsync = createAsyncThunk(
-  'trips/getAllTripsAsync',
-  async () => {
-    const resp = await fetch('https://free-tomorrow-be.herokuapp.com/trips/')
-    if (resp.ok) {
-      const allTrips = await resp.json()
-      console.log(allTrips)
-      return { allTrips }
-    } else {
-      console.log(resp.err)
-    }
-  },
-)
+// export const getAllTripsAsync = createAsyncThunk(
+//   'trips/getAllTripsAsync',
+//   async () => {
+//     const resp = await fetch('https://free-tomorrow-be.herokuapp.com/trips/')
+//     if (resp.ok) {
+//       const allTrips = await resp.json()
+//       console.log(allTrips)
+//       return { allTrips }
+//     } else {
+//       console.log(resp.err)
+//     }
+//   },
+// )
 
 export const getSharedTripAsync = createAsyncThunk(
   'trips/getSharedTripAsync',
@@ -139,15 +139,14 @@ export const tripSlice = createSlice({
       state.allTrips = action.payload.newTrip
       state.tempTrip.tripName = savedTrip.name
     },
-    [getAllTripsAsync.fulfilled]: (state, action) => {
-      state.allTrips = action.payload.allTrips;
-    },
-    [getSharedTripAsync.fulfilled]: (state, action) => {
-      if(action.payload.sharedTrip) {
+    // [getAllTripsAsync.fulfilled]: (state, action) => {
+    //   state.allTrips = action.payload.allTrips;
+    // },
+    // [getSharedTripAsync.fulfilled]: (state, action) => {
 
-        state.sharedTrip = action.payload.sharedTrip;
-      }
-    },
+    //     return action.payload.sharedTrip;
+    
+    // },
     [editSharedTripAsync.fulfilled]: (state, action) => {
 
       return action.payload.editedTrip

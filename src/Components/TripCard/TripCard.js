@@ -4,17 +4,20 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 
-const TripCard = ({  tripName, createdBy, confirmed, budget, dates }) => {
+const TripCard = ({  tripName, createdBy, budget, dates }) => {
   
   const generateDates = () => {
-    const allDates = dates.map((dateRange) => {
-      const startDate = new Date(dateRange.start_date).toDateString();
-      const endDate = new Date(dateRange.end_date).toDateString();
-      return (
-        <p className="date">{startDate} - {endDate}</p>
-      )
-    })
-    return allDates;
+    if(dates.length) {
+
+      const allDates = dates.map((dateRange) => {
+        const startDate = new Date(dateRange.start_date).toDateString();
+        const endDate = new Date(dateRange.end_date).toDateString();
+        return (
+          <p key={Math.floor(Math.random() * Date.now())} className="date">{startDate} - {endDate}</p>
+        )
+      })
+      return allDates;
+    }
   }
 
   return (

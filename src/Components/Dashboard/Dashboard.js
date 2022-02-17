@@ -16,6 +16,7 @@ const Dashboard = () => {
   const location = useLocation().pathname;
   const retrievedUser = localStorage.getItem('savedUser');
   const parsedUser = JSON.parse(retrievedUser);
+  let currentUserCards;
 
 
   const sendUserToStore = () => {
@@ -53,7 +54,7 @@ const Dashboard = () => {
 
   const createTripCards = () => {
     if(currentTrips) {
-      const currentUserCards = currentTrips.map((trip) => {
+     currentUserCards = currentTrips.map((trip) => {
         // console.log(trip.possible_dates)
         return (
           <TripCard
@@ -66,7 +67,6 @@ const Dashboard = () => {
           />
           )
         })
-        return currentUserCards
       }
       else {
        
@@ -75,16 +75,23 @@ const Dashboard = () => {
 
   useEffect(() => {
     sendUserToStore()
-    getSharedTrip()
     dispatch (
       getUserTripsAsync(parsedUser.id)
+      ).then(() => {
+        getSharedTrip()
+        setCurrentTrips(state.trips.allTrips)
+        createTripCards()
+    }
+
     )
+    // setCurrentTrips(state.trips.allTrips)
+    // localStorage.setItem('userTrips', currentTrips)
   }, [])
 
-  useEffect(() => {
-    setCurrentTrips(state.trips.allTrips)
-    // console.log(currentTrips, 'current trips')
-  }, [currentUser])
+  // useEffect(() => {
+  //   setCurrentTrips(state.trips.allTrips)
+  //   // localStorage.setItem('userTrips', currentTrips)
+  // }, [sharedTripId])
 
 
   if (!state.users.id) {

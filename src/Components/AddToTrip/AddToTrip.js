@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './AddToTrip.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import {editSharedTripAsync} from '../../state/tripSlice';
@@ -12,6 +12,7 @@ const AddToTrip = () => {
   const [datesArr, setDatesArr] = useState([]);
   const [currentUser, setCurrentUser] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const retrieveTrip = () => {
     let retrievedTrip = localStorage.getItem('sharedTrip')
@@ -25,14 +26,13 @@ const AddToTrip = () => {
         editSharedTripAsync({
           tripId: sharedTrip.id,
           userId: currentUser.id,
-          budget: newBudget,
-          dates: datesArr
+          budget: newBudget || null,
+          dates: datesArr || null
         })
         )
+        navigate(`/dashboard/${currentUser.id}`)
       } else {
-        dispatch(editSharedTripAsync({
-          
-        }))
+        navigate(`/dashboard/${currentUser.id}`)
       }
     // this is where we need to call the PATCH thunk 
     // to update the trip object and send new dates or budget IF AND ONLY IF they've changed (if they got added to localStorage)
@@ -46,7 +46,7 @@ const AddToTrip = () => {
         let dateId = sharedTrip.possible_dates.indexOf(dateSet)
       
         return (
-          <div className="date-radio">
+          <div key={dateId} className="date-radio">
             <input type="checkbox" onChange={(e) => updateDates(e)} value={[startDate, endDate]} id={dateId} key={dateId}></input><label htmlFor={dateId}>{startDate} to {endDate}</label>
           </div>
         )
