@@ -31,11 +31,11 @@ const Share = () => {
         dates: dates
       })
     )
-      .then(() => {
-        localStorage.setItem('tripId', state.trips.allTrips.id)
-        setTripId(state.trips.allTrips.id)
-      })
+    const savedId = localStorage.getItem('tripId')
+    setTripId(JSON.parse(savedId))
+      
   }
+  
 
   useEffect(() => {
     setBudget(state.trips.tempTrip.budget)
@@ -44,8 +44,7 @@ const Share = () => {
 
   const generateTripLink = (e) => {
     e.preventDefault()
-    const savedId = localStorage.getItem('tripId')
-    setTripId(JSON.parse(savedId))
+
     const linkUrl = `https:/localhost:3000/:${tripId}`
     setLink(linkUrl)
     

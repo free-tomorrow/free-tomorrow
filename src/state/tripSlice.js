@@ -21,6 +21,7 @@ export const createNewTripAsync = createAsyncThunk(
 
     if (resp.ok) {
       const newTrip = await resp.json();
+      localStorage.setItem('tripId', newTrip.id)
 
       return { newTrip };
     } else {
@@ -138,6 +139,7 @@ export const tripSlice = createSlice({
       localStorage.setItem('savedTrip', savedTrip)
       state.allTrips = action.payload.newTrip
       state.tempTrip.tripName = savedTrip.name
+      
     },
     // [getAllTripsAsync.fulfilled]: (state, action) => {
     //   state.allTrips = action.payload.allTrips;

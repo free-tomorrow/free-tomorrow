@@ -16,7 +16,7 @@ const Dashboard = () => {
   const location = useLocation().pathname;
   const retrievedUser = localStorage.getItem('savedUser');
   const parsedUser = JSON.parse(retrievedUser);
-  let currentUserCards;
+  // let currentUserCards;
 
 
   const sendUserToStore = () => {
@@ -50,15 +50,20 @@ const Dashboard = () => {
     }
   }
 
+  // useEffect(() => {
+  //   console.log(currentTrips)
+  //   createTripCards()
+  // }, [currentTrips])
+
 
 
   const createTripCards = () => {
-    if(currentTrips) {
-     currentUserCards = currentTrips.map((trip) => {
-        // console.log(trip.possible_dates)
+    if(currentUser.trip_set) {
+     const currentUserCards = state.users.trip_set.map((trip) => {
+        console.log(trip)
         return (
           <TripCard
-            key={Math.floor(Math.random() * .5)}
+            key={Math.floor(Math.random() * Date.now())}
             tripName={trip.name}
             createdBy={trip.created_by}
             confirmed={trip.confirmed}
@@ -67,6 +72,7 @@ const Dashboard = () => {
           />
           )
         })
+        return currentUserCards
       }
       else {
        
@@ -75,15 +81,15 @@ const Dashboard = () => {
 
   useEffect(() => {
     sendUserToStore()
-    dispatch (
-      getUserTripsAsync(parsedUser.id)
-      ).then(() => {
+    // dispatch (
+    //   getUserTripsAsync(parsedUser.id)
+    //   )
         getSharedTrip()
-        setCurrentTrips(state.trips.allTrips)
-        createTripCards()
-    }
+        // setCurrentTrips(state.trips.allTrips)
+        // createTripCards()
+    
 
-    )
+    
     // setCurrentTrips(state.trips.allTrips)
     // localStorage.setItem('userTrips', currentTrips)
   }, [])
@@ -107,7 +113,7 @@ const Dashboard = () => {
         </div>
         <div className="dashboard-content">
           <div className="create-invite-wrapper">
-          <Link to="/schedule" key={Date.now()}>
+          <Link to="/schedule" >
             <button className="dashboard-create-btn">Create a new trip</button>
           </Link>
           {showSharedTrip()}
