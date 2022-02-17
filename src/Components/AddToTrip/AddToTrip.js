@@ -95,7 +95,8 @@ const AddToTrip = () => {
   return (
     <div className="add-to-trip">
       <div className="greeting-container">
-        <h1>You've been invited to {sharedTrip.name}!</h1>
+        <h1>You've been invited to</h1>
+        <h2>{sharedTrip.name}!</h2>
       </div>
       <div className="dates-container">
         <h2>Do these dates work for you?</h2>
@@ -111,7 +112,7 @@ const AddToTrip = () => {
           {generateBudgets()}
         </div>
       </div>
-      <Link to="/dashboard"><button className="accept-trip-btn" onClick={(e) => updateTripDetails(e)} >Accept this trip</button></Link>
+      <Link to="/dashboard" style={{height: "fit-content"}}><button className="accept-trip-btn" onClick={(e) => updateTripDetails(e)} >Accept this trip</button></Link>
     </div>
   )
 }

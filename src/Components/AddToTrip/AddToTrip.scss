@@ -1,21 +1,26 @@
 @import '../../sass/variables.scss';
 
 .add-to-trip {
-  border: 2px solid red;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  height: 90vh;
+  // flex-direct
+  // align-items: center;
+  justify-content: space-evenly;
+  padding: 2% 0 5% 0;
+  height: 80vh;
+  border: 2px solid purple;
 }
 
 .greeting-container {
   font-size: 3rem;
+  border: 2px solid yellow;
   height: 10vh;
   text-transform: capitalize;
-  border: 2px solid yellow;
-  // display: flex;
-  // justify-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h2 {
+    font-size: 2.5rem;
+  }
 }
 
 .dates-container {
@@ -23,8 +28,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  height: 20vh;
+  // justify-content: space-around;
+  margin: 7% 0;
+  height: 80%;
   // width: 50%;
   h2 {
     font-size: 2.2rem;
@@ -37,6 +43,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  margin: 10vh 0;
+  height: 100%;
 }
 
 .date-radio {
@@ -51,6 +59,7 @@
   flex-direction: column;
   align-items: center;
   height: 15vh;
+  margin: 17% 0;
   justify-content: space-around;
   h2 {
     font-size: 2.2rem;
@@ -67,19 +76,18 @@
 
 .addpg-budget-btn {
   cursor: pointer;
-  background-color: $accent-color-one;
+  background-color: #9B6127;
   border: none;
   color: white;
   font-size: 1rem;
   padding: 5%;
   margin: 0.5rem;
   border-radius: 5px;
-  
 }
 
 .accept-trip-btn {
   cursor: pointer;
-  background: $accent-color-one;
+  background: #9B6127;
   border: 1px solid black;
   border-radius: 5px;
   color: white;
@@ -90,10 +98,9 @@
   position: relative;
   z-index:100;
   transition:all 300ms ease;
+  margin: 50vh 0;
   &:hover{
     font-size:1.5em;
     box-shadow: 4px 6px $secondary-color;
   }
-  // font-family:'Sulphur Point', sans-serif;
-
 }
