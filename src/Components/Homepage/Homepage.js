@@ -11,7 +11,6 @@ const Homepage = () => {
   const newName = useSelector((state) => state);
   const dispatch = useDispatch();
   const url = useLocation().pathname;
-  console.log(url)
 
   const isLoggedIn = localStorage.getItem('savedUser') ? true : false
 
@@ -20,7 +19,7 @@ const Homepage = () => {
     if(url !== '/') {
       const id = url.split(':')[1]
       localStorage.setItem('sharedTripId', id)
-      console.log(id)
+
     }
   }, [])
 

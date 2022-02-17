@@ -40,15 +40,13 @@ const Header = () => {
   const showDashboard = () => {
     if (isLoggedIn) {
       const currentUser = localStorage.getItem('savedUser');
-      console.log(currentUser)
       const parsedUserId = JSON.parse(currentUser).id;
-      console.log(parsedUserId)
   
       return (
         <NavLink to={`/dashboard/:${parsedUserId}`} className="nav-link">Dashboard</NavLink>
       )
     } else {
-      console.log(state.users.id, 'else')
+      
     }
   }
 

@@ -25,7 +25,7 @@ const Login = () => {
           const retrievedUser = localStorage.getItem('savedUser')
           const parsedUser = JSON.parse(retrievedUser)
           userId = parsedUser.id
-          console.log(userId, '<><><><><>')
+
           navigate(`/dashboard/${userId}`)
         })
     }

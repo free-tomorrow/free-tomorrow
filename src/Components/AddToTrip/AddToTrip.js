@@ -20,8 +20,6 @@ const AddToTrip = () => {
 
   const updateTripDetails = (e) => {
     e.preventDefault();
-    console.log(currentUser, 'currentUser')
-    console.log(newBudget, datesArr)
     if(parseInt(newBudget) || datesArr.length) {
       dispatch (
         editSharedTripAsync({
@@ -45,9 +43,8 @@ const AddToTrip = () => {
       const allDates = sharedTrip.possible_dates.map((dateSet) => {
         let startDate = new Date(dateSet.start_date).toDateString();
         let endDate = new Date(dateSet.end_date).toDateString();
-        console.log(dateSet.start_date)
         let dateId = sharedTrip.possible_dates.indexOf(dateSet)
-        // console.log(startDate)
+      
         return (
           <div className="date-radio">
             <input type="checkbox" onChange={(e) => updateDates(e)} value={[startDate, endDate]} id={dateId} key={dateId}></input><label htmlFor={dateId}>{startDate} to {endDate}</label>
@@ -64,7 +61,6 @@ const AddToTrip = () => {
     } else {
       // let index = datesArr.indexOf(e.target.value)
       // datesArr.splice(index, 1)
-      // console.log(datesArr)
     }
   }
 

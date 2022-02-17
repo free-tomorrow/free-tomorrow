@@ -34,8 +34,7 @@ const Share = () => {
       .then(() => {
         localStorage.setItem('tripId', state.trips.allTrips.id)
         setTripId(state.trips.allTrips.id)
-        console.log(state.trips.allTrips.id, 'ID')
-        console.log(tripId)
+        
         generateTripLink(e)
         
       })
@@ -50,11 +49,10 @@ const Share = () => {
     e.preventDefault()
     const savedId = localStorage.getItem('tripId')
     setTripId(JSON.parse(savedId))
-    console.log(tripId, 'tripId')
+
 
     const linkUrl = `https:/localhost:3000/:${tripId}`
     setLink(linkUrl)
-    console.log(link)
 
   }
 
@@ -69,8 +67,6 @@ const Share = () => {
           <p className="copy-msg">Copied!</p>
         
       )
-
-    console.log(copyMsg)
   }
 
   const goHome = (e) => {
