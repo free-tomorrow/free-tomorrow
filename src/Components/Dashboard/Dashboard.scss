@@ -24,6 +24,7 @@
 }
 
 .dash-cards-wrapper{
+  border: 1px solid red;
   text-align: center;
   font-size: 1.5rem;
   width: 70%;
@@ -38,11 +39,12 @@
 
 
 .dashboard-cards {
-  height: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:center;
+  border: 1px solid white;
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content:center;
   overflow-y: scroll;
+  width: 100%;
 }
 
 .create-invite-wrapper{
