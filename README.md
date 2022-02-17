@@ -1,44 +1,82 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# [Free Tomorrow](https://github.com/free-tomorrow/free-tomorrow) 
 
-## Available Scripts
 
-In the project directory, you can run:
+#### [BE](https://github.com/free-tomorrow/free_tomorrow_backend) Team: [Sam Devine](https://github.com/samueldevine), [Greg Fischer](https://github.com/GregoryJFischer) || [FE](https://github.com/free-tomorrow/free-tomorrow) Team: [Delilah Necrason](https://github.com/delilahrois), [Regan Losey](https://github.com/reganlosey)
 
-### `npm start`
+<hr>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Overview
+- Free Tomorrow was designed to allow busy users to easily plan vacations with their equally busy friends. Using Free Tomorrow, users simply select their availability for a vacation and the budget they can afford, and share the generated URL with their friends. The user that receives the URL then visits their dashboard to view a notification for the invitation. After confirming that the dates and budget proposed by the sender are line in with their constraints, the trip is added to their account. 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Languages/Technology
+- React 
+- React Router
+- Redux
+- Javascript
+- HTML
+- SASS/SCSS
+- Cypress
 
-### `npm test`
+## Learning Goals
+- Display competency and gain experience with React.js
+- Gain experience with using Redux for Global State Management
+- Create a multi-page UX using Router
+- Test React components & asynchronous Javascript using End-to -End testing
+- Collaborate with a BE team to build a deploy a full stack application .
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Install & Setup
+* Visit deployed site [here](https://freetomorrow.netlify.app/)
+Or:
+1. Clone this down
+2. `cd` into the directory
+3. Run `npm install` and then `npm start`
+5. Head to `localhost:3000` in your browser  
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to Use:
+Sign up for an account and follow the link to create a trip. You'll be redirected to an interactive calendar to choose the dates you are available. After confirming your availability you'll be guided to a selection of budget options. Once that information is gathered, you'll be prompted to name and officially create your trip. A shareable URL will be generated which can easily be copied to your browser's clipboard. Share the link and wait for your friends to do the same!
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Site Images:
 
-### `npm run eject`
+<img src="https://user-images.githubusercontent.com/82983696/154577310-d901b42b-8ab1-49f1-9950-2056397d302f.png"  width="800">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img src="https://user-images.githubusercontent.com/82983696/154577318-12eaa7a9-166a-4816-a7ab-4a2e0cbda7c1.png"  width="800">
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<img src="https://user-images.githubusercontent.com/82983696/154577321-9cfa0518-c6e6-426c-a1b3-399032e2eb57.png"  width="800">
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+<img src="https://user-images.githubusercontent.com/82983696/154577323-7b4b5a12-cfcb-4c2f-9b5c-692f5de73774.png"  width="800">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img src="https://user-images.githubusercontent.com/82983696/154577325-293a9ff1-dd69-4c03-b851-0df0de1024b0.png"  width="800">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+
+## Wireframe and JSON Contract:  
+<img src="https://user-images.githubusercontent.com/82983696/154576813-eb6137eb-d63a-47cc-aec0-2a5785499d17.png"  width="800">
+
+
+<img src="https://user-images.githubusercontent.com/82983696/154576814-8e8c4ed5-b1fd-4e96-8537-18e7f54641e7.png"  width="800">
+
+
+<img src="https://user-images.githubusercontent.com/82983696/154576816-dfc4c84a-794f-435e-b0ac-8d7ebe766af5.png"  width="800">
+<br>
+<br>
+
+
+## Future Directions
+1. Implement a built-in emailing function that will send the link to recipients from within the browser.
+2. Implement a more interactive calendar that will block off previously selected or overlapping dates.
+   
+
+## Project Spec & Rubric
+- [Here](https://mod4.turing.edu/projects/capstone/evaluation.html)
+
+## Resources:
+  - [reactjs.org](https://reactjs.org/)
+  - [docs.cypress.io](https://docs.cypress.io/)
+  - [reduxjs.org](https://redux.js.org/) 
+
