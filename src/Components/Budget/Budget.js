@@ -62,8 +62,10 @@ const Budget = () => {
         <button onClick={(e) => setBudget(e.target.value)} value={2000} className="budget-btn">$2000</button>
         <button onClick={(e) => setBudget(e.target.value)} value={2001} className="budget-btn">The sky's the limit!</button>
       </div>
-      {budgetDisplay()}
-      {cheekyMsg()}
+      <div className="budget-proceed-container">
+        {budgetDisplay()}
+        {cheekyMsg()}
+      </div>
     </div>
   )
 }
