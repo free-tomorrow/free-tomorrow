@@ -51,9 +51,11 @@ const Share = () => {
 
   }
 
+
+
   useEffect(() => {
     
-  }, [link])
+  }, [tripId])
 
   const createCopyMsg = (e) => {
     e.preventDefault()
@@ -74,8 +76,8 @@ const Share = () => {
 
 
 
-  const validInputs = !tripName ? false : true
-  const canShare = parseInt(tripId) ? true : false
+  // const validInputs = !tripName ? false : true
+  const canShare = tripId ? true : false
 
   return (
     <div className="share-pg">
@@ -98,7 +100,7 @@ const Share = () => {
           onChange={(e) => setTripName(e.target.value)} />
         <button
           className="create-trip-btn share-btn"
-          disabled={!validInputs}
+          // disabled={!validInputs}
           onClick={(e) => createTrip(e)}
         >Create this trip</button>
         <button

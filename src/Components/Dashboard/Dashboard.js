@@ -50,17 +50,16 @@ const Dashboard = () => {
     }
   }
 
-  // useEffect(() => {
-  //   console.log(currentTrips)
-  //   createTripCards()
-  // }, [currentTrips])
+  useEffect(() => {
+    console.log(currentTrips)
+    
+  }, [currentTrips])
 
 
 
   const createTripCards = () => {
     if(currentUser.trip_set) {
      const currentUserCards = state.users.trip_set.map((trip) => {
-        console.log(trip)
         return (
           <TripCard
             key={Math.floor(Math.random() * Date.now())}

@@ -21,9 +21,12 @@ export const createNewTripAsync = createAsyncThunk(
 
     if (resp.ok) {
       const newTrip = await resp.json();
-      localStorage.setItem('tripId', newTrip.id)
+      const savedTrip = JSON.stringify(newTrip)
+      
+      localStorage.setItem('tripId', savedTrip.id)
+      localStorage.setItem('savedTrip', savedTrip)
 
-      return { newTrip };
+      return { savedTrip };
     } else {
 
       // state.error = resp.status
@@ -83,6 +86,8 @@ export const editSharedTripAsync = createAsyncThunk(
     })
     if (resp.ok) {
       const editedTrip = await resp.json()
+
+
       return { editedTrip }
     } else {
       console.log(resp.err)
@@ -135,11 +140,11 @@ export const tripSlice = createSlice({
   },
   extraReducers: {
     [createNewTripAsync.fulfilled]: (state, action) => {
-      const savedTrip = JSON.stringify(action.payload.newTrip)
-      localStorage.setItem('savedTrip', savedTrip)
-      state.allTrips = action.payload.newTrip
-      state.tempTrip.tripName = savedTrip.name
-      
+      // const savedTrip = JSON.stringify(action.payload.newTrip)
+      // localStorage.setItem('savedTrip', savedTrip)
+      // state.allTrips = action.payload.newTrip
+      // state.tempTrip.tripName = savedTrip.name
+      return action.payload.savedTrip;
     },
     // [getAllTripsAsync.fulfilled]: (state, action) => {
     //   state.allTrips = action.payload.allTrips;
@@ -154,8 +159,8 @@ export const tripSlice = createSlice({
       return action.payload.editedTrip
     },
     [getUserTripsAsync.fulfilled]: (state, action) => {
-      state.allTrips = action.payload.allUserTrips;
-      // return action.payload.allUserTrips;
+      // state.allTrips = action.payload.allUserTrips;
+      return action.payload.allUserTrips;
     }
   },
 
