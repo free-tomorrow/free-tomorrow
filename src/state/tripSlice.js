@@ -3,7 +3,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 export const createNewTripAsync = createAsyncThunk(
   'trips/createNewTripAsync',
   async (payload) => {
-    console.log(payload, 'THIS IS THE PAYLOAD')
     const resp = await fetch('https://free-tomorrow-be.herokuapp.com/trips/', {
       method: 'POST',
       headers: {
@@ -25,7 +24,7 @@ export const createNewTripAsync = createAsyncThunk(
 
       return { newTrip };
     } else {
-      console.log('ERROR')
+     
     }
   }
 );
@@ -44,7 +43,7 @@ export const getSharedTripAsync = createAsyncThunk(
         localStorage.setItem('sharedTrip', stringSharedTrip)
         return { sharedTrip }
       } else {
-        console.log(resp.err)
+        
       }
     }
   }
@@ -72,7 +71,7 @@ export const editSharedTripAsync = createAsyncThunk(
 
       return { editedTrip }
     } else {
-      console.log(resp.err)
+      
     }
   }
 )
@@ -84,10 +83,9 @@ export const getUserTripsAsync = createAsyncThunk(
     if(resp.ok) {
       const user = await resp.json()
       const allUserTrips = user.trip_set;
-      console.log(allUserTrips, 'all users trips resp')
       return { allUserTrips }
     } else {
-      console.log(resp.err)
+      
     }
   }
 )

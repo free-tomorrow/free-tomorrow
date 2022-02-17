@@ -15,7 +15,7 @@ const Login = () => {
   const logUserIn = (e) => {
     e.preventDefault()
     if (!value) {
-      console.log("Please enter an email")
+      
     } else {
       dispatch(getUserAsync({
         email: value

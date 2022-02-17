@@ -41,7 +41,6 @@ const Share = () => {
   }
 
   useEffect(() => {
-    console.log(tripId, 'tripID')
     if (tripId) {
       generateTripLink()
 
@@ -50,7 +49,6 @@ const Share = () => {
 
 
   useEffect(() => {
-    console.log(localStorage)
     setBudget(state.trips.tempTrip.budget)
     setDates(state.trips.tempTrip.dates)
   }, [])
