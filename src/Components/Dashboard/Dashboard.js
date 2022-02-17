@@ -28,11 +28,14 @@ const Dashboard = () => {
 
   const getSharedTrip = () => {
     let tripId = localStorage.getItem('sharedTripId')
+    if(tripId) {
+      setSharedTripId(tripId)
+      dispatch (
+        getSharedTripAsync(tripId)
+      )
+
+    }
    
-    setSharedTripId(tripId)
-    dispatch (
-      getSharedTripAsync(tripId)
-    )
   }
 
   const showSharedTrip = () => {
@@ -56,7 +59,7 @@ const Dashboard = () => {
     if(currentUser.trip_set) {
      const currentUserCards = state.users.trip_set.map((trip) => {
         return (
-          <TripCard
+          <TripCard className="trip-card"
             key={Math.floor(Math.random() * Date.now())}
             tripName={trip.name}
             createdBy={trip.created_by}

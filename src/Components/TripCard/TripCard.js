@@ -28,8 +28,10 @@ const TripCard = ({  tripName, createdBy, budget, dates }) => {
         {/* <img className="trip-card-img" src={Earth}/> */}
         <div className="trip-card-txt">
           <h1>{tripName}</h1>
-          <p>Created By: {createdBy}</p>
-          <p>Proposed Budget: ${budget}</p>
+          <p className="italic">Created By</p>
+          <p>{createdBy}</p>
+          <p className="italic">Proposed Budget</p>
+          <p>${budget}</p>
           {/* <p>Possible dates:</p> */}
           {/* {generateDates()} */}
         </div>
