@@ -17,6 +17,7 @@ const AddToTrip = () => {
   const retrieveTrip = () => {
     let retrievedTrip = localStorage.getItem('sharedTrip')
     setSharedTrip(JSON.parse(retrievedTrip))
+    console.log(retrievedTrip)
   }
 
   const updateTripDetails = (e) => {
@@ -34,6 +35,8 @@ const AddToTrip = () => {
       } else {
         navigate(`/dashboard/${currentUser.id}`)
       }
+      localStorage.removeItem('sharedTrip')
+      localStorage.removeItem('sharedTripId')
     // this is where we need to call the PATCH thunk 
     // to update the trip object and send new dates or budget IF AND ONLY IF they've changed (if they got added to localStorage)
   }

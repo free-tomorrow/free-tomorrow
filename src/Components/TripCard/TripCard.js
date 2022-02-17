@@ -30,7 +30,7 @@ const TripCard = ({  tripName, createdBy, budget, dates }) => {
           <h1>{tripName}</h1>
           <p>Created By: {createdBy}</p>
           <p>Proposed Budget: ${budget}</p>
-          <p>Possible dates:</p>
+          {/* <p>Possible dates:</p> */}
           {/* {generateDates()} */}
         </div>
       </article>
