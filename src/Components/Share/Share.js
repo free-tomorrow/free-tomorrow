@@ -76,7 +76,7 @@ const Share = () => {
 
 
 
-  // const validInputs = !tripName ? false : true
+  const validInputs = !tripName ? false : true
   const canShare = tripId ? true : false
 
   return (
@@ -100,7 +100,7 @@ const Share = () => {
           onChange={(e) => setTripName(e.target.value)} />
         <button
           className="create-trip-btn share-btn"
-          // disabled={!validInputs}
+          disabled={!validInputs}
           onClick={(e) => createTrip(e)}
         >Create this trip</button>
         <button
