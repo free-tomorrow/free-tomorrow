@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useState, useEffect } from 'react'
 import { createNewTripAsync } from '../../state/tripSlice';
 import { useNavigate } from 'react-router-dom'
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import copyImg from '../../assets/copy_icon.png'
 
 const Share = () => {
@@ -42,12 +42,12 @@ const Share = () => {
 
   useEffect(() => {
     console.log(tripId, 'tripID')
-    if(tripId) {
+    if (tripId) {
       generateTripLink()
 
     }
   }, [tripId])
-  
+
 
   useEffect(() => {
     console.log(localStorage)
@@ -65,11 +65,11 @@ const Share = () => {
 
   const createCopyMsg = (e) => {
     e.preventDefault()
-      setCopyMsg(
-        
-          <p className="copy-msg">Copied!</p>
-        
-      )
+    setCopyMsg(
+
+      <p className="copy-msg">Copied!</p>
+
+    )
   }
 
   const goHome = (e) => {
@@ -85,30 +85,32 @@ const Share = () => {
 
   return (
     <div className="share-pg">
-      <div className="share-card-wrapper">
-        <TripCard
-          tripName={tripName}
-          createdBy={state.users.email}
-          budget={budget}
-          dates={dates}
-        />
-      </div>
-      <form className="share-form">
-        <input
-          className="share-name-input"
-          type="text"
-          placeholder="Name your trip!"
-          minLength="1"
-          maxLength="64"
-          autoComplete="off"
-          onChange={(e) => setTripName(e.target.value)} />
-        <button
-          className="create-trip-btn share-btn"
-          disabled={!validInputs}
-          onClick={(e) => createTrip(e)}
-        >Create this trip</button>
-         <div className="copy-to-clipboard">
-          <input className="link-input" value={link} readOnly onCopy={(e) => setCopied(true)}/>
+      <div className="share-pg-content">
+
+        <div className="share-card-wrapper">
+          <TripCard
+            tripName={tripName}
+            createdBy={state.users.email}
+            budget={budget}
+            dates={dates}
+          />
+        </div>
+        <form className="share-form">
+          <input
+            className="share-name-input"
+            type="text"
+            placeholder="Name your trip!"
+            minLength="1"
+            maxLength="64"
+            autoComplete="off"
+            onChange={(e) => setTripName(e.target.value)} />
+          <button
+            className="create-trip-btn share-btn"
+            disabled={!validInputs}
+            onClick={(e) => createTrip(e)}
+          >Create this trip</button>
+          <div className="copy-to-clipboard">
+            <input className="link-input" value={link} readOnly onCopy={(e) => setCopied(true)} />
 
 
             <CopyToClipboard text={link}>
@@ -116,10 +118,13 @@ const Share = () => {
             </CopyToClipboard>
 
             {copyMsg}
-        </div>
+          </div>
+          <div className="share-btn-container">
+            <button className="share-dashboard-btn" onClick={(e) => goHome(e)}>Back to dashboard</button>
 
-        <button className="share-dashboard-btn" onClick={(e) => goHome(e)}>Back to dashboard</button>
-      </form>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }
