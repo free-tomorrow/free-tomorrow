@@ -39,6 +39,7 @@
   }
   h2 {
     font-weight: bold;
+    margin-bottom: 5px;
   }
   color: $font-color;
   font-size: 1.75em;
@@ -46,8 +47,8 @@
   padding: 4%;
   display: flex;
   flex-direction: column;
+  line-height: 1.4;
   justify-content: space-evenly;
-  min-height: 40vh;
 }
 
 .calendar-wrapper {
@@ -65,7 +66,7 @@
   color: white;
   font-size: 1.5rem;
   font-family: $button-font;
-  padding: 2% 10%;
+  padding: .7% 6%;
   border-radius: 5px;
 }
 
@@ -200,14 +201,12 @@
     justify-content: initial;
   }
 
-  .calendar-wrapper {
-    width: 90%;
-  }
-
+  .calendar-wrapper, 
   .schedule-btn-container {
-    width: 90%;
+    width: 100%;
 
   }
+
 
   .schedule-txt {
     h1 {
@@ -219,6 +218,7 @@
 
   .dates-list {
     font-size: 1.35rem;
+    padding: initial;
 
     p {
       font-size: 1rem;
@@ -227,5 +227,11 @@
 
   .schedule-continue-btn {
     font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .react-calendar{
+    width: 100%;
   }
 }
