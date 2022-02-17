@@ -16,7 +16,6 @@ const Dashboard = () => {
   const location = useLocation().pathname;
   const retrievedUser = localStorage.getItem('savedUser');
   const parsedUser = JSON.parse(retrievedUser);
-  // let currentUserCards;
 
 
   const sendUserToStore = () => {
@@ -29,6 +28,7 @@ const Dashboard = () => {
 
   const getSharedTrip = () => {
     let tripId = localStorage.getItem('sharedTripId')
+    console.log(tripId)
     setSharedTripId(tripId)
     dispatch (
       getSharedTripAsync(tripId)

@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 export const createNewTripAsync = createAsyncThunk(
   'trips/createNewTripAsync',
   async (payload) => {
+    console.log(payload, 'THIS IS THE PAYLOAD')
     const resp = await fetch('https://free-tomorrow-be.herokuapp.com/trips/', {
       method: 'POST',
       headers: {
@@ -21,14 +22,10 @@ export const createNewTripAsync = createAsyncThunk(
 
     if (resp.ok) {
       const newTrip = await resp.json();
-      const savedTrip = JSON.stringify(newTrip)
-      
-      localStorage.setItem('tripId', savedTrip.id)
-      localStorage.setItem('savedTrip', savedTrip)
 
-      return { savedTrip };
+      return { newTrip };
     } else {
-
+      console.log('ERROR')
       // state.error = resp.status
     }
   }
@@ -140,20 +137,24 @@ export const tripSlice = createSlice({
   },
   extraReducers: {
     [createNewTripAsync.fulfilled]: (state, action) => {
-      // const savedTrip = JSON.stringify(action.payload.newTrip)
-      // localStorage.setItem('savedTrip', savedTrip)
+      // console.log(action.payload.newTrip, 'SAVED TRIP IN REDUCER')
+      const savedTrip = JSON.stringify(action.payload.newTrip)
+      localStorage.setItem('savedTrip', savedTrip)
+      // localStorage.setItem('tripId', savedTrip.id)
       // state.allTrips = action.payload.newTrip
-      // state.tempTrip.tripName = savedTrip.name
-      return action.payload.savedTrip;
+      // state.tempTrip.tripName = action.payload.newTrip.name;
+      // console.log(state.allTrips)
+      // console.log(state.tempTrip)
+      return action.payload.newTrip;
     },
     // [getAllTripsAsync.fulfilled]: (state, action) => {
     //   state.allTrips = action.payload.allTrips;
     // },
-    // [getSharedTripAsync.fulfilled]: (state, action) => {
+    [getSharedTripAsync.fulfilled]: (state, action) => {
 
-    //     return action.payload.sharedTrip;
+        return action.payload.sharedTrip;
     
-    // },
+    },
     [editSharedTripAsync.fulfilled]: (state, action) => {
 
       return action.payload.editedTrip
