@@ -33,7 +33,6 @@ describe('Login page', () => {
       .should('not.be.disabled').and('have.css', 'cursor', 'pointer')
   })
 
-  //test here for the login button if we decide to have it redirect, display success or error message, etc.
 
   it('should allow the user to navigate back to the homepage', () => {
     cy.get('.logo')

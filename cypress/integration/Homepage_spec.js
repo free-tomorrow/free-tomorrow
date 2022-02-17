@@ -14,9 +14,10 @@ describe('Homepage', () => {
     .get('h2').contains('An app that helps you get your travel plans out of the air and onto the ground.')
   })
 
-  it('should have an image of travel aliens', () => {
-    cy.get('.aliens-img')
-    .should('have.attr', 'src', '/static/media/travel_aliens.23f539de23e82df94967.png')
+  it('should have an image of a calendar', () => {
+    cy.get('.calendar-img')
+    .should('have.attr', 'src', '/static/media/calendar_green.99c7ccb235dbaa3da29e.png'
+    )
   })
 
   it('should have a button to start the trip creation process', () => {

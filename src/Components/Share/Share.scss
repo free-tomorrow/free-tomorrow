@@ -1,7 +1,9 @@
 @import '../../sass/variables.scss';
-.share-pg {
-  height: 80vh;
-  padding: 7vh 0;
+
+
+.share-pg-content {
+  height: 100%;
+  padding: 2vh 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,12 +52,6 @@
     width: 40%;
   }
 
-  // .copy-to-clipboard {
-  //   display: flex;
-  //   flex-direction: column;
-  //   margin: 5% 0;
-  //   align-content: center;
-  // }
 
 .share-btn{
   cursor: pointer;

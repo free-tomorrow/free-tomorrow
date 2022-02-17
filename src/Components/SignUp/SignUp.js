@@ -2,7 +2,7 @@ import './SignUp.scss';
 import React, { useState } from 'react';
 import { createUserAsync } from '../../state/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
@@ -10,14 +10,13 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const state = useSelector((state) => state)
-  const [id, setId] = useState('')
   let userId;
 
 
   const registerUser = (e) => {
     e.preventDefault();
     if (!username || !email) {
-      //need some error handling here
+     
     } else {
       dispatch(createUserAsync({
         name: username,

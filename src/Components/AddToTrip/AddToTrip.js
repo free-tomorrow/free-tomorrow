@@ -6,7 +6,6 @@ import {editSharedTripAsync} from '../../state/tripSlice';
 
 const AddToTrip = () => {
 
-  const state = useSelector((state) => state);
   const [sharedTrip, setSharedTrip] = useState('');
   const [newBudget, setNewBudget] = useState('');
   const [datesArr, setDatesArr] = useState([]);
@@ -17,7 +16,6 @@ const AddToTrip = () => {
   const retrieveTrip = () => {
     let retrievedTrip = localStorage.getItem('sharedTrip')
     setSharedTrip(JSON.parse(retrievedTrip))
-    console.log(retrievedTrip)
   }
 
   const updateTripDetails = (e) => {
@@ -56,14 +54,13 @@ const AddToTrip = () => {
     }
   }
 
+
   const updateDates = (e) => {
     if(!datesArr.includes(e.target.value)) {
-      
     } else {
-      // let index = datesArr.indexOf(e.target.value)
-      // datesArr.splice(index, 1)
     }
   }
+
 
   const lowerBudget = (e) => {
     setNewBudget(e.target.value)

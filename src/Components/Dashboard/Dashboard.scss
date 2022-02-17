@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin: 2vh 0;
+  margin: 2vh;
   h1 {
     font-size: 2.8rem
   }
@@ -24,7 +24,7 @@
 }
 
 .dash-cards-wrapper{
-  border: 3px solid #7d9ba1;
+  border: 3px #7d9ba1;
   text-align: center;
   font-size: 1.5rem;
   width: 70%;
@@ -33,9 +33,10 @@
   flex-wrap: wrap;
   align-content: center;
   color-scheme: dark;
-  padding: 0 2%;
+  padding: 0%;
   max-height: 60vh;
-  margin-left: 2.5%;
+  margin-left: 7%;
+  box-shadow: 0px 0px 20px $font-color;
 }
 
 
@@ -50,6 +51,7 @@
   flex-direction: column;
   align-items:center;
   padding: 2%;
+  margin-right: 7%;
   p {
     margin: 7% 0;
     font-size: 1.5rem;

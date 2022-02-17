@@ -14,33 +14,8 @@ import AddToTrip from './Components/AddToTrip/AddToTrip';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import './App.scss';
 
-import { addUser, deleteUser } from './state/userSlice';
-// import reducers here
-//import {getUserAsync, addUserAsync} from './state/userSlice
-//^^importing async functions from slice
 
 const App = () => {
-
-  const state = useSelector((state) => state);
-  const dispatch = useDispatch()
-
-  const getState = () => {
-    dispatch(
-      // call reducer here
-    )
-  }
-
-
-
-  // const fetchUsers = () => {
-  //   fetch('https://free-tomorrow-be.herokuapp.com/users/')
-  //     .then(resp => console.log(resp.json()))
-  //     .then(data => data)
-  // }
-
-  // useEffect(() => {
-  //   fetchUsers()
-  // }, [])
 
 
   return (

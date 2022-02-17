@@ -1,3 +1,5 @@
+import { getByAltText } from "@testing-library/react"
+
 describe('Schedule Page', () => {
 
   beforeEach(() => {
@@ -22,29 +24,48 @@ describe('Schedule Page', () => {
 
   })
 
-  it.skip('should allow the user to select dates on the calendar', () => {
-//need to fix Schedule calendar bug before continuing
-    cy.get('.react-calendar__year-view__months > :nth-child(8)')
+  it('should allow the user to select dates on the calendar', () => {
+    cy.get('.react-calendar__month-view__days > :nth-child(22)')
     .click({multiple:true})
-    cy.get('.react-calendar__month-view__days > :nth-child(18)')
+    cy.get('.react-calendar__month-view__days > :nth-child(24)')
     .click({multiple:true})
-    cy.get(':nth-child(26)')
+    cy.get('.react-calendar__month-view__days > :nth-child(27)')
     .click({multiple:true})
     cy.get(':nth-child(28)')
     .click()
-    cy.get()
 
   })
 
-  it.skip('should display selected dates on the UI', () => {
+  it('should display selected dates on the UI', () => {
 
-    cy.get()
+    cy.get('.react-calendar__month-view__days > :nth-child(22)')
+    .click({multiple:true})
+    cy.get('.react-calendar__month-view__days > :nth-child(24)')
+    .click({multiple:true})
+    cy.get('.react-calendar__month-view__days > :nth-child(27)')
+    .click({multiple:true})
+    cy.get(':nth-child(28)')
+    .click()
+
+    cy.get('h2').should('contain', `You're free:`)
+    cy.get('.dates-list > p').should('contain', 'Mon Feb 21 2022 - Wed Feb 23 2022')
+    cy.get('.dates-list > p').should('contain', 'Sat Feb 26 2022 - Sun Feb 27 2022')
 
   })
 
-  it.skip('should allow the user to proceed to the budget page', () => {
+  it('should allow the user to proceed to the budget page', () => {
 
+    cy.get('.react-calendar__month-view__days > :nth-child(22)')
+    .click({multiple:true})
+    cy.get('.react-calendar__month-view__days > :nth-child(24)')
+    .click({multiple:true})
+    cy.get('.react-calendar__month-view__days > :nth-child(27)')
+    .click({multiple:true})
+    cy.get(':nth-child(28)')
+    .click()
 
+    cy.get('.schedule-continue-btn').click()
+    cy.url('eq', 'http://localhost:3000/budget')
 
   })
 
@@ -56,9 +77,10 @@ describe('Schedule Page', () => {
     .should('not.exist')
   })
 
-  it.skip('should link to all other pages', () => {
+  it('should link to about page', () => {
 
-
+    cy.get('.nav-link').click()
+    cy.url('eq', 'http://localhost:3000/about')
 
   })
 

@@ -19,16 +19,16 @@ const Schedule = () => {
   }
 
   const displaySelectedDates = () => {
-   
-    const allDates = state.trips.tempTrip.dates.map(range => {
-     
-      const start = new Date(range.start_date)
-      const end = new Date(range.end_date)
-      return (
-        <p key={Math.floor(Math.random() * Date.now())}> {start.toDateString()} - {end.toDateString()}</p>
-      )
-    })
-    if (state.trips.tempTrip.dates.length) {
+    if(dateRange) {
+
+      const allDates = state.trips.tempTrip.dates.map(range => {
+       
+        const start = new Date(range.start_date)
+        const end = new Date(range.end_date)
+        return (
+          <p key={Math.floor(Math.random() * Date.now())}> {start.toDateString()} - {end.toDateString()}</p>
+        )
+      })
       return (
         <div className="schedule-btn-container">
           <section  className="dates-list">
@@ -41,7 +41,11 @@ const Schedule = () => {
         </div>
       )
     }
-  }
+
+   
+
+    }
+  
 
   useEffect(() => {
     if(dateRange){
