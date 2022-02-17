@@ -32,4 +32,5 @@ describe('Share Page', () => {
     cy.get('.create-trip-btn')
     .should('be.disabled')
   })
+
 })

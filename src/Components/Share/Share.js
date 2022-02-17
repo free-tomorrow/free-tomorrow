@@ -105,7 +105,7 @@ const Share = () => {
             autoComplete="off"
             onChange={(e) => setTripName(e.target.value)} />
           <button
-            className="create-trip-btn share-btn"
+            className="create-trip-btn"
             disabled={!validInputs}
             onClick={(e) => createTrip(e)}
           >Create this trip</button>
