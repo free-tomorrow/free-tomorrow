@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useState, useEffect } from 'react'
 import { createNewTripAsync } from '../../state/tripSlice';
 import { useNavigate } from 'react-router-dom'
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import copyImg from '../../assets/copy_icon.png'
 
 const Share = () => {
@@ -52,7 +52,7 @@ const Share = () => {
   }
 
   useEffect(() => {
-    
+
   }, [link])
 
   const createCopyMsg = (e) => {
@@ -110,11 +110,11 @@ const Share = () => {
           <input className="link-input" value={link} readOnly onCopy={(e) => setCopied(true)}/>
 
 
-            <CopyToClipboard text={link}>
-              <button onClick={(e) => createCopyMsg(e)}><img src={copyImg} className="copy-img"></img></button>
-            </CopyToClipboard>
+          <CopyToClipboard text={link}>
+            <button onClick={(e) => createCopyMsg(e)}><img src={copyImg} className="copy-img"></img></button>
+          </CopyToClipboard>
 
-            {copyMsg}
+          {copyMsg}
         </div>
 
         <button className="share-dashboard-btn" onClick={(e) => goHome(e)}>Back to dashboard</button>

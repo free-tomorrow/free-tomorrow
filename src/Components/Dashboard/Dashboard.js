@@ -7,6 +7,7 @@ import { store } from '../../state/store';
 import { addUserToStore } from '../../state/userSlice';
 import { getAllTripsAsync, getSharedTripAsync, getUserTripsAsync } from '../../state/tripSlice';
 
+
 const Dashboard = () => {
   const state = useSelector((state) => state);
   const [currentUser, setCurrentUser] = useState('');
