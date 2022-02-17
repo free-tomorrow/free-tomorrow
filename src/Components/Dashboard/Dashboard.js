@@ -50,10 +50,10 @@ const Dashboard = () => {
     }
   }
 
-  useEffect(() => {
-    console.log(currentTrips)
+  // useEffect(() => {
+  //   console.log(currentTrips)
     
-  }, [currentTrips])
+  // }, [currentTrips])
 
 
 

@@ -47,15 +47,9 @@ const Share = () => {
 
     const linkUrl = `https://freetomorrow.netlify.app/:${tripId}`
     setLink(linkUrl)
-    
 
   }
 
-
-
-  useEffect(() => {
-    
-  }, [tripId])
 
   const createCopyMsg = (e) => {
     e.preventDefault()
@@ -73,7 +67,6 @@ const Share = () => {
     navigate(`/dashboard/${userId}`);
     localStorage.removeItem('savedTrip');
   }
-
 
 
   const validInputs = !tripName ? false : true
